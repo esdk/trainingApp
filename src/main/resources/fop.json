@@ -1,0 +1,13 @@
+[
+	{
+		"databaseName" : "(Customer)",
+		"groupName" : "(Customer)",
+		"editorMode" : "neu",
+		"event" : "feldpruef",
+		"key" : "*",
+		"field" : "kontakt",
+		"headOrTable" : "K",
+		"isContinue" : "[C]",
+		"handler" : "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
+	}
+]

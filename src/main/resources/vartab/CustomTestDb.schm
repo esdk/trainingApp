@@ -1,0 +1,34 @@
+database master TestDb {
+	number 25
+	classname TestDb
+	structure TestStructure {
+		head {
+			field GL30 testhead {
+				label ""
+				heading ""
+				description "Test field head"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field BU3 skip testbu {
+				label ""
+				heading ""
+				description "Test button head"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+		table {
+			field GL30 testtable {
+				label ""
+				heading ""
+				description "Test field table"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+	}
+}

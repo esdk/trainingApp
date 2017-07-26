@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ABASData>
+    <RecordSet tableNumber="107:1" tableName="Aufzählung:Aufzählung">
+        <Record id="(454,107,0)">
+            <Head>
+                <Field name="id" abasType="ID107">(454,107,0)</Field>
+                <Field name="guid" abasType="GLA38">b5c7c173-0a48-44cf-87e6-d3e0772db858</Field>
+                <Field name="nummer" abasType="NK107">1000001</Field>
+                <Field name="such" abasType="SWK107">FILE_FORMAT</Field>
+                <Field name="name" abasType="GL45">Datei Format</Field>
+                <Field name="name14" abasType="GL45"></Field>
+                <Field name="classname" abasType="GLA40">Importfileformat</Field>
+                <Field name="tabart" abasType="NT24">P109:2</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ107:1">(454,107,0,1)</Field>
+                <Field name="vaufzelem" abasType="VID88">(1048,109,0)</Field>
+            </Row>
+            <Row number="2">
+                <Field name="zid" abasType="IDZ107:1">(454,107,0,2)</Field>
+                <Field name="vaufzelem" abasType="VID88">(1047,109,0)</Field>
+            </Row>
+        </Record>
+    </RecordSet>
+    <RecordSet tableNumber="109:2" tableName="Wertemengen:Bezeichner">
+        <Record id="(1048,109,0)">
+            <Head>
+                <Field name="id" abasType="ID109">(1048,109,0)</Field>
+                <Field name="guid" abasType="GLA38">52f71c48-b5ae-4697-a5d4-5b4455133876</Field>
+                <Field name="nummer" abasType="NK109">1000801</Field>
+                <Field name="such" abasType="SWK109">CSV</Field>
+                <Field name="name" abasType="GL50">CSV Datei</Field>
+                <Field name="name14" abasType="GL50"></Field>
+                <Field name="langtxt" abasType="GL">Comma-separated values File</Field>
+                <Field name="kbezbspr" abasType="GL15">csv</Field>
+                <Field name="katego" abasType="NT15"></Field>
+                <Field name="icontxt" abasType="DV1"></Field>
+                <Field name="besch" abasType="T65"></Field>
+            </Head>
+        </Record>
+        <Record id="(1047,109,0)">
+            <Head>
+                <Field name="id" abasType="ID109">(1047,109,0)</Field>
+                <Field name="guid" abasType="GLA38">e73f9246-894d-a48c-8312-ae937f107deb</Field>
+                <Field name="nummer" abasType="NK109">1000800</Field>
+                <Field name="such" abasType="SWK109">TXT</Field>
+                <Field name="name" abasType="GL50">TXT Datei</Field>
+                <Field name="name14" abasType="GL50"></Field>
+                <Field name="langtxt" abasType="GL">Text File</Field>
+                <Field name="kbezbspr" abasType="GL15">txt</Field>
+                <Field name="katego" abasType="NT15"></Field>
+                <Field name="icontxt" abasType="DV1"></Field>
+                <Field name="besch" abasType="T65"></Field>
+            </Head>
+        </Record>
+    </RecordSet>
+</ABASData>

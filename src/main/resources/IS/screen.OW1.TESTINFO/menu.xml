@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE popups SYSTEM "urn:x-abas.de:abasmenu.dtd">
+
+<popups>
+ <popup id="menuExecute">
+  <menuitem msgId="dd8fe8f21b59e4d70f144900fbf286a2" s3Name="0:testbu" />
+ </popup>
+ <popup id="menuTable" />
+</popups>
+

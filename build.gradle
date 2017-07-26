@@ -1,0 +1,136 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		maven {
+			credentials {
+				username nexusUser
+				password nexusPassword
+			}
+			url esdkSnapshotURL
+		}
+		maven {
+			credentials {
+				username nexusUser
+				password nexusPassword
+			}
+			url esdkReleaseURL
+		}
+		jcenter()
+	}
+	dependencies {
+		classpath "de.abas.esdk:gradlePlugin:$version"
+	}
+}
+
+plugins {
+	id "java"
+	id "maven-publish"
+}
+
+apply plugin: "de.abas.esdk"
+
+repositories {
+	mavenLocal()
+	jcenter()
+	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
+}
+
+esdk {
+	app {
+		name = "trainingApp"
+		vendorId = "ag"
+		appId = "train"
+		entryPoints = ["de.abas.esdk.app.training.Main"]
+		shared = true
+		infosystems = ["IS.OW1.TESTINFO"]
+		tables = ["TestDb"]
+		data = ["data.json"]
+		keys = ["2738"]
+		enums = ["FILE_FORMAT"]
+		preconditions = ["version=201[6-8]r[1-4]n[\\d]{0,2}"]
+		preconditions = ["workDirs=ow1"]
+		languages = "DEA"
+	}
+
+	abas {
+		homeDir = ABAS_HOMEDIR
+		clientDir = ABAS_CLIENTDIR
+		clientId = ABAS_CLIENTID
+		edpHost = EDP_HOST
+		edpPort = EDP_PORT.toInteger()
+		edpUser = EDP_USER
+		edpPassword = EDP_PASSWORD
+	}
+
+	nexus {
+		nexusHost = NEXUS_HOST
+		nexusPort = NEXUS_PORT.toInteger()
+		nexusRepoName = NEXUS_NAME
+		nexusPassword = NEXUS_PASSWORD
+	}
+
+	ssh {
+		host = SSH_HOST
+		port = SSH_PORT.toInteger()
+		user = SSH_USER
+		password = SSH_PASSWORD
+		key = SSH_KEY
+	}
+	installType = "SSH"
+}
+
+task readVersion() {
+	doLast {
+		println(version)
+	}
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+compileJava {
+	options.encoding = "UTF-8"
+}
+
+configurations { compile.extendsFrom provided }
+
+group = 'de.abas.esdk.app'
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			groupId 'de.abas.esdk.app'
+			artifactId 'trainingApp'
+			artifact "build/libs/${project.name}-standalone-app.jar"
+		}
+	}
+	repositories {
+		if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
+				&& project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")) {
+			if (version.endsWith('-SNAPSHOT')) {
+				maven {
+					url nexusSnapshotURL
+					credentials {
+						username nexusUser
+						password nexusPassword
+					}
+				}
+			} else {
+				maven {
+					url nexusReleaseURL
+					credentials {
+						username nexusUser
+						password nexusPassword
+					}
+				}
+			}
+		}
+	}
+}
+
+dependencies {
+	provided 'de.abas.homedir:log4j:1.0.0'
+	testCompile "junit:junit:4.12"
+	testCompile 'org.hamcrest:hamcrest-all:1.3'
+}

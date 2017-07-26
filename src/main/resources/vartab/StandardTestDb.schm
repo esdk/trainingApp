@@ -1,0 +1,33 @@
+database Kunde {
+	number 0
+	classname Customer
+	structure Kunde {
+	    groupNumber 1
+		head {
+			field GL30 testhead {
+				label ""
+				heading ""
+				description "Test field head"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL30 testhead2 {
+				label ""
+				heading ""
+				description "Test field table"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "P2:1" testhead3 {
+				label ""
+				heading ""
+				description "Test field table"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+	}
+}

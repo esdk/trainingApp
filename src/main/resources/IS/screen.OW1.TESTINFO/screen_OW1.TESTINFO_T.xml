@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame SYSTEM "urn:x-abas.de:abasscreens-1.00.dtd">
+
+<frame frameType="T">
+ <layout.grid>
+  <metainfo axis="column" grid="0" stretch="zoom" />
+  <metainfo axis="row" grid="0" stretch="zoom" />
+  <cell alignX="fill" alignY="fill" gridX="0" gridY="0">
+   <layout.notebook>
+    <pane.notebook msgId="d95984c6da90849d3f88401c8ff68171.1">
+     <layout.grid>
+      <cell gridX="0" gridY="0">
+       <label msgId="891b9146c47b96ca7b3b388d314f9a71.1" />
+      </cell>
+      <cell gridX="1" gridY="0">
+       <erpfield access="readOnly" s3Name="1:testtable" />
+      </cell>
+     </layout.grid>
+    </pane.notebook>
+   </layout.notebook>
+  </cell>
+ </layout.grid>
+</frame>
+

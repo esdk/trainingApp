@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ABASData>
+    <RecordSet tableNumber="12:31" tableName="Firma:Schlüsseltabelle">
+        <Record id="(1693,12,0)">
+            <Head>
+                <Field name="id" abasType="ID12">(1693,12,0)</Field>
+                <Field name="guid" abasType="GLA38">55461bd3-bdf1-4db0-867d-434f4d6344e2</Field>
+                <Field name="nummer" abasType="NK12">2738</Field>
+                <Field name="such" abasType="SWK12">TESTKEY</Field>
+                <Field name="name" abasType="T64"></Field>
+                <Field name="bname" abasType="GL50">testkey</Field>
+                <Field name="bgrliste" abasType="GL85">0:1</Field>
+                <Field name="bart" abasType="A46">automatisch  (Kopf)</Field>
+                <Field name="baart" abasType="A222">lebendig</Field>
+                <Field name="bsel" abasType="B">nein</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ12:31">(1693,12,0,1)</Field>
+                <Field name="bvname" abasType="GL20">kontakt</Field>
+            </Row>
+        </Record>
+    </RecordSet>
+</ABASData>
