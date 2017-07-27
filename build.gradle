@@ -79,7 +79,7 @@ esdk {
 	installType = "SSH"
 }
 
-task readVersion() {
+task printVersion() {
 	doLast {
 		println(version)
 	}

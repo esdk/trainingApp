@@ -22,8 +22,10 @@ node {
 					sleep 30
 				}
 				stage('Set version') {
+					shGradle("--version")
 					version = readVersion()
 					String esdkVersion = (String) ESDK_VERSION
+					println(esdkVersion)
 					if (!esdkVersion.empty() || version != esdkVersion) {
 						wrap([$class: 'BuildUser']) {
 							println(BUILD_USER)
