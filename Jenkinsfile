@@ -24,22 +24,26 @@ node {
 				stage('Set version') {
 					shGradle("--version")
 					version = readVersion()
-					String esdkVersion = (String) ESDK_VERSION
-					println(esdkVersion)
-					if (!esdkVersion.empty() || version != esdkVersion) {
+					println("version: $version")
+					println("esdkVersion: $params.ESDK_VERSION")
+					if (params.ESDK_VERSION != "" && version != params.ESDK_VERSION) {
 						wrap([$class: 'BuildUser']) {
 							println(BUILD_USER)
-							justReplace(version, esdkVersion, "gradle.properties")
+							justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
 							if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
-								shGitCommitSnapshot("gradle.properties", esdkVersion, "$BUILD_USER")
+								shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, "$BUILD_USER")
 							} else {
-								shGitCommitRelease("gradle.properties", esdkVersion, "$BUILD_USER", BUILD_ID)
+								shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, "$BUILD_USER", BUILD_ID)
+								sh 'git branch --force release HEAD'
+							}
+							withCredentials([usernamePassword(credentialsId: '44e7bb41-f9fc-483f-9e66-9751c0163d37', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
+								shGitPushIntoMaster("https://$GIT_USER:$GIT_PASSWORD@github.com/Tschasmine/trainingApp.git", params.ESDK_VERSION)
 							}
 						}
 					}
 				}
 				stage('Installation') {
-					shGradle("checkPreconditions")
+					shGradle("checkPreconditions -x importKeys")
 					shGradle("publishHomeDirJars")
 					shGradle("fullInstall")
 				}
