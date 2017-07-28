@@ -10,7 +10,7 @@ node {
 					prepareEnv()
 					checkout scm
 					sh "git clean -f"
-					sh "git reset --hard $GIT_BRANCH"
+					sh "git reset --hard origin/$BRANCH_NAME"
 					shInstallDockerCompose()
 					initGradleProps()
 					showGradleProps()
