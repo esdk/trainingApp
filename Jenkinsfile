@@ -9,6 +9,8 @@ node {
 				stage('Setup') {
 					prepareEnv()
 					checkout scm
+					sh "git clean -f"
+					sh "git reset --hard $GIT_BRANCH"
 					shInstallDockerCompose()
 					initGradleProps()
 					showGradleProps()
@@ -26,7 +28,7 @@ node {
 					version = readVersion()
 					println("version: $version")
 					println("esdkVersion: $params.ESDK_VERSION")
-					if (params.ESDK_VERSION != "" && version != params.ESDK_VERSION) {
+					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && version != params.ESDK_VERSION) {
 						wrap([$class: 'BuildUser']) {
 							println(BUILD_USER)
 							justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
