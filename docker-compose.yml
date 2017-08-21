@@ -5,7 +5,7 @@ services:
     # Accessing container via ssh:
     # ssh in the Container:   ssh localhost -l s3 -p 2205 -i docker_erp.key
     #
-    erp-bpmn:
+    erp:
       image: intra.registry.abas.sh/cloud-erp-neumand1:2016r4n13
       container_name: "erp"
 
