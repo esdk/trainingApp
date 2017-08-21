@@ -60,6 +60,7 @@ node {
 					stage('IntegTest') {
 						shDockerComposeDown()
 						shDockerComposeUp()
+						shGradle("downloadInstaller")
 						shDocker("cp build/installer/installer-${version}.zip erp:/abas/erp1")
 						shDocker("cp build/libs/trainingApp-standalone-app.jar erp:/abas/erp1")
 						shDocker("exec --user root -t erp unzip -o /abas/erp1/installer-${version}.zip -d /abas/erp1")
