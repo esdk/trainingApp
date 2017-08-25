@@ -1,5 +1,5 @@
 database master TestDb {
-	number 25
+	number 30
 	classname TestDb
 	structure TestStructure {
 		head {
