@@ -5,7 +5,7 @@ node {
 	timestamps {
 		ansiColor('xterm') {
 			try {
-				properties([parameters([string(defaultValue: '""', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION')])])
+				properties([parameters([string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION')])])
 				stage('Setup') {
 					prepareEnv()
 					checkout scm
