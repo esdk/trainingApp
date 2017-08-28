@@ -57,17 +57,6 @@ node {
 						shGradle("createAppJar")
 						shGradle("publish")
 					}
-					stage('IntegTest') {
-						shDockerComposeDown()
-						shDockerComposeUp()
-						shGradle("downloadInstaller")
-						sh "mv build/libs/trainingApp*-standalone-app.jar build/libs/trainingApp-standalone-app.jar"
-						shDocker("cp build/installer/installer-${version}.zip erp:/abas/erp1")
-						shDocker("cp build/libs/trainingApp-standalone-app.jar erp:/abas/erp1")
-						shDocker("exec --user root -t erp unzip -o /abas/erp1/installer-${version}.zip -d /abas/erp1")
-						shDocker("exec --user root -t erp chown -R s3 /abas/erp1/esdk-installer-${version}")
-						shDocker("exec -t erp sh -c 'cd /abas/erp1 && eval \$(sh denv.sh) && cd /abas/erp1/esdk-installer-${version}/bin && ./esdk-installer -a /abas/erp1/trainingApp-standalone-app.jar -p sy'")
-					}
 				}
 			} catch (any) {
 				any.printStackTrace()
