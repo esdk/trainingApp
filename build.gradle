@@ -40,7 +40,6 @@ esdk {
 		name = "trainingApp"
 		vendorId = "ag"
 		appId = "train"
-		entryPoints = ["de.abas.esdk.app.training.Main"]
 		shared = true
 		infosystems = ["IS.OW1.TESTINFO"]
 		tables = ["TestDb"]
