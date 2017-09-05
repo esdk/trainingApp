@@ -30,7 +30,7 @@ node {
 					println("esdkVersion: $params.ESDK_VERSION")
 					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && (version != params.ESDK_VERSION)) {
 						wrap([$class: 'BuildUser']) {
-							println(BUILD_USER)
+							println("Builduser: $BUILD_USER")
 							justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
 							if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
 								shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, "$BUILD_USER")
