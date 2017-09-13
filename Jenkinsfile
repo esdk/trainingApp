@@ -5,7 +5,11 @@ node {
 	timestamps {
 		ansiColor('xterm') {
 			try {
-				properties([parameters([string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION')])])
+				properties([parameters([
+						string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION'),
+						string(defaultValue: '$BUILD_USER', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM')
+					])
+				])
 				stage('Setup') {
 					prepareEnv()
 					checkout scm
@@ -29,18 +33,16 @@ node {
 					println("version: $version")
 					println("esdkVersion: $params.ESDK_VERSION")
 					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && (version != params.ESDK_VERSION)) {
-						wrap([$class: 'BuildUser']) {
-							println("Builduser: $BUILD_USER")
-							justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
-							if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
-								shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, "$BUILD_USER")
-							} else {
-								shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, "$BUILD_USER", BUILD_ID)
-								sh 'git branch --force release HEAD'
-							}
-							withCredentials([usernamePassword(credentialsId: '44e7bb41-f9fc-483f-9e66-9751c0163d37', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
-								shGitPushIntoMaster("https://$GIT_USER:$GIT_PASSWORD@github.com/Tschasmine/trainingApp.git", params.ESDK_VERSION)
-							}
+						println("Builduser: ${params.BUILD_USER_PARAM}")
+						justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
+						if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
+							shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM)
+						} else {
+							shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM, $BUILD_ID)
+							sh 'git branch --force release HEAD'
+						}
+						withCredentials([usernamePassword(credentialsId: '44e7bb41-f9fc-483f-9e66-9751c0163d37', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
+							shGitPushIntoMaster("https://$GIT_USER:$GIT_PASSWORD@github.com/Tschasmine/trainingApp.git", params.ESDK_VERSION)
 						}
 					}
 				}
