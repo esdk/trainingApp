@@ -7,7 +7,7 @@ node {
 			try {
 				properties([parameters([
 						string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION'),
-						string(defaultValue: '$BUILD_USER', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM')
+						string(defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM')
 					])
 				])
 				stage('Setup') {
