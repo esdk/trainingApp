@@ -38,7 +38,7 @@ node {
 						if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
 							shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM)
 						} else {
-							shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM, $BUILD_ID)
+							shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM, env.BUILD_ID)
 							sh 'git branch --force release HEAD'
 						}
 						withCredentials([usernamePassword(credentialsId: '44e7bb41-f9fc-483f-9e66-9751c0163d37', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
