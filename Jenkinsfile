@@ -9,7 +9,7 @@ node {
 						string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION'),
 						string(defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM'),
 						string(defaultValue: '2016r4n13', description: 'abas Essentials version', name: 'ERP_VERSION')
-				])
+					])
 				])
 				stage('Setup') {
 					prepareEnv()
@@ -25,7 +25,7 @@ node {
 							passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
 						shDocker('login intra.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 					}
-					withEnv(["ERP_VERSION=$ERP_VERSION"]) {
+					withEnv(["ERP_VERSION=${env.ERP_VERSION}"]) {
 						shDockerComposeUp()
 					}
 					sleep 30
