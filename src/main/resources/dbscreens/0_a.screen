@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="/de.abas.screen.model.core/model/core.ecore" xmlns:schema="/de.abas.screen.model.schema/model/schema.ecore" xmlns:screen="/de.abas.screen.model.screen/model/screen.ecore" xsi:schemaLocation="/de.abas.screen.model.core/model/core.ecore platform:/de.abas.screen.model.core/model/core.ecore">
+  <screen:Screen variables="/1" featureType="erpgui" smartScreenId="NG_DATABASE" smartScreenVersion="1.0.0">
+    <popups>
+      <popup id="menuTable"/>
+      <popup id="menuExecute">
+        <menuItems visibleInToolbar="true">
+          <label viewLanguage="de" key="bdabbcc7ae07fcb65154f51330fca56c">
+            <value key="de" value="E-Mail senden"/>
+          </label>
+          <variable englishName="sendEmail" name="mailto" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Mail senden (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="mailto"/>
+        </menuItems>
+        <menuItems visibleInToolbar="true">
+          <label viewLanguage="de" key="1fe2267093a7d6f46f81198f758d33cb">
+            <value key="de" value="Website besuchen"/>
+          </label>
+          <variable englishName="callBrowserURL" name="browurl" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Browser mit URL aufrufen (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="browurl"/>
+        </menuItems>
+        <menuItems>
+          <label viewLanguage="de" key="76f3e820-5253-49ce-9737-9050993d34c9">
+            <value key="de" value="Business App Dokumente neu laden"/>
+          </label>
+          <variable englishName="documentsAppReload" name="dokumentbaneulad" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Neu laden der Business App Dokumente" changePriority="A" viewPriority="A" primaryName="dokumentbaneulad"/>
+        </menuItems>
+        <menuItems>
+          <label viewLanguage="de" key="d6ae65e3-680d-4c33-8dd9-60362b0cb966">
+            <value key="de" value="Business App Kundenakte neu laden"/>
+          </label>
+          <variable englishName="fileAppReload" name="aktebaneulad" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Neu laden der Business App Kunden-/Interessentenakte" changePriority="A" viewPriority="A" primaryName="aktebaneulad"/>
+        </menuItems>
+      </popup>
+    </popups>
+    <language code="68" text="Deutsch" iso="de"/>
+    <id xsi:type="screen:DatabaseId" name="Kunde/Kunde" priority="A" groupName="Kunde" group="1" numberName="Kunde"/>
+    <frames standardHelp="2.1">
+      <elements xsi:type="core:GridLayout">
+        <cells alignmentX="fill" alignmentY="fill">
+          <elements xsi:type="core:NotebookLayout">
+            <notebookPanes>
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="8a0989f3-e5a4-4d2e-b34c-0194b047cd03">
+                      <value key="de" value="Identnummer"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="8">
+                    <variable englishName="idno" name="nummer" type="NK0" guiType="INPUT" description="" width="8" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num"/>
+                  </elements>
+                </cells>
+                <cells row="1" alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="13f88bb2-f294-404b-a3e3-acd5292d36ac">
+                      <value key="de" value="Suchwort"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" row="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="8">
+                    <variable englishName="swd" name="such" type="SWK0" guiType="INPUT" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="a73af645-efe6-4455-bebe-fa5bd98f17b7">
+                <value key="de" value="train"/>
+              </label>
+            </notebookPanes>
+          </elements>
+        </cells>
+        <metaInfo axis="column" stretch="zoom"/>
+        <metaInfo stretch="zoom"/>
+      </elements>
+      <label viewLanguage="de" key="7c56a31c25c8b14aed29fdd0e0db5dcb">
+        <value key="de" value="Kunde"/>
+      </label>
+    </frames>
+    <frames standardHelp="2.1" frameType="SUB" index="1">
+      <elements xsi:type="core:GridLayout">
+        <cells alignmentX="fill" alignmentY="fill">
+          <elements xsi:type="core:NotebookLayout">
+            <notebookPanes scope="CONF_KSPR_de">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.1">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr" name="name" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Bezeichnung" changePriority="A" viewPriority="A" primaryName="name"/>
+                  </elements>
+                </cells>
+                <cells row="1" alignmentY="center">
+                  <elements xsi:type="core:Button" dimX="1">
+                    <variable englishName="translateText" name="nameueb" type="BU7" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" meaning="Text übersetzen" changePriority="A" viewPriority="A" primaryName="nameueb"/>
+                    <label viewLanguage="de" key="2dfecde211a4b8b1d4bb453b6c18da6b">
+                      <value key="de" value="Übersetzen"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" row="1" alignmentY="center"/>
+              </elements>
+              <label viewLanguage="de" key="8f0ca2185f684aa4edeae4b25a65239b">
+                <value key="de" value="Deutsch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_en">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.2">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr2" name="name2" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Englisch" changePriority="A" viewPriority="A" primaryName="name2"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="319be822a88df6a7585360f99e2b62f8">
+                <value key="de" value="Englisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_fr">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.3">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr3" name="name3" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Französisch" changePriority="A" viewPriority="A" primaryName="name3"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="b42ee3896b0743dada15bf0bbdf830fa">
+                <value key="de" value="Französisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_es">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.4">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr4" name="name4" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Spanisch" changePriority="A" viewPriority="A" primaryName="name4"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="d961416d60a912b77d56ea49907c2fbe">
+                <value key="de" value="Spanisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_it">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.5">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr5" name="name5" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Italienisch" changePriority="A" viewPriority="A" primaryName="name5"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="1df38244440a25a0e51e5095b8d10738">
+                <value key="de" value="Italienisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_pl">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.6">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr6" name="name6" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Polnisch" changePriority="A" viewPriority="A" primaryName="name6"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="d05756b42c92bcd38e11513f6cfbb8d3">
+                <value key="de" value="Polnisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_ru">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.7">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr7" name="name7" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Russisch" changePriority="A" viewPriority="A" primaryName="name7"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="670dbf8ed552b6a561abb9173f77861e">
+                <value key="de" value="Russisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_hu">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.8">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr8" name="name8" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Ungarisch" changePriority="A" viewPriority="A" primaryName="name8"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="5075658b937858e8d4d687114ef730f0">
+                <value key="de" value="Ungarisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_cs">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.9">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr9" name="name9" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Tschechisch" changePriority="A" viewPriority="A" primaryName="name9"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="1cb1de4f2fb42500a49dff67121030eb">
+                <value key="de" value="Tschechisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_tr">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.10">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr10" name="name10" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Türkisch" changePriority="A" viewPriority="A" primaryName="name10"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="f49e68a61fa5d3e37ea3ff8f129afc1c">
+                <value key="de" value="Türkisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_1">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.11">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr11" name="name11" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 1" changePriority="A" viewPriority="A" primaryName="name11"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="14c1308788a49d03c5a5a0ebdae91ac9">
+                <value key="de" value="Individuelle Sprache 1"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_2">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.12">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr12" name="name12" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 2" changePriority="A" viewPriority="A" primaryName="name12"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="be5ae9331dd979f78bf14bfd9e5524ea">
+                <value key="de" value="Individuelle Sprache 2"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_3">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.13">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr13" name="name13" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 3" changePriority="A" viewPriority="A" primaryName="name13"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="349e8608496e624c7e6e1055999d17ab">
+                <value key="de" value="Individuelle Sprache 3"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_en_US">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.14">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr14" name="name14" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in amerikanischem Englisch" changePriority="A" viewPriority="A" primaryName="name14"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="fcd4ae242d446abcdb8fd3f0a7fffb1b">
+                <value key="de" value="Amerikanisches Englisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_ro">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.15">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr15" name="name15" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Rumänisch" changePriority="A" viewPriority="A" primaryName="name15"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="a9d6955ed1fc732a42ac6238a37adae4">
+                <value key="de" value="Rumänisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_id">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.16">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr16" name="name16" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Indonesisch" changePriority="A" viewPriority="A" primaryName="name16"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="aac434f3ef0ae3e5102d5b5a5193b57f">
+                <value key="de" value="Indonesisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_nl">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.17">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr17" name="name17" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Niederländisch" changePriority="A" viewPriority="A" primaryName="name17"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="eba854e3272ba2a40adf9d8fa63e859c">
+                <value key="de" value="Niederländisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_mk">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.18">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr18" name="name18" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Mazedonisch" changePriority="A" viewPriority="A" primaryName="name18"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="18f5f70d3dea48195db1a6f4fef4a7d8">
+                <value key="de" value="Mazedonisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_bg">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.19">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr19" name="name19" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Bulgarisch" changePriority="A" viewPriority="A" primaryName="name19"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="1d6c342290ba83f682b04c13a7fdc27f">
+                <value key="de" value="Bulgarisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_sr">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.20">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr20" name="name20" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Serbisch" changePriority="A" viewPriority="A" primaryName="name20"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="415637cb0a9e561e861773cda6148ec2">
+                <value key="de" value="Serbisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_sl">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.21">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr21" name="name21" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Slowenisch" changePriority="A" viewPriority="A" primaryName="name21"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="383dedda5c5bf85bfbd0d6e68b37dc2e">
+                <value key="de" value="Slowenisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_sk">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.22">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr22" name="name22" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Slowakisch" changePriority="A" viewPriority="A" primaryName="name22"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="073735b8e1a5bcaac499c2a3b17be832">
+                <value key="de" value="Slowakisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_pt">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.23">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr23" name="name23" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Portugiesisch" changePriority="A" viewPriority="A" primaryName="name23"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="98abac87aa99030b87b97fd772f08aff">
+                <value key="de" value="Portugiesisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_zh_CN">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.24">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr24" name="name24" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in vereinfachtem Chinesisch" changePriority="A" viewPriority="A" primaryName="name24"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="b993ddf3db9e1d2a03ede1219491a4c0">
+                <value key="de" value="Chinesisch vereinfacht"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_zh_TW">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.25">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr25" name="name25" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in traditionellem Chinesisch" changePriority="A" viewPriority="A" primaryName="name25"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="f54caf4a2646b43d69b776dec0fe03f4">
+                <value key="de" value="Chinesisch traditionell"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_el">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.26">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr26" name="name26" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Griechisch" changePriority="A" viewPriority="A" primaryName="name26"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="11fdee8f59d1e64558f1752d0eafa2a9">
+                <value key="de" value="Griechisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_th">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.27">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr27" name="name27" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Thailändisch" changePriority="A" viewPriority="A" primaryName="name27"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="bf4a09eb3f2874e3a53cb31669f8d3bf">
+                <value key="de" value="Thailändisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_ar">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.28">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr28" name="name28" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Arabisch" changePriority="A" viewPriority="A" primaryName="name28"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="b8bdb0ac65afb74c71fb799bfbf078d8">
+                <value key="de" value="Arabisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_fa">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.29">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr29" name="name29" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Persisch" changePriority="A" viewPriority="A" primaryName="name29"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="d15a2d23b3394ce52362c06a6cce9da4">
+                <value key="de" value="Persisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_vi">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.30">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr30" name="name30" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Vietnamesisch" changePriority="A" viewPriority="A" primaryName="name30"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="e0775193c1844133c9b9627d86acb704">
+                <value key="de" value="Vietnamesisch"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_ur">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="6e2ee1c6d1ee1da0c54264077a3bf6b2.31">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr31" name="name31" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Urdu" changePriority="A" viewPriority="A" primaryName="name31"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="f8aa4393427c2f2fd010f7adc5812517">
+                <value key="de" value="Urdu"/>
+              </label>
+            </notebookPanes>
+            <notebookPanes scope="CONF_KSPR_ja">
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="934425f9-7a6c-477c-99e9-eebf8b7feee0">
+                      <value key="de" value="Bezeichnung"/>
+                    </label>
+                  </elements>
+                  <elements xsi:type="core:Input" dimX="45">
+                    <variable englishName="descr32" name="name32" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Japanisch" changePriority="A" viewPriority="A" primaryName="name32"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="7c3395ab-2ccc-412e-a027-c4b805ef3ba6">
+                <value key="de" value="Japanisch"/>
+              </label>
+            </notebookPanes>
+          </elements>
+        </cells>
+        <metaInfo axis="column" stretch="zoom"/>
+        <metaInfo stretch="zoom"/>
+      </elements>
+    </frames>
+    <frames standardHelp="2.1" frameType="SUB" index="2">
+      <elements xsi:type="core:GridLayout">
+        <cells alignmentY="center">
+          <elements xsi:type="core:NotebookLayout">
+            <notebookPanes>
+              <elements xsi:type="core:GridLayout">
+                <cells columnSpan="3" alignmentY="center">
+                  <elements xsi:type="core:Groupline">
+                    <label viewLanguage="de" key="05b00712-ef15-41c2-8342-2a0264837173">
+                      <value key="de" value="Koordinaten"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells row="1" alignmentY="center"/>
+                <cells column="1" row="1" alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="1b0e373a-8b6f-4e68-976e-3feedeec6ee9">
+                      <value key="de" value="Anschrift Rechnung"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="2" row="1" alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="f856e5f9-b796-40aa-b4e4-bf578dd48df2">
+                      <value key="de" value="Anschrift Versand"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells row="2" alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="18597e79-3665-4f50-be41-a405e916d987">
+                      <value key="de" value="Längengrad"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" row="2" alignmentY="center">
+                  <elements xsi:type="core:RealInput" dimX="13" dimY="1">
+                    <variable englishName="longitude" name="laengengrad" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Längengrad (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="laengengrad"/>
+                  </elements>
+                </cells>
+                <cells column="2" row="2" alignmentY="center">
+                  <elements xsi:type="core:RealInput" dimX="13" dimY="1">
+                    <variable englishName="longitude2" name="laengengrad2" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Längengrad (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="laengengrad2"/>
+                  </elements>
+                </cells>
+                <cells row="3" alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="8f43440d-f141-44a7-8fa9-06e4128673f7">
+                      <value key="de" value="Breitengrad"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" row="3" alignmentY="center">
+                  <elements xsi:type="core:RealInput" dimX="13" dimY="1">
+                    <variable englishName="latitude" name="breitengrad" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Breitengrad (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="breitengrad"/>
+                  </elements>
+                </cells>
+                <cells column="2" row="3" alignmentY="center">
+                  <elements xsi:type="core:RealInput" dimX="13" dimY="1">
+                    <variable englishName="latitude2" name="breitengrad2" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Breitengrad (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="breitengrad2"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="55fd6957-a2df-4d9e-b38b-d3b659fe3a34">
+                <value key="de" value="Seite 1"/>
+              </label>
+            </notebookPanes>
+          </elements>
+        </cells>
+      </elements>
+    </frames>
+  </screen:Screen>
+  <schema:Variables searchWord="V-00-01    " group="true" name="Customer">
+    <entries englishName="" name="grust" type="I9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Gruppe" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpNo" name="gruppe" type="GRN0" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpDescr" name="grbez" type="GRB0" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="recordNo" name="sn" type="P0" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" meaning="Satznummer" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="id" name="id" type="ID0" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="DBNo" name="dnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="DBDescr" name="dbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="objectGrpNo" name="objgruppe" type="GRN0" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" meaning="Gruppennummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectGrpDescr" name="objgrbez" type="GRB0" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectDBNo" name="objdnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectDBDescr" name="objdbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectInTable" name="objinzeile" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Gehört das Objekt zur Tabelle?" changePriority="A" viewPriority="A" primaryName="objinzeile"/>
+    <entries englishName="rowCount" name="ozeilen" type="I5" guiType="INTEGER" description="" width="5" screenProtection="immer geschützt" meaning="Anzahl Zeilen im Tabellenteil" changePriority="A" viewPriority="A" primaryName="ozeilen"/>
+    <entries englishName="archiveFile" name="dateiarchivieren" type="DV0" guiType="FILEREFERENCE" description="" width="255" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Zu archivierendes Dokument" changePriority="A" viewPriority="A" primaryName="dateiarchivieren"/>
+    <entries englishName="print" name="budruck" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck"/>
+    <entries englishName="print2" name="budruck2" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck2"/>
+    <entries englishName="runIS" name="buinfosys" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Infosystem" changePriority="A" viewPriority="A" primaryName="buinfosys"/>
+    <entries englishName="callAction" name="buaktion" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Aktion auslösen" changePriority="A" viewPriority="A" primaryName="buaktion"/>
+    <entries englishName="version" name="versionn" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Versionsnummer" changePriority="A" viewPriority="A" primaryName="versionn"/>
+    <entries englishName="dontCreateVersion" name="versionierenicht" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Satz nicht versionieren?" changePriority="A" viewPriority="A" primaryName="versionierenicht"/>
+    <entries englishName="versionedRecord" name="versioniertersatz" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Handelt es sich um eine gespeicherte Version?" changePriority="A" viewPriority="A" primaryName="versioniertersatz"/>
+    <entries englishName="createVersion" name="versionerstellen" type="A274" guiType="COMBOBOX" description="" width="22" screenProtection="änderbar" writeable="true" skip="true" meaning="Soll beim nächsten Speichern eine Version erstellt werden?" changePriority="A" viewPriority="A" primaryName="versionerstellen"/>
+    <entries englishName="relevantVersion" name="versionrelevant" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Hat sich in diesem Satz ein konfigurierter VA geändert?" changePriority="A" viewPriority="A" primaryName="versionrelevant"/>
+    <entries englishName="recordFilingVersion" name="ablagen" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Zeitstempel der Datensatzablage" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="recordFiled" name="ablagef" type="ZAE0" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" alias="true" meaning="Datensatz abgelegt?" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="type" name="typ" type="K2" guiType="INTEGER" description="" width="2" screenProtection="immer geschützt" meaning="Datensatztyp" changePriority="A" viewPriority="A" primaryName="typ"/>
+    <entries englishName="" name="num" type="N0" guiType="INPUT" description="" width="8" screenProtection="kerngesteuert" writeable="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num"/>
+    <entries englishName="idno" name="nummer" type="NK0" guiType="INPUT" description="" width="8" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num"/>
+    <entries englishName="idnoPadded" name="nummerb" type="NL0" guiType="INPUT" description="" width="8" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num"/>
+    <entries englishName="swd" name="such" type="SWK0" guiType="INPUT" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such"/>
+    <entries englishName="swdPadded" name="suchb" type="SWL0" guiType="INPUT" description="" width="8" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such"/>
+    <entries englishName="descr" name="name" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Bezeichnung" changePriority="A" viewPriority="A" primaryName="name"/>
+    <entries englishName="descr1" name="name1" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" alias="true" meaning="Text in Deutsch" changePriority="A" viewPriority="A" primaryName="name"/>
+    <entries englishName="descr2" name="name2" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Englisch" changePriority="A" viewPriority="A" primaryName="name2"/>
+    <entries englishName="descr3" name="name3" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Französisch" changePriority="A" viewPriority="A" primaryName="name3"/>
+    <entries englishName="descr4" name="name4" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Spanisch" changePriority="A" viewPriority="A" primaryName="name4"/>
+    <entries englishName="descr5" name="name5" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Italienisch" changePriority="A" viewPriority="A" primaryName="name5"/>
+    <entries englishName="descr6" name="name6" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Polnisch" changePriority="A" viewPriority="A" primaryName="name6"/>
+    <entries englishName="descr7" name="name7" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Russisch" changePriority="A" viewPriority="A" primaryName="name7"/>
+    <entries englishName="descr8" name="name8" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Ungarisch" changePriority="A" viewPriority="A" primaryName="name8"/>
+    <entries englishName="descr9" name="name9" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Tschechisch" changePriority="A" viewPriority="A" primaryName="name9"/>
+    <entries englishName="descr10" name="name10" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Türkisch" changePriority="A" viewPriority="A" primaryName="name10"/>
+    <entries englishName="descr11" name="name11" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 1" changePriority="A" viewPriority="A" primaryName="name11"/>
+    <entries englishName="descr12" name="name12" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 2" changePriority="A" viewPriority="A" primaryName="name12"/>
+    <entries englishName="descr13" name="name13" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 3" changePriority="A" viewPriority="A" primaryName="name13"/>
+    <entries englishName="descr14" name="name14" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in amerikanischem Englisch" changePriority="A" viewPriority="A" primaryName="name14"/>
+    <entries englishName="descr15" name="name15" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Rumänisch" changePriority="A" viewPriority="A" primaryName="name15"/>
+    <entries englishName="descr16" name="name16" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Indonesisch" changePriority="A" viewPriority="A" primaryName="name16"/>
+    <entries englishName="descr17" name="name17" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Niederländisch" changePriority="A" viewPriority="A" primaryName="name17"/>
+    <entries englishName="descr18" name="name18" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Mazedonisch" changePriority="A" viewPriority="A" primaryName="name18"/>
+    <entries englishName="descr19" name="name19" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Bulgarisch" changePriority="A" viewPriority="A" primaryName="name19"/>
+    <entries englishName="descr20" name="name20" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Serbisch" changePriority="A" viewPriority="A" primaryName="name20"/>
+    <entries englishName="descr21" name="name21" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Slowenisch" changePriority="A" viewPriority="A" primaryName="name21"/>
+    <entries englishName="descr22" name="name22" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Slowakisch" changePriority="A" viewPriority="A" primaryName="name22"/>
+    <entries englishName="descr23" name="name23" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Portugiesisch" changePriority="A" viewPriority="A" primaryName="name23"/>
+    <entries englishName="descr24" name="name24" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in vereinfachtem Chinesisch" changePriority="A" viewPriority="A" primaryName="name24"/>
+    <entries englishName="descr25" name="name25" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in traditionellem Chinesisch" changePriority="A" viewPriority="A" primaryName="name25"/>
+    <entries englishName="descr26" name="name26" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Griechisch" changePriority="A" viewPriority="A" primaryName="name26"/>
+    <entries englishName="descr27" name="name27" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Thailändisch" changePriority="A" viewPriority="A" primaryName="name27"/>
+    <entries englishName="descr28" name="name28" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Arabisch" changePriority="A" viewPriority="A" primaryName="name28"/>
+    <entries englishName="descr29" name="name29" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Persisch" changePriority="A" viewPriority="A" primaryName="name29"/>
+    <entries englishName="descr30" name="name30" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Vietnamesisch" changePriority="A" viewPriority="A" primaryName="name30"/>
+    <entries englishName="descr31" name="name31" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Urdu" changePriority="A" viewPriority="A" primaryName="name31"/>
+    <entries englishName="descr32" name="name32" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" meaning="Text in Japanisch" changePriority="A" viewPriority="A" primaryName="name32"/>
+    <entries englishName="descrOperLang" name="namebspr" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Bediensprache" changePriority="A" viewPriority="A" primaryName="namebspr"/>
+    <entries englishName="searchExt" name="sucherw" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" skip="true" alias="true" meaning="Sucherweiterung" changePriority="A" viewPriority="A" primaryName="namebspr"/>
+    <entries englishName="descrCorrLang" name="namekspr" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Korrespondenzsprache" changePriority="A" viewPriority="A" primaryName="namekspr"/>
+    <entries englishName="descrOutLang" name="nameaspr" type="GL45" guiType="INPUT" description="" width="45" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Ausgabesprache" changePriority="A" viewPriority="A" primaryName="nameaspr"/>
+    <entries englishName="translateText" name="nameueb" type="BU7" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" meaning="Text übersetzen" changePriority="A" viewPriority="A" primaryName="nameueb"/>
+    <entries englishName="modificationDate" name="stand" type="GD19" guiType="DATE" description="" width="19" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Änderungsdatum" changePriority="A" viewPriority="A" primaryName="stand"/>
+    <entries englishName="creationDate" name="erfass" type="GD19" guiType="DATE" description="" width="19" screenProtection="nur neu änderbar" writeable="true" meaning="Erfassungsdatum" changePriority="A" viewPriority="A" primaryName="erfass"/>
+    <entries englishName="responsOperator" name="zeich" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="zeich"/>
+    <entries englishName="lastProcessor" name="zeichen" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" alias="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="zeich"/>
+    <entries englishName="userDefinedVersion" name="index" type="GLU2" guiType="INPUT" description="" width="2" screenProtection="änderbar" writeable="true" meaning="Versionskennung" changePriority="A" viewPriority="A" primaryName="index"/>
+    <entries englishName="sourceClient" name="urmand" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" meaning="Ursprungsmandant des Datensatzes" changePriority="A" viewPriority="A" primaryName="urmand"/>
+    <entries englishName="recordClient" name="mandkenn" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" skip="true" meaning="Mandantenkennung des Datensatzes" changePriority="A" viewPriority="A" primaryName="mandkenn"/>
+    <entries englishName="GUID" name="guid" type="GLA38" guiType="INPUT" description="" width="38" screenProtection="nur neu änderbar" writeable="true" meaning="GUID des Datensatzes" changePriority="A" viewPriority="A" primaryName="guid"/>
+    <entries englishName="package" name="paket" type="P87:10" guiType="REFERENCE" description="" width="9" screenProtection="standardgesteuert" writeable="true" meaning="Paketzugehörigkeit" changePriority="A" viewPriority="A" primaryName="paket"/>
+    <entries englishName="setOfBooksSel" name="selbukreis" type="PS81:4" guiType="REFERENCE" description="" width="11" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Buchungskreis" changePriority="A" viewPriority="A" primaryName="selbukreis"/>
+    <entries englishName="FY" name="gjahr" type="GJ" guiType="DATE" description="" width="4" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="gjahr"/>
+    <entries englishName="selectFY" name="bgjahr" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Auswahl des Geschäftsjahres" changePriority="A" viewPriority="A" primaryName="bgjahr"/>
+    <entries englishName="transpModeBord" name="grvzweig" type="AZL20007" guiType="COMBOBOX" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Verkehrszweig an der Grenze" changePriority="A" viewPriority="A" primaryName="grvzweig"/>
+    <entries englishName="transpModeBordCode" name="grvzweigc" type="AZMK20007" guiType="COMBOBOX" description="" width="2" screenProtection="änderbar" writeable="true" alias="true" meaning="Verkehrszweig an der Grenze" changePriority="A" viewPriority="A" primaryName="grvzweig"/>
+    <entries englishName="bal" name="saldo" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Saldo" changePriority="D" viewPriority="D" primaryName="saldo"/>
+    <entries englishName="balCarriedForw" name="vortrag" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Vortrag (übernommener Endbestand vorangegangener Zeiträume als Anfangsbestand)" changePriority="A" viewPriority="A" primaryName="vortrag"/>
+    <entries englishName="actTransFigs" name="ivkz" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Ist-Verkehrszahlen" changePriority="A" viewPriority="A" primaryName="ivkz"/>
+    <entries englishName="planTransFigs" name="pvkz" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Verkehrszahlen Plandaten" changePriority="A" viewPriority="A" primaryName="pvkz"/>
+    <entries englishName="acctSetOfBooks1" name="exbukr1" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Konto in Buchungskreis 1" changePriority="A" viewPriority="A" primaryName="exbukr1"/>
+    <entries englishName="acctSetOfBooks2" name="exbukr2" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Konto in Buchungskreis 2" changePriority="A" viewPriority="A" primaryName="exbukr2"/>
+    <entries englishName="acctSetOfBooks3" name="exbukr3" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Konto in Buchungskreis 3" changePriority="A" viewPriority="A" primaryName="exbukr3"/>
+    <entries englishName="acctSetOfBooks4" name="exbukr4" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Konto in Buchungskreis 4" changePriority="A" viewPriority="A" primaryName="exbukr4"/>
+    <entries englishName="acctSetOfBooks5" name="exbukr5" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Konto in Buchungskreis 5" changePriority="A" viewPriority="A" primaryName="exbukr5"/>
+    <entries englishName="debMonth1" name="s1" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 1 Soll" changePriority="A" viewPriority="A" primaryName="s1"/>
+    <entries englishName="debMonth2" name="s2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 2 Soll" changePriority="A" viewPriority="A" primaryName="s2"/>
+    <entries englishName="debMonth3" name="s3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 3 Soll" changePriority="A" viewPriority="A" primaryName="s3"/>
+    <entries englishName="debMonth4" name="s4" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 4 Soll" changePriority="A" viewPriority="A" primaryName="s4"/>
+    <entries englishName="debMonth5" name="s5" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 5 Soll" changePriority="A" viewPriority="A" primaryName="s5"/>
+    <entries englishName="debMonth6" name="s6" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 6 Soll" changePriority="A" viewPriority="A" primaryName="s6"/>
+    <entries englishName="debMonth7" name="s7" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 7 Soll" changePriority="A" viewPriority="A" primaryName="s7"/>
+    <entries englishName="debMonth8" name="s8" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 8 Soll" changePriority="A" viewPriority="A" primaryName="s8"/>
+    <entries englishName="debMonth9" name="s9" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 9 Soll" changePriority="A" viewPriority="A" primaryName="s9"/>
+    <entries englishName="debMonth10" name="s10" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 10 Soll" changePriority="A" viewPriority="A" primaryName="s10"/>
+    <entries englishName="debMonth11" name="s11" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 11 Soll" changePriority="A" viewPriority="A" primaryName="s11"/>
+    <entries englishName="debMonth12" name="s12" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 12 Soll" changePriority="A" viewPriority="A" primaryName="s12"/>
+    <entries englishName="debMonth13" name="s13" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 13 Soll" changePriority="A" viewPriority="A" primaryName="s13"/>
+    <entries englishName="debMonth14" name="s14" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 14 Soll" changePriority="A" viewPriority="A" primaryName="s14"/>
+    <entries englishName="debMonth15" name="s15" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 15 Soll" changePriority="A" viewPriority="A" primaryName="s15"/>
+    <entries englishName="" name="sn1" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 1 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn1"/>
+    <entries englishName="debNewFYMonth1" name="sollneugj1" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" alias="true" meaning="Monat 1 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn1"/>
+    <entries englishName="" name="sn2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 2 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn2"/>
+    <entries englishName="debNewFYMonth2" name="sollneugj2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" alias="true" meaning="Monat 2 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn2"/>
+    <entries englishName="" name="sn3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 3 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn3"/>
+    <entries englishName="debNewFYMonth3" name="sollneugj3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" alias="true" meaning="Monat 3 Soll im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="sn3"/>
+    <entries englishName="credMonth1" name="h1" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 1 Haben" changePriority="A" viewPriority="A" primaryName="h1"/>
+    <entries englishName="credMonth2" name="h2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 2 Haben" changePriority="A" viewPriority="A" primaryName="h2"/>
+    <entries englishName="credMonth3" name="h3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 3 Haben" changePriority="A" viewPriority="A" primaryName="h3"/>
+    <entries englishName="credMonth4" name="h4" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 4 Haben" changePriority="A" viewPriority="A" primaryName="h4"/>
+    <entries englishName="credMonth5" name="h5" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 5 Haben" changePriority="A" viewPriority="A" primaryName="h5"/>
+    <entries englishName="credMonth6" name="h6" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 6 Haben" changePriority="A" viewPriority="A" primaryName="h6"/>
+    <entries englishName="credMonth7" name="h7" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 7 Haben" changePriority="A" viewPriority="A" primaryName="h7"/>
+    <entries englishName="credMonth8" name="h8" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 8 Haben" changePriority="A" viewPriority="A" primaryName="h8"/>
+    <entries englishName="credMonth9" name="h9" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 9 Haben" changePriority="A" viewPriority="A" primaryName="h9"/>
+    <entries englishName="credMonth10" name="h10" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 10 Haben" changePriority="A" viewPriority="A" primaryName="h10"/>
+    <entries englishName="credMonth11" name="h11" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 11 Haben" changePriority="A" viewPriority="A" primaryName="h11"/>
+    <entries englishName="credMonth12" name="h12" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 12 Haben" changePriority="A" viewPriority="A" primaryName="h12"/>
+    <entries englishName="credMonth13" name="h13" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 13 Haben" changePriority="A" viewPriority="A" primaryName="h13"/>
+    <entries englishName="credMonth14" name="h14" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 14 Haben" changePriority="A" viewPriority="A" primaryName="h14"/>
+    <entries englishName="credMonth15" name="h15" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 15 Haben" changePriority="A" viewPriority="A" primaryName="h15"/>
+    <entries englishName="credNewFYMonth1" name="hn1" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 1 Haben im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="hn1"/>
+    <entries englishName="credNewFYMonth2" name="hn2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 2 Haben im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="hn2"/>
+    <entries englishName="credNewFYMonth3" name="hn3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Monat 3 Haben im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="hn3"/>
+    <entries englishName="openBalPrev" name="avortrag" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Anfangsbestand im Vorjahr" changePriority="A" viewPriority="A" primaryName="avortrag"/>
+    <entries englishName="custBillOfExchAmt" name="wechsel" type="R9.2" guiType="REAL" description="" width="12" screenProtection="änderbar" writeable="true" meaning="Kundenwechselbetrag" changePriority="A" viewPriority="A" primaryName="wechsel"/>
+    <entries englishName="nameMonth1" name="m1" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 1" changePriority="A" viewPriority="A" primaryName="m1"/>
+    <entries englishName="nameMonth2" name="m2" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 2" changePriority="A" viewPriority="A" primaryName="m2"/>
+    <entries englishName="nameMonth3" name="m3" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 3" changePriority="A" viewPriority="A" primaryName="m3"/>
+    <entries englishName="nameMonth4" name="m4" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 4" changePriority="A" viewPriority="A" primaryName="m4"/>
+    <entries englishName="nameMonth5" name="m5" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 5" changePriority="A" viewPriority="A" primaryName="m5"/>
+    <entries englishName="nameMonth6" name="m6" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 6" changePriority="A" viewPriority="A" primaryName="m6"/>
+    <entries englishName="nameMonth7" name="m7" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 7" changePriority="A" viewPriority="A" primaryName="m7"/>
+    <entries englishName="nameMonth8" name="m8" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 8" changePriority="A" viewPriority="A" primaryName="m8"/>
+    <entries englishName="nameMonth9" name="m9" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 9" changePriority="A" viewPriority="A" primaryName="m9"/>
+    <entries englishName="nameMonth10" name="m10" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 10" changePriority="A" viewPriority="A" primaryName="m10"/>
+    <entries englishName="nameMonth11" name="m11" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 11" changePriority="A" viewPriority="A" primaryName="m11"/>
+    <entries englishName="nameMonth12" name="m12" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Name Monat 12" changePriority="A" viewPriority="A" primaryName="m12"/>
+    <entries englishName="debitPFY" name="svjahr" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Soll im Vorjahr" changePriority="A" viewPriority="A" primaryName="svjahr"/>
+    <entries englishName="credPFY" name="hvjahr" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Haben im Vorjahr" changePriority="A" viewPriority="A" primaryName="hvjahr"/>
+    <entries englishName="summAcct" name="verd" type="P5:1" guiType="REFERENCE" description="" width="9" screenProtection="kerngesteuert" writeable="true" meaning="Verdichtungskonto" changePriority="A" viewPriority="A" primaryName="verd"/>
+    <entries englishName="summAcctDescr" name="verdname" type="PT5:1" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Verdichtungskonto" changePriority="A" viewPriority="A" primaryName="verd"/>
+    <entries englishName="summAcctPrev" name="overd" type="P5:1" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Verdichtungskonto vor dem Editieren" changePriority="A" viewPriority="A" primaryName="overd"/>
+    <entries englishName="chartBal" name="grafvz" type="BU2" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Button für Grafik: Salden" changePriority="A" viewPriority="A" primaryName="grafvz"/>
+    <entries englishName="chartTurnover" name="grafum" type="BU2" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Umsatz (Button für Grafik)" changePriority="A" viewPriority="A" primaryName="grafum"/>
+    <entries englishName="newFY" name="gjneu" type="GJ" guiType="DATE" description="" width="4" screenProtection="immer geschützt" skip="true" meaning="Neues Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="gjneu"/>
+    <entries englishName="currFY" name="gjakt" type="GJ" guiType="DATE" description="" width="4" screenProtection="immer geschützt" skip="true" meaning="Aktuelles Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="gjakt"/>
+    <entries englishName="oldFY" name="gjalt" type="GJ" guiType="DATE" description="" width="4" screenProtection="immer geschützt" skip="true" meaning="Altes Geschäftsjahr (-1)" changePriority="A" viewPriority="A" primaryName="gjalt"/>
+    <entries englishName="oldFY2" name="gjalt2" type="GJ" guiType="DATE" description="" width="4" screenProtection="immer geschützt" skip="true" meaning="Altes Geschäftsjahr (-2)" changePriority="A" viewPriority="A" primaryName="gjalt2"/>
+    <entries englishName="oldFY3" name="gjalt3" type="GJ" guiType="DATE" description="" width="4" screenProtection="immer geschützt" skip="true" meaning="Altes Geschäftsjahr (-3)" changePriority="A" viewPriority="A" primaryName="gjalt3"/>
+    <entries englishName="newFYCurr" name="wneu" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="wneu"/>
+    <entries englishName="currFYCurr" name="wakt" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung im aktuellen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="wakt"/>
+    <entries englishName="closedFYCurr" name="walt" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung im abgeschlossenen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="walt"/>
+    <entries englishName="closedFYCurr2" name="walt2" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung im abgeschlossenen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="walt2"/>
+    <entries englishName="closedFYCurr3" name="walt3" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung im abgeschlossenen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="walt3"/>
+    <entries englishName="currFYOpenBal" name="asakt" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Anfangssaldo im aktuellen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="asakt"/>
+    <entries englishName="currFYClosingBal" name="esakt" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Endsaldo im aktuellen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="esakt"/>
+    <entries englishName="newFYOpenBal" name="asneu" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Anfangssaldo im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="asneu"/>
+    <entries englishName="newFYClosingBal" name="esneu" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Endsaldo im neuen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="esneu"/>
+    <entries englishName="monthTurnoverActData" name="iuz" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Umsatzzähler Istdaten" changePriority="A" viewPriority="A" primaryName="iuz"/>
+    <entries englishName="monthTurnoverPlanData" name="puz" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Umsatzzähler Plandaten" changePriority="A" viewPriority="A" primaryName="puz"/>
+    <entries englishName="turnoverPeriod" name="pums" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 1 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pums"/>
+    <entries englishName="turnoverPeriod2" name="pums2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 2 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pums2"/>
+    <entries englishName="turnoverPeriod3" name="pums3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 3 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pums3"/>
+    <entries englishName="turnoverPeriod4" name="pums4" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 4 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pums4"/>
+    <entries englishName="turnoverPeriodTransitMths" name="pumsn" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode Übergangsmonate (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pumsn"/>
+    <entries englishName="turnoverPeriodOld" name="pumsa" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 1 Jahr -1 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pumsa"/>
+    <entries englishName="turnoverPeriodOld2" name="pumsa2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 2 Jahr -1 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pumsa2"/>
+    <entries englishName="turnoverPeriodOld3" name="pumsa3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 3 Jahr -1 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pumsa3"/>
+    <entries englishName="turnoverPeriodOld4" name="pumsa4" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz Periode 4 Jahr -1 (Inlandswährung)" changePriority="A" viewPriority="A" primaryName="pumsa4"/>
+    <entries englishName="turnoverFY" name="jums" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz im aktuellen Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="jums"/>
+    <entries englishName="turnoverFY2" name="jums2" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz im alten Geschäftsjahr (-1)" changePriority="A" viewPriority="A" primaryName="jums2"/>
+    <entries englishName="turnoverFY3" name="jums3" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz im alten Geschäftsjahr (-2)" changePriority="A" viewPriority="A" primaryName="jums3"/>
+    <entries englishName="turnoverFY4" name="jums4" type="R9.2" guiType="REAL" description="" width="12" screenProtection="immer geschützt" skip="true" meaning="Umsatz im alten Geschäftsjahr (-3)" changePriority="A" viewPriority="A" primaryName="jums4"/>
+    <entries englishName="" name="land" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="änderbar" writeable="true" meaning="Währung" changePriority="A" viewPriority="A" primaryName="land"/>
+    <entries englishName="curr" name="waehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="änderbar" writeable="true" alias="true" meaning="Währung" changePriority="A" viewPriority="A" primaryName="land"/>
+    <entries englishName="lang" name="spr" type="A72" guiType="COMBOBOX" description="" width="23" screenProtection="änderbar" writeable="true" meaning="Sprache (Korrespondenzsprache)" changePriority="A" viewPriority="A" primaryName="spr"/>
+    <entries englishName="langCode" name="spra" type="A72" guiType="COMBOBOX" description="" width="23" screenProtection="änderbar" writeable="true" alias="true" meaning="Sprache (Korrespondenzsprache)" changePriority="A" viewPriority="A" primaryName="spr"/>
+    <entries englishName="langISO" name="sprai" type="A73" guiType="COMBOBOX" description="" width="11" screenProtection="änderbar" writeable="true" alias="true" meaning="Sprache (Korrespondenzsprache)" changePriority="A" viewPriority="A" primaryName="spr"/>
+    <entries englishName="timeProspectToCust" name="interesskund" type="GD19" guiType="DATE" description="" width="19" screenProtection="immer geschützt" meaning="Zeitpunkt der Wandlung von Interessent zu Kunde" changePriority="A" viewPriority="A" primaryName="interesskund"/>
+    <entries englishName="invVar" name="rechnung" type="P12:2" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Rechnungsstellung" changePriority="A" viewPriority="A" primaryName="rechnung"/>
+    <entries englishName="invVarDescr" name="rechnungname" type="PT12:2" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Rechnungsstellung" changePriority="A" viewPriority="A" primaryName="rechnung"/>
+    <entries englishName="warranty" name="gewaehr" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Gewährleistung" changePriority="A" viewPriority="A" primaryName="gewaehr"/>
+    <entries englishName="warrantyDescr" name="gewaehrname" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Gewährleistung" changePriority="A" viewPriority="A" primaryName="gewaehr"/>
+    <entries englishName="delivTerms" name="lbed" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Lieferbedingung" changePriority="A" viewPriority="A" primaryName="lbed"/>
+    <entries englishName="delivTermsDescr" name="lbedname" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Lieferbedingung" changePriority="A" viewPriority="A" primaryName="lbed"/>
+    <entries englishName="pricing" name="pbed" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Preisstellung" changePriority="A" viewPriority="A" primaryName="pbed"/>
+    <entries englishName="pricingDescr" name="pbedname" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Preisstellung" changePriority="A" viewPriority="A" primaryName="pbed"/>
+    <entries englishName="payTerm" name="zbed" type="P12:8" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Zahlungsbedingung" changePriority="A" viewPriority="A" primaryName="zbed"/>
+    <entries englishName="payTermDescr" name="zbedname" type="PT12:8" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Zahlungsbedingung" changePriority="A" viewPriority="A" primaryName="zbed"/>
+    <entries englishName="payTermKey" name="zbedschl" type="P66:4" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Zahlungsbedingungsschlüssel" changePriority="A" viewPriority="A" primaryName="zbedschl"/>
+    <entries englishName="payTermKeyDescr" name="zbedschlname" type="PT66:4" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Zahlungsbedingungsschlüssel" changePriority="A" viewPriority="A" primaryName="zbedschl"/>
+    <entries englishName="natureOfBusiness" name="gart" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Art des Geschäfts (Intrastat)" changePriority="A" viewPriority="A" primaryName="gart"/>
+    <entries englishName="natureOfBusinessDescr" name="gartname" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Art des Geschäfts (Intrastat)" changePriority="A" viewPriority="A" primaryName="gart"/>
+    <entries englishName="statMethod" name="stverf" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Statistisches Verfahren (Intrastat)" changePriority="A" viewPriority="A" primaryName="stverf"/>
+    <entries englishName="transpMode" name="vzweig" type="AZL20007" guiType="COMBOBOX" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Verkehrszweig (ATLAS, Intrastat)" changePriority="A" viewPriority="A" primaryName="vzweig"/>
+    <entries englishName="transpModeCode" name="vzweigc" type="AZMK20007" guiType="COMBOBOX" description="" width="2" screenProtection="änderbar" writeable="true" alias="true" meaning="Verkehrszweig (ATLAS, Intrastat)" changePriority="A" viewPriority="A" primaryName="vzweig"/>
+    <entries englishName="borderDistance" name="grentf" type="I5" guiType="INTEGER" description="" width="5" screenProtection="änderbar" writeable="true" meaning="Entfernung zur Grenze bzw. Hafen (Intrastat)" changePriority="A" viewPriority="A" primaryName="grentf"/>
+    <entries englishName="rep" name="vertret" type="P0:1" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Vertreter" changePriority="A" viewPriority="A" primaryName="vertret"/>
+    <entries englishName="repDescr" name="vertretname" type="PT0:1" guiType="REFERENCE" description="" width="62" screenProtection="immer geschützt" alias="true" meaning="Vertreter" changePriority="A" viewPriority="A" primaryName="vertret"/>
+    <entries englishName="inhouseContact" name="betreuer" type="P11:1" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Betreuer" changePriority="A" viewPriority="A" primaryName="betreuer"/>
+    <entries englishName="inhouseContactDescr" name="betreuername" type="PT11:1" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Betreuer" changePriority="A" viewPriority="A" primaryName="betreuer"/>
+    <entries englishName="" name="haendl" type="P0:1.6" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Rechnungsempfänger" changePriority="A" viewPriority="A" primaryName="haendl"/>
+    <entries englishName="invRecipient" name="reempf" type="P0:1.6" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" alias="true" meaning="Rechnungsempfänger" changePriority="A" viewPriority="A" primaryName="haendl"/>
+    <entries englishName="invRecipientDescr" name="reempfname" type="PT0:1.6" guiType="REFERENCE" description="" width="62" screenProtection="immer geschützt" alias="true" meaning="Rechnungsempfänger" changePriority="A" viewPriority="A" primaryName="haendl"/>
+    <entries englishName="credLim" name="limit" type="RP9.2" guiType="REAL" description="" width="12" screenProtection="änderbar" writeable="true" meaning="Kreditlimit" changePriority="A" viewPriority="A" primaryName="limit"/>
+    <entries englishName="" name="liland" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="änderbar" writeable="true" meaning="Währung des Kreditlimits" changePriority="A" viewPriority="A" primaryName="liland"/>
+    <entries englishName="credLimCurr" name="liwaehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="änderbar" writeable="true" alias="true" meaning="Währung des Kreditlimits" changePriority="A" viewPriority="A" primaryName="liland"/>
+    <entries englishName="copiesCountQuotation" name="akop" type="IP1" guiType="INTEGER" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Kopienanzahl für Angebot" changePriority="A" viewPriority="A" primaryName="akop"/>
+    <entries englishName="copiesCountOrder" name="bkop" type="IP1" guiType="INTEGER" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Kopienanzahl: Auftrag" changePriority="A" viewPriority="A" primaryName="bkop"/>
+    <entries englishName="copiesCountPackSlip" name="lkop" type="IP1" guiType="INTEGER" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Anzahl der Lieferscheinkopien" changePriority="A" viewPriority="A" primaryName="lkop"/>
+    <entries englishName="copiesCountInv" name="rkop" type="IP1" guiType="INTEGER" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Kopienanzahl der Rechnung" changePriority="A" viewPriority="A" primaryName="rkop"/>
+    <entries englishName="routeNo" name="tour" type="IP6" guiType="INTEGER" description="" width="6" screenProtection="änderbar" writeable="true" meaning="Tournummer" changePriority="A" viewPriority="A" primaryName="tour"/>
+    <entries englishName="" name="as" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Anrede" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="yas" name="yas" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" custom="true" meaning="Anrede" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="yanrede" name="yanrede" type="PS12:3" guiType="REFERENCE" description="" width="11" screenProtection="änderbar" writeable="true" alias="true" custom="true" meaning="Anrede" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="salutation" name="anrede" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" alias="true" meaning="Anrede" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="salutationDescr" name="anredename" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Anrede" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="freeText" name="ftext" type="TN" guiType="FREETEXT" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Freitext 1" changePriority="A" viewPriority="A" primaryName="ftext"/>
+    <entries englishName="freeText2" name="ftext2" type="TN" guiType="FREETEXT" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Freitext 2" changePriority="A" viewPriority="A" primaryName="ftext2"/>
+    <entries englishName="code" name="kenn" type="NT64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Kennzeichen" changePriority="A" viewPriority="A" primaryName="kenn"/>
+    <entries englishName="comments" name="bem" type="T64" guiType="TEXTAREA" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Bemerkungen" changePriority="A" viewPriority="A" primaryName="bem"/>
+    <entries englishName="addr" name="ans" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Name (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="ans"/>
+    <entries englishName="street" name="str" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Straße (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="str"/>
+    <entries englishName="ctryCode" name="lakenn" type="NT3" guiType="INPUT" description="" width="3" screenProtection="änderbar" writeable="true" skip="true" meaning="Länderkennzeichen" changePriority="A" viewPriority="A" primaryName="lakenn"/>
+    <entries englishName="stateOfTaxOffice" name="staat" type="PS97:1" guiType="REFERENCE" description="" width="26" screenProtection="änderbar" writeable="true" meaning="Rechnungsland" changePriority="A" viewPriority="A" primaryName="staat"/>
+    <entries englishName="stateOfTaxOfficeDescr" name="staatname" type="PT97:1" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Rechnungsland" changePriority="A" viewPriority="A" primaryName="staat"/>
+    <entries englishName="region" name="region" type="PS97:1" guiType="REFERENCE" description="" width="26" screenProtection="änderbar" writeable="true" meaning="Region" changePriority="A" viewPriority="A" primaryName="region"/>
+    <entries englishName="regionDescr" name="regionname" type="PT97:1" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Region" changePriority="A" viewPriority="A" primaryName="region"/>
+    <entries englishName="zipCode" name="plz" type="GL10" guiType="INPUT" description="" width="10" screenProtection="änderbar" writeable="true" meaning="Postleitzahl Rechnungsanschrift" changePriority="A" viewPriority="A" primaryName="plz"/>
+    <entries englishName="town" name="nort" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Ort (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="nort"/>
+    <entries englishName="longitude" name="laengengrad" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Längengrad (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="laengengrad"/>
+    <entries englishName="latitude" name="breitengrad" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Breitengrad (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="breitengrad"/>
+    <entries englishName="addr2" name="ans2" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Name (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="ans2"/>
+    <entries englishName="street2" name="str2" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Straße (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="str2"/>
+    <entries englishName="ctryCode2" name="lakenn2" type="NT3" guiType="INPUT" description="" width="3" screenProtection="änderbar" writeable="true" skip="true" meaning="Länderkennzeichen (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="lakenn2"/>
+    <entries englishName="stateOfTaxOffice2" name="staat2" type="PS97:1" guiType="REFERENCE" description="" width="26" screenProtection="änderbar" writeable="true" meaning="Lieferland" changePriority="A" viewPriority="A" primaryName="staat2"/>
+    <entries englishName="stateOfTaxOfficeDescr2" name="staatname2" type="PT97:1" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Lieferland" changePriority="A" viewPriority="A" primaryName="staat2"/>
+    <entries englishName="region2" name="region2" type="PS97:1" guiType="REFERENCE" description="" width="26" screenProtection="änderbar" writeable="true" meaning="Region" changePriority="A" viewPriority="A" primaryName="region2"/>
+    <entries englishName="regionDescr2" name="regionname2" type="PT97:1" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Region" changePriority="A" viewPriority="A" primaryName="region2"/>
+    <entries englishName="zipCode2" name="plz2" type="GL10" guiType="INPUT" description="" width="10" screenProtection="änderbar" writeable="true" meaning="Postleitzahl Versandanschrift" changePriority="A" viewPriority="A" primaryName="plz2"/>
+    <entries englishName="town2" name="nort2" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Ort (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="nort2"/>
+    <entries englishName="longitude2" name="laengengrad2" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Längengrad (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="laengengrad2"/>
+    <entries englishName="latitude2" name="breitengrad2" type="RU4.8" guiType="REAL" description="" width="13" screenProtection="änderbar" writeable="true" meaning="Breitengrad (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="breitengrad2"/>
+    <entries englishName="phoneNo" name="tele" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="Telefonnummer (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="tele"/>
+    <entries englishName="phoneNoNorm" name="telenorm" type="GL20" guiType="INPUT" description="" width="20" screenProtection="immer geschützt" meaning="Telefonnummer normiert (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="telenorm"/>
+    <entries englishName="callPhoneNo" name="anrufen" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Telefonnummer anrufen (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="anrufen"/>
+    <entries englishName="cellPhoneNo" name="mtele" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="Mobil-Telefonnummer (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="mtele"/>
+    <entries englishName="cellPhoneNoNorm" name="mtelenorm" type="GL20" guiType="INPUT" description="" width="20" screenProtection="immer geschützt" meaning="Mobil-Telefonnummer normiert (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="mtelenorm"/>
+    <entries englishName="callCellPhoneNo" name="manrufen" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Mobil-Telefonnummer anrufen (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="manrufen"/>
+    <entries englishName="telexAddr" name="telx" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="Telex-Adresse (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="telx"/>
+    <entries englishName="emailAddr" name="email" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" alias="true" meaning="E-Mail-Adresse (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="telx"/>
+    <entries englishName="webSiteURL" name="urlt" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="URL der Website (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="urlt"/>
+    <entries englishName="sendEmail" name="mailto" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Mail senden (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="mailto"/>
+    <entries englishName="callBrowserURL" name="browurl" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Browser mit URL aufrufen (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="browurl"/>
+    <entries englishName="faxNo" name="fax" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Telefaxnummer (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="fax"/>
+    <entries englishName="ebillingok" name="erechok" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="E-Rechnung akzeptiert" changePriority="A" viewPriority="A" primaryName="erechok"/>
+    <entries englishName="ebillingmail" name="erechmail" type="GL70" guiType="INPUT" description="" width="70" screenProtection="kerngesteuert" writeable="true" meaning="E-Mail Rechnungsempfänger" changePriority="A" viewPriority="A" primaryName="erechmail"/>
+    <entries englishName="phoneNo2" name="tele2" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="Telefonnummer (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="tele2"/>
+    <entries englishName="phoneNoNorm2" name="telenorm2" type="GL20" guiType="INPUT" description="" width="20" screenProtection="immer geschützt" meaning="Telefonnummer normiert (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="telenorm2"/>
+    <entries englishName="callPhoneNo2" name="anrufen2" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Telefonnummer anrufen (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="anrufen2"/>
+    <entries englishName="cellPhoneNo2" name="mtele2" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="Mobil-Telefonnummer (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="mtele2"/>
+    <entries englishName="cellPhoneNoNorm2" name="mtelenorm2" type="GL20" guiType="INPUT" description="" width="20" screenProtection="immer geschützt" meaning="Mobil-Telefonnummer normiert (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="mtelenorm2"/>
+    <entries englishName="callCellPhoneNo2" name="manrufen2" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Mobil-Telefonnummer anrufen (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="manrufen2"/>
+    <entries englishName="emailAddr2" name="email2" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="E-Mail-Adresse (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="email2"/>
+    <entries englishName="webSiteURL2" name="urlt2" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="URL der Website (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="urlt2"/>
+    <entries englishName="sendEmail2" name="mailto2" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Mail senden (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="mailto2"/>
+    <entries englishName="callBrowserURL2" name="browurl2" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Browser mit URL aufrufen (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="browurl2"/>
+    <entries englishName="faxNo2" name="fax2" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Telefaxnummer (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="fax2"/>
+    <entries englishName="contactPerson" name="kontakt" type="GL20" guiType="INPUT" description="" width="20" screenProtection="änderbar" writeable="true" meaning="Ansprechpartner" changePriority="A" viewPriority="A" primaryName="kontakt"/>
+    <entries englishName="faxNoReminders" name="faxmahn" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Telefaxnummer (FiBu Mahnwesen)" changePriority="A" viewPriority="A" primaryName="faxmahn"/>
+    <entries englishName="emailAddrReminders" name="emailmahn" type="GL70" guiType="INPUT" description="" width="70" screenProtection="änderbar" writeable="true" meaning="E-Mail-Adresse (FiBu Mahnwesen)" changePriority="A" viewPriority="A" primaryName="emailmahn"/>
+    <entries englishName="CSStatus" name="slpstatus" type="AZI20142" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" skip="true" meaning="Status der Sanktionslistenprüfung (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="slpstatus"/>
+    <entries englishName="hashAddr" name="hashadr" type="GL" guiType="INPUT" description="" width="2999" screenProtection="immer geschützt" meaning="Hashwert (Rechnungsanschrift)" changePriority="A" viewPriority="A" primaryName="hashadr"/>
+    <entries englishName="CSStatus2" name="slpstatus2" type="AZI20142" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" skip="true" meaning="Status der Sanktionslistenprüfung (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="slpstatus2"/>
+    <entries englishName="hashAddr2" name="hashadr2" type="GL" guiType="INPUT" description="" width="2999" screenProtection="immer geschützt" meaning="Hashwert (Versandanschrift)" changePriority="A" viewPriority="A" primaryName="hashadr2"/>
+    <entries englishName="identityNo" name="frbez" type="GL10" guiType="INPUT" description="" width="10" screenProtection="änderbar" writeable="true" meaning="Lieferantennummer kundenseitig" changePriority="A" viewPriority="A" primaryName="frbez"/>
+    <entries englishName="functionAddressee" name="funktion" type="GL16" guiType="INPUT" description="" width="16" screenProtection="änderbar" writeable="true" meaning="Funktion des Adressaten / Abteilung" changePriority="A" viewPriority="A" primaryName="funktion"/>
+    <entries englishName="ctryType" name="laart" type="A8" guiType="COMBOBOX" description="" width="8" screenProtection="immer geschützt" skip="true" meaning="Landart" changePriority="A" viewPriority="A" primaryName="laart"/>
+    <entries englishName="ctryTypeEnum" name="laarta" type="A8" guiType="COMBOBOX" description="" width="8" screenProtection="immer geschützt" skip="true" alias="true" meaning="Landart" changePriority="A" viewPriority="A" primaryName="laart"/>
+    <entries englishName="ctryCodeEU" name="egkenn" type="NT2" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" skip="true" meaning="EG-Länderkennung" changePriority="A" viewPriority="A" primaryName="egkenn"/>
+    <entries englishName="VATIdno" name="ustid" type="NT16" guiType="INPUT" description="" width="16" screenProtection="änderbar" writeable="true" meaning="Umsatzsteueridentifikationsnummer" changePriority="A" viewPriority="A" primaryName="ustid"/>
+    <entries englishName="methodOfPaymt" name="zaform" type="A175" guiType="COMBOBOX" description="" width="11" screenProtection="änderbar" writeable="true" meaning="Zahlungsart" changePriority="A" viewPriority="A" primaryName="zaform"/>
+    <entries englishName="remTerm" name="mbed" type="P66:2" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Mahnbedingung" changePriority="A" viewPriority="A" primaryName="mbed"/>
+    <entries englishName="remTermDescr" name="mbedname" type="PT66:2" guiType="REFERENCE" description="" width="46" screenProtection="immer geschützt" alias="true" meaning="Mahnbedingung" changePriority="A" viewPriority="A" primaryName="mbed"/>
+    <entries englishName="borderPort" name="grkenn" type="NT35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" meaning="Grenzübergang/Einladehafen (ATLAS/Intrastat)" changePriority="A" viewPriority="A" primaryName="grkenn"/>
+    <entries englishName="shippingType" name="vart" type="GL64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Versandart" changePriority="A" viewPriority="A" primaryName="vart"/>
+    <entries englishName="shippingType2" name="vart2" type="GL64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Versandart 2" changePriority="B" viewPriority="B" primaryName="vart2"/>
+    <entries englishName="shippingType3" name="vart3" type="GL64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Versandart 3" changePriority="A" viewPriority="A" primaryName="vart3"/>
+    <entries englishName="yvart3" name="yvart3" type="NT30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" custom="true" meaning="Versandart 3" changePriority="B" viewPriority="B" primaryName="vart3"/>
+    <entries englishName="unloadPtInfo" name="ablinfotxt" type="GL64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Zusatzinformationen zur Abladestelle" changePriority="A" viewPriority="A" primaryName="ablinfotxt"/>
+    <entries englishName="unloadPt" name="ablade" type="GL64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" alias="true" meaning="Abladestelle" changePriority="A" viewPriority="A" primaryName="ablinfotxt"/>
+    <entries englishName="taxExemptNo" name="stbefrnr" type="NT30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Genehmigungsnummer des Kunden für Steuerbefreiung" changePriority="A" viewPriority="A" primaryName="stbefrnr"/>
+    <entries englishName="subcontNo" name="uliefnr" type="GL9" guiType="INPUT" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Nummer des Unterlieferanten (EDI)" changePriority="A" viewPriority="A" primaryName="uliefnr"/>
+    <entries englishName="EDIUnloadPt" name="ablstelle" type="GL25" guiType="INPUT" description="" width="25" screenProtection="änderbar" writeable="true" meaning="EDI-Abladestelle" changePriority="A" viewPriority="A" primaryName="ablstelle"/>
+    <entries englishName="EDIUnloadPtA" name="ablstellea" type="GL16" guiType="INPUT" description="" width="16" screenProtection="änderbar" writeable="true" alias="true" meaning="EDI-Abladestelle (Alias)" changePriority="A" viewPriority="A" primaryName="ablstelle"/>
+    <entries englishName="plant" name="werk" type="GL25" guiType="INPUT" description="" width="25" screenProtection="änderbar" writeable="true" meaning="Werk" changePriority="A" viewPriority="A" primaryName="werk"/>
+    <entries englishName="plantAlias" name="werka" type="GL16" guiType="INPUT" description="" width="16" screenProtection="änderbar" writeable="true" alias="true" meaning="Werk (Alias)" changePriority="A" viewPriority="A" primaryName="werk"/>
+    <entries englishName="forwarder" name="spediteur" type="P1:1.2" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Spediteur" changePriority="A" viewPriority="A" primaryName="spediteur"/>
+    <entries englishName="forwarderDescr" name="spediteurname" type="PT1:1.2" guiType="REFERENCE" description="" width="62" screenProtection="immer geschützt" alias="true" meaning="Spediteur" changePriority="A" viewPriority="A" primaryName="spediteur"/>
+    <entries englishName="GLN" name="gln" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" meaning="GLN (Global Location Number / Globale Lokationsnummer)" changePriority="A" viewPriority="A" primaryName="gln"/>
+    <entries englishName="" name="ilnum" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" alias="true" meaning="ILN (International Location Number)" changePriority="A" viewPriority="A" primaryName="gln"/>
+    <entries englishName="globalLocNo" name="frgln" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" meaning="GLN (Global Location Number / Globale Lokationsnummer) des Lieferanten beim Kunden" changePriority="A" viewPriority="A" primaryName="frgln"/>
+    <entries englishName="" name="friln" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" alias="true" meaning="International Location Number des Lieferanten beim Kunden" changePriority="A" viewPriority="A" primaryName="frgln"/>
+    <entries englishName="DUNS" name="duns" type="GL11" guiType="INPUT" description="" width="11" screenProtection="änderbar" writeable="true" meaning="D-U-N-S Nummer (Data Universal Numbering System)" changePriority="A" viewPriority="A" primaryName="duns"/>
+    <entries englishName="shipType" name="versand" type="P12:3" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Schlüssel Versandart" changePriority="A" viewPriority="A" primaryName="versand"/>
+    <entries englishName="shipTypeDescr" name="versandname" type="PT12:3" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Schlüssel Versandart" changePriority="A" viewPriority="A" primaryName="versand"/>
+    <entries englishName="EDIInfo" name="edinfo" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="EDI-Info (Submaske)" changePriority="A" viewPriority="A" primaryName="edinfo"/>
+    <entries englishName="EDIInfoRecNo" name="edinfosnr" type="P0:4" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" meaning="EDI-Info" changePriority="A" viewPriority="A" primaryName="edinfosnr"/>
+    <entries englishName="openVenCustRel" name="liekun" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Submaske Lieferant-Kunden-Beziehung aufrufen" changePriority="A" viewPriority="A" primaryName="liekun"/>
+    <entries englishName="venCustRel" name="liekunsnr" type="P0:5" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" meaning="Lieferant-Kunden-Beziehung" changePriority="A" viewPriority="A" primaryName="liekunsnr"/>
+    <entries englishName="consigLoc" name="konsi" type="PS38:1" guiType="REFERENCE" description="" width="16" screenProtection="kerngesteuert" writeable="true" meaning="Konsignationslagerplatz" changePriority="A" viewPriority="A" primaryName="konsi"/>
+    <entries englishName="consigLocDescr" name="konsiname" type="PT38:1" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Konsignationslagerplatz" changePriority="A" viewPriority="A" primaryName="konsi"/>
+    <entries englishName="secondCurrAct" name="w2ist" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="kerngesteuert" writeable="true" meaning="Währung 2 der Ist-Daten" changePriority="A" viewPriority="A" primaryName="w2ist"/>
+    <entries englishName="entPossFromFYCurr2" name="w2gjahr" type="GJ" guiType="DATE" description="" width="4" screenProtection="kerngesteuert" writeable="true" meaning="Währung 2: bebuchbar ab Geschäftsjahr" changePriority="A" viewPriority="A" primaryName="w2gjahr"/>
+    <entries englishName="openBalCurr2" name="w2asaldo" type="R9.2" guiType="REAL" description="" width="12" screenProtection="kerngesteuert" writeable="true" meaning="Währung 2, Anfangsbestand" changePriority="A" viewPriority="A" primaryName="w2asaldo"/>
+    <entries englishName="currScr" name="mwaehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Währung" changePriority="A" viewPriority="A" primaryName="mwaehr"/>
+    <entries englishName="selectCurr" name="bwaehr" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Auswahl der Währung" changePriority="A" viewPriority="A" primaryName="bwaehr"/>
+    <entries englishName="chart" name="chart" type="CH" guiType="CHART" description="" width="255" screenProtection="änderbar" writeable="true" skip="true" meaning="Diagramm" changePriority="A" viewPriority="A" primaryName="chart"/>
+    <entries englishName="chartTurnoverStat" name="chums" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Button für Diagramm mit Umsatzstatistik" changePriority="A" viewPriority="A" primaryName="chums"/>
+    <entries englishName="chartTransFigs" name="chvkz" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Button für Diagramm mit Verkehrszahlen" changePriority="A" viewPriority="A" primaryName="chvkz"/>
+    <entries englishName="chartStartFY" name="chagj" type="GJ" guiType="DATE" description="" width="4" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Anfangsgeschäftsjahr für Diagrammdarstellung" changePriority="A" viewPriority="A" primaryName="chagj"/>
+    <entries englishName="chartEndFY" name="chegj" type="GJ" guiType="DATE" description="" width="4" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Endgeschäftsjahr für Diagrammdarstellung" changePriority="A" viewPriority="A" primaryName="chegj"/>
+    <entries englishName="chartActFigs" name="chistz" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Istzahlen für Diagrammdarstellung" changePriority="A" viewPriority="A" primaryName="chistz"/>
+    <entries englishName="chartPlanFigs" name="chplanz" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Planzahlen für Diagrammdarstellung" changePriority="A" viewPriority="A" primaryName="chplanz"/>
+    <entries englishName="chartCumVal" name="chkum" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Werte kumulieren für Diagrammdarstellung" changePriority="A" viewPriority="A" primaryName="chkum"/>
+    <entries englishName="DATEVInterface" name="dvkto" type="GLU9" guiType="INPUT" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Debitoren-Nummer für DATEV-Schnittstelle" changePriority="A" viewPriority="A" primaryName="dvkto"/>
+    <entries englishName="taxNo" name="steunr" type="GL20" guiType="INPUT" description="" width="20" screenProtection="änderbar" writeable="true" meaning="Steuernummer des Kunden" changePriority="A" viewPriority="A" primaryName="steunr"/>
+    <entries englishName="calcGrossAmt" name="brutto" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Bruttopreise im Verkauf verwenden?" changePriority="A" viewPriority="A" primaryName="brutto"/>
+    <entries englishName="discountGrp" name="rab" type="NT23" guiType="INPUT" description="" width="23" screenProtection="änderbar" writeable="true" meaning="Rabattgruppe" changePriority="A" viewPriority="A" primaryName="rab"/>
+    <entries englishName="pricingGrp" name="prg" type="NT23" guiType="INPUT" description="" width="23" screenProtection="änderbar" writeable="true" meaning="Preisgruppe" changePriority="A" viewPriority="A" primaryName="prg"/>
+    <entries englishName="calcType2" name="reregeln2" type="A90" guiType="COMBOBOX" description="" width="14" screenProtection="immer geschützt" skip="true" meaning="abweichende Berechnungsart zur Ermittlung des Endsaldos" changePriority="A" viewPriority="A" primaryName="reregeln2"/>
+    <entries englishName="corpGrp" name="inkkreis" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Konzernunternehmen" changePriority="A" viewPriority="A" primaryName="inkkreis"/>
+    <entries englishName="affilCompany" name="konzfa" type="P89:5" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Konzernunternehmen" changePriority="A" viewPriority="A" primaryName="konzfa"/>
+    <entries englishName="affilCompanyDescr" name="konzfaname" type="PT89:5" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" skip="true" alias="true" meaning="Konzernunternehmen" changePriority="A" viewPriority="A" primaryName="konzfa"/>
+    <entries englishName="payLock" name="zasperre" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Zahlungssperre" changePriority="A" viewPriority="A" primaryName="zasperre"/>
+    <entries englishName="remLock" name="msperre" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Mahnsperre, Kunde wird nicht gemahnt" changePriority="A" viewPriority="A" primaryName="msperre"/>
+    <entries englishName="noCollDocForCust" name="nichtsf" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Keine Sammelbelege für diesen Kunden?" changePriority="A" viewPriority="A" primaryName="nichtsf"/>
+    <entries englishName="acctStatNoIndivEnt" name="ohnebu" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Kontoauszug ohne Einzelbuchungen" changePriority="A" viewPriority="A" primaryName="ohnebu"/>
+    <entries englishName="termPayCredNotes" name="gzbed" type="P12:8" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Zahlungsbedingung für Gutschriften" changePriority="A" viewPriority="A" primaryName="gzbed"/>
+    <entries englishName="payMethod" name="zverf" type="PS66:4" guiType="REFERENCE" description="" width="11" screenProtection="änderbar" writeable="true" meaning="Zahlungsverfahren" changePriority="A" viewPriority="A" primaryName="zverf"/>
+    <entries englishName="sepaMandate" name="sepamand" type="P66:3" guiType="REFERENCE" description="" width="9" screenProtection="kerngesteuert" writeable="true" meaning="SEPA-Lastschriftmandat" changePriority="A" viewPriority="A" primaryName="sepamand"/>
+    <entries englishName="SEPAUCI" name="sepauci" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" meaning="SEPA UCI (Unique Creditor Identifier)" changePriority="A" viewPriority="A" primaryName="sepauci"/>
+    <entries englishName="bankDet" name="bverb" type="P96:2" guiType="REFERENCE" description="" width="9" screenProtection="kerngesteuert" writeable="true" meaning="Bankverbindung" changePriority="A" viewPriority="A" primaryName="bverb"/>
+    <entries englishName="bankNew" name="nbverb" type="BU12" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Bankverbindung neu" changePriority="A" viewPriority="A" primaryName="nbverb"/>
+    <entries englishName="editBankRef" name="bbverb" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Bankverbindung bearbeiten" changePriority="A" viewPriority="A" primaryName="bbverb"/>
+    <entries englishName="bankAcctNo" name="bkonum" type="GL35" guiType="INPUT" description="" width="35" screenProtection="immer geschützt" skip="true" meaning="Bankkontonummer" changePriority="A" viewPriority="A" primaryName="bkonum"/>
+    <entries englishName="bankIBAN" name="biban" type="GL35" guiType="INPUT" description="" width="35" screenProtection="immer geschützt" skip="true" meaning="IBAN" changePriority="A" viewPriority="A" primaryName="biban"/>
+    <entries englishName="bankParticipantNo" name="btlnr" type="GL35" guiType="INPUT" description="" width="35" screenProtection="immer geschützt" skip="true" meaning="Teilnehmernummer" changePriority="A" viewPriority="A" primaryName="btlnr"/>
+    <entries englishName="bankCurr" name="bkowaehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Währung des Bankkontos" changePriority="A" viewPriority="A" primaryName="bkowaehr"/>
+    <entries englishName="bankAcctHolderId" name="bkoid" type="GL35" guiType="INPUT" description="" width="35" screenProtection="immer geschützt" skip="true" meaning="Kontoinhaber - Identifikation" changePriority="A" viewPriority="A" primaryName="bkoid"/>
+    <entries englishName="bankAcctHolderId2" name="bkoid2" type="GL35" guiType="INPUT" description="" width="35" screenProtection="immer geschützt" skip="true" meaning="Kontoinhaber - Identifikation 2" changePriority="A" viewPriority="A" primaryName="bkoid2"/>
+    <entries englishName="bankAcctHolderName" name="bkoinh" type="GL70" guiType="INPUT" description="" width="70" screenProtection="immer geschützt" skip="true" meaning="Name des Kontoinhabers" changePriority="A" viewPriority="A" primaryName="bkoinh"/>
+    <entries englishName="bank" name="bbank" type="P96:1" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Bank" changePriority="A" viewPriority="A" primaryName="bbank"/>
+    <entries englishName="bankName" name="bname" type="GL70" guiType="INPUT" description="" width="70" screenProtection="immer geschützt" skip="true" meaning="Bankname" changePriority="A" viewPriority="A" primaryName="bname"/>
+    <entries englishName="bankInternatBankId" name="biident" type="GL11" guiType="INPUT" description="" width="11" screenProtection="immer geschützt" skip="true" meaning="Internationale Bankidentifikation z.B. BIC, SWIFT" changePriority="A" viewPriority="A" primaryName="biident"/>
+    <entries englishName="bankNatBankId" name="bnident" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Nationale Bankidentifikation, z.B. BLZ" changePriority="A" viewPriority="A" primaryName="bnident"/>
+    <entries englishName="bankNatBankId2" name="bnident2" type="GL10" guiType="INPUT" description="" width="10" screenProtection="immer geschützt" skip="true" meaning="Nationale Bankidentifikation 2, z.B. Identifikation der Bankfiliale" changePriority="A" viewPriority="A" primaryName="bnident2"/>
+    <entries englishName="bankCtryCode" name="blakenn" type="NT3" guiType="INPUT" description="" width="3" screenProtection="immer geschützt" skip="true" meaning="Länderkennzeichen der Bankadresse" changePriority="A" viewPriority="A" primaryName="blakenn"/>
+    <entries englishName="bankCtryCode2Char" name="biso2" type="NT2" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" skip="true" meaning="Bankadresse: 2-stelliger Ländercode, z.B. nach ISO 3166" changePriority="A" viewPriority="A" primaryName="biso2"/>
+    <entries englishName="bankCtry" name="bstaat" type="PS97:1" guiType="REFERENCE" description="" width="26" screenProtection="immer geschützt" skip="true" meaning="Bankadresse: Land" changePriority="A" viewPriority="A" primaryName="bstaat"/>
+    <entries englishName="bankTown" name="bort" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="immer geschützt" skip="true" meaning="Bankadresse: Ort" changePriority="A" viewPriority="A" primaryName="bort"/>
+    <entries englishName="serviceResource" name="emittel" type="PS115:2" guiType="REFERENCE" description="" width="21" screenProtection="änderbar" writeable="true" meaning="Einsatzmittel" changePriority="A" viewPriority="A" primaryName="emittel"/>
+    <entries englishName="serviceResourceDescr" name="emittelname" type="PT115:2" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Einsatzmittel" changePriority="A" viewPriority="A" primaryName="emittel"/>
+    <entries englishName="serviceDuration" name="dauer" type="MP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Dauer in Stunden" changePriority="A" viewPriority="A" primaryName="dauer"/>
+    <entries englishName="serviceTeam" name="serteam" type="PS117:2" guiType="REFERENCE" description="" width="21" screenProtection="änderbar" writeable="true" meaning="Service-Team" changePriority="A" viewPriority="A" primaryName="serteam"/>
+    <entries englishName="serviceTeamDescr" name="serteamname" type="PT117:2" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Service-Team" changePriority="A" viewPriority="A" primaryName="serteam"/>
+    <entries englishName="serviceEngineer" name="techniker" type="PS117:1" guiType="REFERENCE" description="" width="21" screenProtection="änderbar" writeable="true" meaning="Service-Techniker" changePriority="A" viewPriority="A" primaryName="techniker"/>
+    <entries englishName="serviceEngineerDescr" name="technikername" type="PT117:1" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Service-Techniker" changePriority="A" viewPriority="A" primaryName="techniker"/>
+    <entries englishName="extServiceProvider" name="extdl" type="P1:1" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Externer Dienstleister" changePriority="A" viewPriority="A" primaryName="extdl"/>
+    <entries englishName="extServiceProviderBriefDescr" name="extdlname" type="PT1:1" guiType="REFERENCE" description="" width="62" screenProtection="immer geschützt" alias="true" meaning="Externer Dienstleister" changePriority="A" viewPriority="A" primaryName="extdl"/>
+    <entries englishName="ATLASParticipIdNo" name="tin" type="GL17" guiType="INPUT" description="" width="17" screenProtection="änderbar" writeable="true" meaning="Teilnehmer-Identifikationsnummer des Empfängers für ATLAS" changePriority="A" viewPriority="A" primaryName="tin"/>
+    <entries englishName="ATLASProcDeclared" name="atverfan" type="AZL20010" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Verfahren für ATLAS (angemeldet)" changePriority="A" viewPriority="A" primaryName="atverfan"/>
+    <entries englishName="ATLASProcDeclaredCode" name="atverfanc" type="AZMK20010" guiType="COMBOBOX" description="" width="2" screenProtection="änderbar" writeable="true" alias="true" meaning="Verfahren für ATLAS (angemeldet)" changePriority="A" viewPriority="A" primaryName="atverfan"/>
+    <entries englishName="ATLASProcPrev" name="atverfvor" type="AZL20011" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Verfahren für ATLAS (vorangegangenes)" changePriority="A" viewPriority="A" primaryName="atverfvor"/>
+    <entries englishName="ATLASProcPrevCode" name="atverfvorc" type="AZMK20011" guiType="COMBOBOX" description="" width="2" screenProtection="änderbar" writeable="true" alias="true" meaning="Verfahren für ATLAS (vorangegangenes)" changePriority="A" viewPriority="A" primaryName="atverfvor"/>
+    <entries englishName="ATLASProcNext" name="atverfwei" type="AZL20012" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Verfahren für ATLAS (weiteres)" changePriority="A" viewPriority="A" primaryName="atverfwei"/>
+    <entries englishName="ATLASProcNextCode" name="atverfweic" type="AZMK20012" guiType="COMBOBOX" description="" width="3" screenProtection="änderbar" writeable="true" alias="true" meaning="Verfahren für ATLAS (weiteres)" changePriority="A" viewPriority="A" primaryName="atverfwei"/>
+    <entries englishName="transpMeansBord" name="befmart" type="AZL20008" guiType="COMBOBOX" description="" width="25" screenProtection="änderbar" writeable="true" meaning="Art des Beförderungsmittels an der Grenze" changePriority="A" viewPriority="A" primaryName="befmart"/>
+    <entries englishName="transpMeansBordCodeType" name="befmartc" type="AZMK20008" guiType="COMBOBOX" description="" width="2" screenProtection="änderbar" writeable="true" alias="true" meaning="Art des Beförderungsmittels an der Grenze" changePriority="A" viewPriority="A" primaryName="befmart"/>
+    <entries englishName="townIncoterm" name="incoort" type="GL35" guiType="INPUT" description="" width="35" screenProtection="änderbar" writeable="true" meaning="Ort zu Incoterm" changePriority="A" viewPriority="A" primaryName="incoort"/>
+    <entries englishName="procTaxRule" name="vrgstrgl" type="PS156:1" guiType="REFERENCE" description="" width="21" screenProtection="änderbar" writeable="true" meaning="Vorgangssteuerregel" changePriority="A" viewPriority="A" primaryName="vrgstrgl"/>
+    <entries englishName="nameProcessTaxRule" name="vrgstrglname" type="PT156:1" guiType="REFERENCE" description="" width="64" screenProtection="immer geschützt" alias="true" meaning="Vorgangssteuerregel" changePriority="A" viewPriority="A" primaryName="vrgstrgl"/>
+    <entries englishName="domCurr" name="inlwaehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Inlandswährung" changePriority="A" viewPriority="A" primaryName="inlwaehr"/>
+    <entries englishName="industry" name="branche" type="AZL20080" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Branche" changePriority="A" viewPriority="A" primaryName="branche"/>
+    <entries englishName="characteristic1" name="merkmal1" type="AZL20080" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" alias="true" meaning="Merkmal 1" changePriority="A" viewPriority="A" primaryName="branche"/>
+    <entries englishName="characteristic2" name="merkmal2" type="AZL20081" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Merkmal 2" changePriority="A" viewPriority="A" primaryName="merkmal2"/>
+    <entries englishName="characteristic3" name="merkmal3" type="AZL20082" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Merkmal 3" changePriority="A" viewPriority="A" primaryName="merkmal3"/>
+    <entries englishName="characteristic4" name="merkmal4" type="AZL20083" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Merkmal 4" changePriority="A" viewPriority="A" primaryName="merkmal4"/>
+    <entries englishName="characteristic5" name="merkmal5" type="AZL20084" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Merkmal 5" changePriority="A" viewPriority="A" primaryName="merkmal5"/>
+    <entries englishName="characteristic6" name="merkmal6" type="AZL20085" guiType="COMBOBOX" description="" width="50" screenProtection="änderbar" writeable="true" meaning="Merkmal 6" changePriority="A" viewPriority="A" primaryName="merkmal6"/>
+    <entries englishName="characteristicIdentifier1" name="merkmalbez1" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 1" changePriority="A" viewPriority="A" primaryName="merkmalbez1"/>
+    <entries englishName="characteristicIdentifier2" name="merkmalbez2" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 2" changePriority="A" viewPriority="A" primaryName="merkmalbez2"/>
+    <entries englishName="characteristicIdentifier3" name="merkmalbez3" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 3" changePriority="A" viewPriority="A" primaryName="merkmalbez3"/>
+    <entries englishName="characteristicIdentifier4" name="merkmalbez4" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 4" changePriority="A" viewPriority="A" primaryName="merkmalbez4"/>
+    <entries englishName="characteristicIdentifier5" name="merkmalbez5" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 5" changePriority="A" viewPriority="A" primaryName="merkmalbez5"/>
+    <entries englishName="characteristicIdentifier6" name="merkmalbez6" type="GL45" guiType="INPUT" description="" width="45" screenProtection="immer geschützt" skip="true" meaning="Bezeichnung Merkmal 6" changePriority="A" viewPriority="A" primaryName="merkmalbez6"/>
+    <entries englishName="lqParametersActive" name="lqparamaktiv" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Parameter für Liquiditätsplanung aktiv" changePriority="A" viewPriority="A" primaryName="lqparamaktiv"/>
+    <entries englishName="dueDateOI" name="opfaell" type="A276" guiType="COMBOBOX" description="" width="18" screenProtection="änderbar" writeable="true" meaning="Fälligkeit der Offenen Posten" changePriority="A" viewPriority="A" primaryName="opfaell"/>
+    <entries englishName="gracePeriodPackSlipInv" name="lsrektage" type="IP2" guiType="INTEGER" description="" width="2" screenProtection="änderbar" writeable="true" meaning="Karenztage zwischen Lieferschein und Rechnung" changePriority="A" viewPriority="A" primaryName="lsrektage"/>
+    <entries englishName="statAvgPaymtDuration" name="statzd" type="I5" guiType="INTEGER" description="" width="5" screenProtection="änderbar" writeable="true" meaning="Durchschnittliche Zahlungsdauer laut Statistik" changePriority="A" viewPriority="A" primaryName="statzd"/>
+    <entries englishName="statAvgDiscountRate" name="statskonto" type="R3.4" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Durchschnittlicher Skontosatz laut Statistik" changePriority="A" viewPriority="A" primaryName="statskonto"/>
+    <entries englishName="ignoreStatPaymtBehaviour" name="lqstatign" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Statistische Zahlungsdaten für die Liquiditätsplanung ignorieren" changePriority="A" viewPriority="A" primaryName="lqstatign"/>
+    <entries englishName="typeOfDocumentInPrint" name="drbelegart" type="PS88:11" guiType="REFERENCE" description="" width="16" screenProtection="immer geschützt" skip="true" meaning="Belegart im Druck" changePriority="A" viewPriority="A" primaryName="drbelegart"/>
+    <entries englishName="doc" name="doku" type="P70:1.2" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Dokument" changePriority="A" viewPriority="A" primaryName="doku"/>
+    <entries englishName="viewDoc" name="dokuz" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Dokument anzeigen" changePriority="A" viewPriority="A" primaryName="dokuz"/>
+    <entries englishName="returnsDocument" name="rueckdoku" type="P70:3" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Rückläuferdokument" changePriority="A" viewPriority="A" primaryName="rueckdoku"/>
+    <entries englishName="viewReturnsDocument" name="rueckdokuz" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Rückläuferdokument anzeigen" changePriority="A" viewPriority="A" primaryName="rueckdokuz"/>
+    <entries englishName="barCode" name="barcode" type="GL8" guiType="INPUT" description="" width="8" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Zugeordneter DMS Barcode" changePriority="A" viewPriority="A" primaryName="barcode"/>
+    <entries englishName="barcodeAssign" name="barcodezu" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="DMS Barcode zuordnen" changePriority="A" viewPriority="A" primaryName="barcodezu"/>
+    <entries englishName="dragAndDropSubject" name="dndbetreff" type="GL100" guiType="INPUT" description="" width="100" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Betreff Drag und Drop Archivierung" changePriority="A" viewPriority="A" primaryName="dndbetreff"/>
+    <entries englishName="dragDropAssign" name="dragdropzu" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="DMS Dokument zuordnen" changePriority="A" viewPriority="A" primaryName="dragdropzu"/>
+    <entries englishName="returnsDocBarCode" name="rueckbarcode" type="GL8" guiType="INPUT" description="" width="8" screenProtection="immer geschützt" skip="true" meaning="Zugeordneter DMS Rückläufer Barcode" changePriority="A" viewPriority="A" primaryName="rueckbarcode"/>
+    <entries englishName="documentsAppURL" name="dokumentbaurl" type="URL2" guiType="BROWSER" description="" width="2999" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="URL der Business App Dokumente" changePriority="A" viewPriority="A" primaryName="dokumentbaurl"/>
+    <entries englishName="documentsAppReload" name="dokumentbaneulad" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Neu laden der Business App Dokumente" changePriority="A" viewPriority="A" primaryName="dokumentbaneulad"/>
+    <entries englishName="dragAndDropDocumentType" name="dndbelegart" type="PS88:11" guiType="REFERENCE" description="" width="16" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Belegart für Drag und Drop" changePriority="A" viewPriority="A" primaryName="dndbelegart"/>
+    <entries englishName="documentTypeCustomer" name="belartkunde" type="AZL20210" guiType="COMBOBOX" description="" width="35" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" alias="true" meaning="Belegart für Drag und Drop Kunde" changePriority="A" viewPriority="A" primaryName="dndbelegart"/>
+    <entries englishName="noDmsExport" name="keindmsexport" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" meaning="Kein DMS Stammdatenexport" changePriority="A" viewPriority="A" primaryName="keindmsexport"/>
+    <entries englishName="fileAppURL" name="aktebaurl" type="URL2" guiType="BROWSER" description="" width="2999" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="URL der Business App Kunden-/Interessentenakte" changePriority="A" viewPriority="A" primaryName="aktebaurl"/>
+    <entries englishName="fileAppReload" name="aktebaneulad" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Neu laden der Business App Kunden-/Interessentenakte" changePriority="A" viewPriority="A" primaryName="aktebaneulad"/>
+    <entries englishName="finAcctContact" name="fibukontakt" type="P0:2.7" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Fibu-Kontakt" changePriority="A" viewPriority="A" primaryName="fibukontakt"/>
+    <entries englishName="finAcctContactDescr" name="fibukontaktname" type="PT0:2.7" guiType="REFERENCE" description="" width="62" screenProtection="immer geschützt" alias="true" meaning="Fibu-Kontakt" changePriority="A" viewPriority="A" primaryName="fibukontakt"/>
+    <entries englishName="userBar1" name="sres1" type="BU1" description="" width="1" screenProtection="zeigen änderbar" writeable="true" meaning="Reserveleiste" changePriority="A" viewPriority="A" primaryName="sres1"/>
+    <entries englishName="yres" name="yres" type="VP0" guiType="REFERENCE" description="" width="11" screenProtection="änderbar" writeable="true" custom="true" meaning="Priorisierter Verweis auf ein Konto" changePriority="E" viewPriority="E" primaryName="yres"/>
+    <entries englishName="ybuprioe" name="ybuprioe" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Priorisierter Button mit PRIO E" changePriority="E" viewPriority="E" primaryName="ybuprioe"/>
+    <entries englishName="ynieges" name="ynieges" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" custom="true" meaning="änderbar" changePriority="A" viewPriority="A" primaryName="ynieges"/>
+    <entries englishName="yimmerges" name="yimmerges" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" custom="true" meaning="immer geschützt" changePriority="A" viewPriority="A" primaryName="yimmerges"/>
+    <entries englishName="yunsichtbar" name="yunsichtbar" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="Feld unsichtbar" writeable="true" custom="true" meaning="Feld unsichtbar" changePriority="A" viewPriority="A" primaryName="yunsichtbar"/>
+    <entries englishName="yzeigenaend" name="yzeigenaend" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="zeigen änderbar" writeable="true" custom="true" meaning="zeigen änderbar" changePriority="A" viewPriority="A" primaryName="yzeigenaend"/>
+    <entries englishName="yneuaend" name="yneuaend" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="nur neu änderbar" writeable="true" custom="true" meaning="nur neu änderbar" changePriority="A" viewPriority="A" primaryName="yneuaend"/>
+    <entries englishName="ybwverw" name="ybwverw" type="P20" guiType="REFERENCE" description="" width="16" screenProtection="änderbar" writeable="true" skip="true" custom="true" meaning="Bewegungsdaten-Verweis" changePriority="A" viewPriority="A" primaryName="ybwverw"/>
+    <entries englishName="ytraintesthead" name="ytraintesthead" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" custom="true" meaning="Test field head" changePriority="A" viewPriority="A" primaryName="ytraintesthead"/>
+    <entries englishName="ytraintesthead2" name="ytraintesthead2" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" custom="true" meaning="Test field table" changePriority="A" viewPriority="A" primaryName="ytraintesthead2"/>
+    <entries englishName="ytraintesthead3" name="ytraintesthead3" type="P2:1" guiType="REFERENCE" description="" width="16" screenProtection="änderbar" writeable="true" custom="true" meaning="Test field table" changePriority="A" viewPriority="A" primaryName="ytraintesthead3"/>
+  </schema:Variables>
+</xmi:XMI>
