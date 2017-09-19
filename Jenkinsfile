@@ -7,7 +7,8 @@ node {
 			try {
 				properties([parameters([
 						string(defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)', name: 'ESDK_VERSION'),
-						string(defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM')
+						string(defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)', name: 'BUILD_USER_PARAM'),
+						string(defaultValue: '2016r4n13', description: 'abas Essentials version', name: 'ERP_VERSION')
 					])
 				])
 				stage('Setup') {
@@ -16,6 +17,7 @@ node {
 					sh "git clean -f"
 					sh "git reset --hard origin/$BRANCH_NAME"
 					shInstallDockerCompose()
+					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
 					showGradleProps()
 				}
@@ -24,7 +26,9 @@ node {
 							passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
 						shDocker('login intra.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 					}
-					shDockerComposeUp()
+					withEnv(["ERP_VERSION=${env.ERP_VERSION}"]) {
+						shDockerComposeUp()
+					}
 					sleep 30
 				}
 				stage('Set version') {
@@ -33,6 +37,7 @@ node {
 					println("version: $version")
 					println("esdkVersion: $params.ESDK_VERSION")
 					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && (version != params.ESDK_VERSION)) {
+						currentBuild.description = currentBuild.description + " ESDK Version: ${params.ESDK_VERSION}"
 						println("Builduser: ${params.BUILD_USER_PARAM}")
 						justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
 						if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
@@ -60,9 +65,11 @@ node {
 						shGradle("publish")
 					}
 				}
+				currentBuild.description = currentBuild.description + " => successful"
 			} catch (any) {
 				any.printStackTrace()
 				currentBuild.result = 'FAILURE'
+				currentBuild.description = currentBuild.description + " => failed"
 				throw any
 			} finally {
 				shDockerComposeCleanUp()
