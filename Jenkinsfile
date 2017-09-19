@@ -17,7 +17,7 @@ node {
 					sh "git clean -f"
 					sh "git reset --hard origin/$BRANCH_NAME"
 					shInstallDockerCompose()
-					currentBuild.description("ERP Version: ${env.ERP_VERSION}")
+					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
 					showGradleProps()
 				}
