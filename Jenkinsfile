@@ -26,7 +26,7 @@ node {
 							passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
 						shDocker('login intra.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 					}
-					withEnv(["ERP_VERSION=${env.ERP_VERSION}"]) {
+					withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 						shDockerComposeUp()
 					}
 					sleep 30
@@ -40,7 +40,7 @@ node {
 						currentBuild.description = currentBuild.description + " ESDK Version: ${params.ESDK_VERSION}"
 						println("Builduser: ${params.BUILD_USER_PARAM}")
 						justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
-						if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
+						if (params.ESDK_VERSION.endsWith("-SNAPSHOT")) {
 							shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM)
 						} else {
 							shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM, env.BUILD_ID)
