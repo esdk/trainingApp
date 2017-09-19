@@ -17,6 +17,7 @@ node {
 					sh "git clean -f"
 					sh "git reset --hard origin/$BRANCH_NAME"
 					shInstallDockerCompose()
+					currentBuild.description("ERP Version: ${env.ERP_VERSION}")
 					initGradleProps()
 					showGradleProps()
 				}
@@ -36,6 +37,7 @@ node {
 					println("version: $version")
 					println("esdkVersion: $params.ESDK_VERSION")
 					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && (version != params.ESDK_VERSION)) {
+						currentBuild.description = currentBuild.description + " ESDK Version: ${params.ESDK_VERSION}"
 						println("Builduser: ${params.BUILD_USER_PARAM}")
 						justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
 						if (ESDK_VERSION.endsWith("-SNAPSHOT")) {
@@ -63,9 +65,11 @@ node {
 						shGradle("publish")
 					}
 				}
+				currentBuild.description = currentBuild.description + " => successful"
 			} catch (any) {
 				any.printStackTrace()
 				currentBuild.result = 'FAILURE'
+				currentBuild.description = currentBuild.description + " => failed"
 				throw any
 			} finally {
 				shDockerComposeCleanUp()
