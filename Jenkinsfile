@@ -56,7 +56,7 @@ node {
 					shGradle("publishHomeDirJars")
 					shGradle("fullInstall")
 				}
-				stage('Build') {
+				stage('Verify') {
 					shGradle("verify")
 				}
 				onMaster {
@@ -74,6 +74,7 @@ node {
 			} finally {
 				shDockerComposeCleanUp()
 
+				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
 
 				slackNotify(currentBuild.result)
