@@ -13,6 +13,8 @@ node {
 				])
 				stage('Setup') {
 					prepareEnv()
+					String esdkInMavenLocal = '$HOME/.m2/repository/​de/abas/esdk'
+					sh "if [ -e '$esdkInMavenLocal' -a -d '$esdkInMavenLocal' ]; then rm -rf $esdkInMavenLocal ; fi"
 					checkout scm
 					sh "git clean -f"
 					sh "git reset --hard origin/$BRANCH_NAME"
