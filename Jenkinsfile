@@ -19,6 +19,9 @@ node {
 					rmDirInMavenLocal '​de/abas/esdk'
 					shInstallDockerCompose()
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
+				}
+				stage('Set version') {
+					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
 					initGradleProps()
 					showGradleProps()
 				}
@@ -31,26 +34,6 @@ node {
 						shDockerComposeUp()
 					}
 					sleep 30
-				}
-				stage('Set version') {
-					shGradle("--version")
-					version = readVersion()
-					println("version: $version")
-					println("esdkVersion: $params.ESDK_VERSION")
-					if (params.ESDK_VERSION.matches("[0-9]+\\.[0-9]+\\.[0-9]+(-SNAPSHOT)?") && (version != params.ESDK_VERSION)) {
-						currentBuild.description = currentBuild.description + " ESDK Version: ${params.ESDK_VERSION}"
-						println("Builduser: ${params.BUILD_USER_PARAM}")
-						justReplace(version, params.ESDK_VERSION, "gradle.properties.template")
-						if (params.ESDK_VERSION.endsWith("-SNAPSHOT")) {
-							shGitCommitSnapshot("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM)
-						} else {
-							shGitCommitRelease("gradle.properties.template", params.ESDK_VERSION, params.BUILD_USER_PARAM, env.BUILD_ID)
-							sh 'git branch --force release HEAD'
-						}
-						withCredentials([usernamePassword(credentialsId: '44e7bb41-f9fc-483f-9e66-9751c0163d37', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
-							shGitPushIntoMaster("https://$GIT_USER:$GIT_PASSWORD@github.com/Tschasmine/trainingApp.git", params.ESDK_VERSION)
-						}
-					}
 				}
 				stage('Installation') {
 					shGradle("checkPreconditions -x importKeys")
