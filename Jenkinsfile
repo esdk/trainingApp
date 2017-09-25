@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@master') _
+@Library('esdk-jenkins-lib@ESDK-319-store-abas-essentials-version-c') _
 
 def version = ""
 node {
@@ -13,8 +13,7 @@ node {
 				])
 				stage('Setup') {
 					prepareEnv()
-					String esdkInMavenLocal = '$HOME/.m2/repository/​de/abas/esdk'
-					sh "if [ -e '$esdkInMavenLocal' -a -d '$esdkInMavenLocal' ]; then rm -rf $esdkInMavenLocal ; fi"
+					rmDirInMavenLocal '​de/abas/esdk'
 					checkout scm
 					sh "git clean -f"
 					sh "git reset --hard origin/$BRANCH_NAME"
