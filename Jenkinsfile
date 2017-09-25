@@ -19,11 +19,12 @@ node {
 					rmDirInMavenLocal '​de/abas/esdk'
 					shInstallDockerCompose()
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
+					initGradleProps()
+					showGradleProps()
 				}
 				stage('Set version') {
 					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
 					initGradleProps()
-					showGradleProps()
 				}
 				stage('Preparation') { // for display purposes
 					withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
