@@ -12,11 +12,11 @@ node {
 					])
 				])
 				stage('Setup') {
+					checkout scm
+					sh "git clean -fd"
+					sh "git reset --hard origin/$BRANCH_NAME"
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
-					checkout scm
-					sh "git clean -f"
-					sh "git reset --hard origin/$BRANCH_NAME"
 					shInstallDockerCompose()
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
