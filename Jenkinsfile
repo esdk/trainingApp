@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@ESDK-319-store-abas-essentials-version-c') _
+@Library('esdk-jenkins-lib@master') _
 
 def version = ""
 node {
