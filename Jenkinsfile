@@ -13,8 +13,8 @@ node {
 				])
 				stage('Setup') {
 					checkout scm
-					sh "git clean -fd"
 					sh "git reset --hard origin/$BRANCH_NAME"
+					sh "git clean -fd"
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
 					shInstallDockerCompose()
