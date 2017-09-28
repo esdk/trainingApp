@@ -62,7 +62,6 @@ esdk {
 		enums = ["FILE_FORMAT"]
 		screens = ["Customer:Customer": ["A"], "Sales:BlanketOrder": ["A"], "TestDb:TestStructure": ["A"]]
 		essentialsVersions = ["2016r1n00-2016r4n16", "2017r1n00-2017r4n16", "2018r1n00-2018r4n16"]
-		preconditions = ["version=201[6-8]r[1-4]n[\\d]{0,2}"]
 		preconditions = ["workDirs=ow1"]
 		languages = "DEA"
 	}
@@ -124,7 +123,7 @@ publishing {
 		mavenJava(MavenPublication) {
 			groupId 'de.abas.esdk.app'
 			artifactId 'trainingApp'
-			artifact "build/libs/${project.name}-standalone-app.jar"
+			artifact createAppJar
 		}
 	}
 	repositories {
