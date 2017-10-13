@@ -1,6 +1,7 @@
 gradle.properties
 build/
 out/
+bin/
 .idea/
 .gradle
 *.iml
