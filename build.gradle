@@ -47,6 +47,7 @@ repositories {
 		url esdkReleaseURL
 	}
 	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
+	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOTS" }
 }
 
 esdk {
@@ -108,7 +109,6 @@ compileJava {
 }
 
 configurations {
-	compile.extendsFrom provided
 	installer
 }
 
@@ -161,7 +161,6 @@ task downloadInstaller(type: Copy) {
 dependencies {
 	installer group: "de.abas.esdk", name: "installer", version: version, classifier: "", ext: 'zip',
 			changing: true
-	provided 'de.abas.homedir:log4j:1.0.0'
 	testCompile "junit:junit:4.12"
 	testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
