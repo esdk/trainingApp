@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@master') _
+@Library('esdk-jenkins-lib@use-global-docker-compose') _
 
 def version = ""
 node {
