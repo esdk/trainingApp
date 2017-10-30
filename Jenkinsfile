@@ -17,7 +17,6 @@ node {
 					sh "git clean -fd"
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
-					shInstallDockerCompose()
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
 					showGradleProps()
