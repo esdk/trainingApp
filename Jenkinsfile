@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@master') _
+@Library('esdk-jenkins-lib@use-global-docker-compose') _
 
 def version = ""
 node {
@@ -17,7 +17,6 @@ node {
 					sh "git clean -fd"
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
-					shInstallDockerCompose()
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
 					showGradleProps()
