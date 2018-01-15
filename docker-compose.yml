@@ -16,8 +16,11 @@ services:
       - "${GUI_TEST_PORT:-48592}:48392"
 
       environment:
-      - ABAS_HOST=solarsystem
+      - ABAS_HOST
       - ABAS_GUI_PORT=${GUI_TEST_PORT:-48592}
+      - http_proxy
+      - https_proxy
+      - no_proxy
 
       # The hostname is very important, especially if you intend to use `docker commit`
       user: s3
