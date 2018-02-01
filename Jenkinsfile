@@ -19,7 +19,6 @@ node {
 					rmDirInMavenLocal '​de/abas/esdk'
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
 					initGradleProps()
-					showGradleProps()
 				}
 				stage('Set version') {
 					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
