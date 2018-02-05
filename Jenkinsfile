@@ -61,8 +61,8 @@ node {
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
 
-				String message = "ESDK version: ${params.ESDK_VERSION} abas version: ${params.ERP_VERSION}"
-				slackNotify(currentBuild.result, message)
+				String message = "ESDK version: '${params.ESDK_VERSION}' abas version: '${params.ERP_VERSION}'"
+				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
 		}
 	}
