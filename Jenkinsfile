@@ -15,9 +15,11 @@ node {
 					])
 				])
 				stage('Setup') {
-					checkout scm
-					sh "git reset --hard origin/$BRANCH_NAME"
-					sh "git clean -fd"
+					timeout(1) {
+						checkout scm
+						sh "git reset --hard origin/$BRANCH_NAME"
+						sh "git clean -fd"
+					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
