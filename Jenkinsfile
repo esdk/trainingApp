@@ -1,6 +1,8 @@
-@Library('esdk-jenkins-lib@master') _
+@Library('esdk-jenkins-lib@ESDK-367-jenkins-library-print-job-param') _
 
 def version = ""
+String errorMessage = null
+
 node {
 	timestamps {
 		ansiColor('xterm') {
@@ -51,6 +53,7 @@ node {
 				currentBuild.description = currentBuild.description + " => successful"
 			} catch (any) {
 				any.printStackTrace()
+				errorMessage = any.message
 				currentBuild.result = 'FAILURE'
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
@@ -60,7 +63,10 @@ node {
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
 
-				String message = "ESDK version: '${params.ESDK_VERSION}' abas version: '${params.ERP_VERSION}'"
+				String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
+				if (null != errorMessage) {
+					message += "\n${errorMessage}"
+				}
 				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
 		}
