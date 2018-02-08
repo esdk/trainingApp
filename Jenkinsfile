@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@ESDK-367-jenkins-library-print-job-param') _
+@Library('esdk-jenkins-lib@master') _
 
 def version = ""
 String errorMessage = null
