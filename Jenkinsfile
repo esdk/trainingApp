@@ -1,6 +1,9 @@
 @Library('esdk-jenkins-lib@master') _
 
 def version = ""
+String errorMessage = null
+def stackTrace
+
 node {
 	timestamps {
 		ansiColor('xterm') {
@@ -12,9 +15,11 @@ node {
 					])
 				])
 				stage('Setup') {
-					checkout scm
-					sh "git reset --hard origin/$BRANCH_NAME"
-					sh "git clean -fd"
+					timeout(1) {
+						checkout scm
+						sh "git reset --hard origin/$BRANCH_NAME"
+						sh "git clean -fd"
+					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
 					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
@@ -51,6 +56,8 @@ node {
 				currentBuild.description = currentBuild.description + " => successful"
 			} catch (any) {
 				any.printStackTrace()
+				errorMessage = any.message
+				stackTrace = any.stackTrace
 				currentBuild.result = 'FAILURE'
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
@@ -60,7 +67,11 @@ node {
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
 
-				String message = "ESDK version: '${params.ESDK_VERSION}' abas version: '${params.ERP_VERSION}'"
+				String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
+				if (null != errorMessage) {
+					message += "\n${errorMessage}"
+					message += "\n${stackTrace}"
+				}
 				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
 		}
