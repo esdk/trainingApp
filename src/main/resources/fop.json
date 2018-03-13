@@ -1,13 +1,24 @@
 [
-	{
-		"databaseName" : "(Customer)",
-		"groupName" : "(Customer)",
-		"editorMode" : "neu",
-		"event" : "feldpruef",
-		"key" : "*",
-		"field" : "kontakt",
-		"headOrTable" : "K",
-		"isContinue" : "[C]",
-		"handler" : "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
-	}
+  {
+	"databaseName": "(Customer)",
+	"groupName": "(Customer)",
+	"editorMode": "neu",
+	"event": "feldpruef",
+	"key": "*",
+	"field": "kontakt",
+	"headOrTable": "K",
+	"isContinue": "[C]",
+	"handler": "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
+  },
+  {
+	"databaseName": "(Customer)",
+	"groupName": "(Customer)",
+	"editorMode": "ändern",
+	"event": "feldpruef",
+	"key": "*",
+	"field": "kontakt",
+	"headOrTable": "K",
+	"isContinue": "[C]",
+	"handler": "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
+  }
 ]
