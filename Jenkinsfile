@@ -2,7 +2,6 @@
 
 def version = ""
 String errorMessage = null
-def stackTrace
 
 node {
 	timestamps {
@@ -57,7 +56,6 @@ node {
 			} catch (any) {
 				any.printStackTrace()
 				errorMessage = any.message
-				stackTrace = any.stackTrace
 				currentBuild.result = 'FAILURE'
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
@@ -70,7 +68,6 @@ node {
 				String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
 				if (null != errorMessage) {
 					message += "\n${errorMessage}"
-					message += "\n${stackTrace}"
 				}
 				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
