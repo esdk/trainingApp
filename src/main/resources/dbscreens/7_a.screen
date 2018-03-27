@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="/de.abas.screen.model.core/model/core.ecore" xmlns:schema="/de.abas.screen.model.schema/model/schema.ecore" xmlns:screen="/de.abas.screen.model.screen/model/screen.ecore" xsi:schemaLocation="/de.abas.screen.model.core/model/core.ecore platform:/de.abas.screen.model.core/model/core.ecore">
+  <screen:Screen variables="/1" featureType="erpgui" smartScreenId="NG_DATABASE" smartScreenVersion="1.0.0">
+    <popups>
+      <popup id="menuTable"/>
+      <popup id="menuExecute"/>
+    </popups>
+    <language code="68" text="Deutsch" iso="de"/>
+    <id xsi:type="screen:DatabaseId" name="Arbeitsgang/Arbeitsgang" priority="A" groupName="Arbeitsgang" number="7" numberName="Arbeitsgang" screenNumber="7"/>
+    <frames standardHelp="2.3">
+      <elements xsi:type="core:GridLayout">
+        <cells alignmentX="fill" alignmentY="fill">
+          <elements xsi:type="core:NotebookLayout">
+            <notebookPanes>
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="operation_fhead_idno">
+                      <value key="de" value="Identnummer"/>
+                    </label>
+                  </elements>
+                  <elements xsi:type="core:Input" dimX="15">
+                    <variable englishName="idno" name="nummer" type="NK7" guiType="INPUT" description="" width="15" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num7"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="operation$1">
+                <value key="de" value="train"/>
+              </label>
+            </notebookPanes>
+          </elements>
+        </cells>
+        <metaInfo axis="column" stretch="zoom"/>
+      </elements>
+      <label viewLanguage="de" key="284c7cd455529a0fe75c7c29b5531b60">
+        <value key="de" value="Arbeitsgang"/>
+      </label>
+    </frames>
+  </screen:Screen>
+  <schema:Variables searchWord="V-07-00    " group="true" name="Operation">
+    <entries englishName="" name="grust" type="I9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Gruppe" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpNo" name="gruppe" type="GRN7" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpDescr" name="grbez" type="GRB7" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="recordNo" name="sn" type="P7" guiType="REFERENCE" description="" width="16" screenProtection="immer geschützt" meaning="Satznummer" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="id" name="id" type="ID7" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="DBNo" name="dnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="DBDescr" name="dbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="objectGrpNo" name="objgruppe" type="GRN7" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" meaning="Gruppennummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectGrpDescr" name="objgrbez" type="GRB7" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectDBNo" name="objdnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectDBDescr" name="objdbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectInTable" name="objinzeile" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Gehört das Objekt zur Tabelle?" changePriority="A" viewPriority="A" primaryName="objinzeile"/>
+    <entries englishName="rowCount" name="ozeilen" type="I5" guiType="INTEGER" description="" width="5" screenProtection="immer geschützt" meaning="Anzahl Zeilen im Tabellenteil" changePriority="A" viewPriority="A" primaryName="ozeilen"/>
+    <entries englishName="archiveFile" name="dateiarchivieren" type="DV0" guiType="FILEREFERENCE" description="" width="255" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Zu archivierendes Dokument" changePriority="A" viewPriority="A" primaryName="dateiarchivieren"/>
+    <entries englishName="print" name="budruck" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck"/>
+    <entries englishName="print2" name="budruck2" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck2"/>
+    <entries englishName="runIS" name="buinfosys" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Infosystem" changePriority="A" viewPriority="A" primaryName="buinfosys"/>
+    <entries englishName="callAction" name="buaktion" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Aktion auslösen" changePriority="A" viewPriority="A" primaryName="buaktion"/>
+    <entries englishName="version" name="versionn" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Versionsnummer" changePriority="A" viewPriority="A" primaryName="versionn"/>
+    <entries englishName="dontCreateVersion" name="versionierenicht" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Satz nicht versionieren?" changePriority="A" viewPriority="A" primaryName="versionierenicht"/>
+    <entries englishName="versionedRecord" name="versioniertersatz" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Handelt es sich um eine gespeicherte Version?" changePriority="A" viewPriority="A" primaryName="versioniertersatz"/>
+    <entries englishName="createVersion" name="versionerstellen" type="A274" guiType="COMBOBOX" description="" width="22" screenProtection="änderbar" writeable="true" skip="true" meaning="Soll beim nächsten Speichern eine Version erstellt werden?" changePriority="A" viewPriority="A" primaryName="versionerstellen"/>
+    <entries englishName="relevantVersion" name="versionrelevant" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Hat sich in diesem Satz ein konfigurierter VA geändert?" changePriority="A" viewPriority="A" primaryName="versionrelevant"/>
+    <entries englishName="recordFilingVersion" name="ablagen" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Zeitstempel der Datensatzablage" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="recordFiled" name="ablagef" type="ZAE0" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" alias="true" meaning="Datensatz abgelegt?" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="type" name="typ" type="K2" guiType="INTEGER" description="" width="2" screenProtection="immer geschützt" meaning="Datensatztyp" changePriority="A" viewPriority="A" primaryName="typ"/>
+    <entries englishName="" name="num7" type="N7" guiType="INPUT" description="" width="15" screenProtection="kerngesteuert" writeable="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num7"/>
+    <entries englishName="idno" name="nummer" type="NK7" guiType="INPUT" description="" width="15" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num7"/>
+    <entries englishName="idnoPadded" name="nummerb" type="NL7" guiType="INPUT" description="" width="15" screenProtection="kerngesteuert" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num7"/>
+    <entries englishName="" name="such7" type="SW7" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such7"/>
+    <entries englishName="swd" name="such" type="SWK7" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such7"/>
+    <entries englishName="swdPadded" name="suchb" type="SWL7" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such7"/>
+    <entries englishName="descr" name="name" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Bezeichnung" changePriority="A" viewPriority="A" primaryName="name"/>
+    <entries englishName="descr1" name="name1" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" alias="true" meaning="Text in Deutsch" changePriority="A" viewPriority="A" primaryName="name"/>
+    <entries englishName="descr2" name="name2" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Englisch" changePriority="A" viewPriority="A" primaryName="name2"/>
+    <entries englishName="descr3" name="name3" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Französisch" changePriority="A" viewPriority="A" primaryName="name3"/>
+    <entries englishName="descr4" name="name4" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Spanisch" changePriority="A" viewPriority="A" primaryName="name4"/>
+    <entries englishName="descr5" name="name5" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Italienisch" changePriority="A" viewPriority="A" primaryName="name5"/>
+    <entries englishName="descr6" name="name6" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Polnisch" changePriority="A" viewPriority="A" primaryName="name6"/>
+    <entries englishName="descr7" name="name7" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Russisch" changePriority="A" viewPriority="A" primaryName="name7"/>
+    <entries englishName="descr8" name="name8" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Ungarisch" changePriority="A" viewPriority="A" primaryName="name8"/>
+    <entries englishName="descr9" name="name9" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Tschechisch" changePriority="A" viewPriority="A" primaryName="name9"/>
+    <entries englishName="descr10" name="name10" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Türkisch" changePriority="A" viewPriority="A" primaryName="name10"/>
+    <entries englishName="descr11" name="name11" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 1" changePriority="A" viewPriority="A" primaryName="name11"/>
+    <entries englishName="descr12" name="name12" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 2" changePriority="A" viewPriority="A" primaryName="name12"/>
+    <entries englishName="descr13" name="name13" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Sprache 3" changePriority="A" viewPriority="A" primaryName="name13"/>
+    <entries englishName="descr14" name="name14" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in amerikanischem Englisch" changePriority="A" viewPriority="A" primaryName="name14"/>
+    <entries englishName="descr15" name="name15" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Rumänisch" changePriority="A" viewPriority="A" primaryName="name15"/>
+    <entries englishName="descr16" name="name16" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Indonesisch" changePriority="A" viewPriority="A" primaryName="name16"/>
+    <entries englishName="descr17" name="name17" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Niederländisch" changePriority="A" viewPriority="A" primaryName="name17"/>
+    <entries englishName="descr18" name="name18" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Mazedonisch" changePriority="A" viewPriority="A" primaryName="name18"/>
+    <entries englishName="descr19" name="name19" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Bulgarisch" changePriority="A" viewPriority="A" primaryName="name19"/>
+    <entries englishName="descr20" name="name20" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Serbisch" changePriority="A" viewPriority="A" primaryName="name20"/>
+    <entries englishName="descr21" name="name21" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Slowenisch" changePriority="A" viewPriority="A" primaryName="name21"/>
+    <entries englishName="descr22" name="name22" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Slowakisch" changePriority="A" viewPriority="A" primaryName="name22"/>
+    <entries englishName="descr23" name="name23" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Portugiesisch" changePriority="A" viewPriority="A" primaryName="name23"/>
+    <entries englishName="descr24" name="name24" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in vereinfachtem Chinesisch" changePriority="A" viewPriority="A" primaryName="name24"/>
+    <entries englishName="descr25" name="name25" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in traditionellem Chinesisch" changePriority="A" viewPriority="A" primaryName="name25"/>
+    <entries englishName="descr26" name="name26" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Griechisch" changePriority="A" viewPriority="A" primaryName="name26"/>
+    <entries englishName="descr27" name="name27" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Thailändisch" changePriority="A" viewPriority="A" primaryName="name27"/>
+    <entries englishName="descr28" name="name28" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Arabisch" changePriority="A" viewPriority="A" primaryName="name28"/>
+    <entries englishName="descr29" name="name29" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Persisch" changePriority="A" viewPriority="A" primaryName="name29"/>
+    <entries englishName="descr30" name="name30" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Vietnamesisch" changePriority="A" viewPriority="A" primaryName="name30"/>
+    <entries englishName="descr31" name="name31" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Urdu" changePriority="A" viewPriority="A" primaryName="name31"/>
+    <entries englishName="descr32" name="name32" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" meaning="Text in Japanisch" changePriority="A" viewPriority="A" primaryName="name32"/>
+    <entries englishName="descrOperLang" name="namebspr" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Bediensprache" changePriority="A" viewPriority="A" primaryName="namebspr"/>
+    <entries englishName="searchExt" name="sucherw" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" skip="true" alias="true" meaning="Sucherweiterung" changePriority="A" viewPriority="A" primaryName="namebspr"/>
+    <entries englishName="descrCorrLang" name="namekspr" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Korrespondenzsprache" changePriority="A" viewPriority="A" primaryName="namekspr"/>
+    <entries englishName="descrOutLang" name="nameaspr" type="T32" guiType="TEXTAREA" description="" width="32" screenProtection="änderbar" writeable="true" skip="true" meaning="Bezeichnung in Ausgabesprache" changePriority="A" viewPriority="A" primaryName="nameaspr"/>
+    <entries englishName="translateText" name="nameueb" type="BU7" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" meaning="Text übersetzen" changePriority="A" viewPriority="A" primaryName="nameueb"/>
+    <entries englishName="modificationDate" name="stand" type="GD19" guiType="DATE" description="" width="19" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Änderungsdatum" changePriority="A" viewPriority="A" primaryName="stand"/>
+    <entries englishName="creationDate" name="erfass" type="GD19" guiType="DATE" description="" width="19" screenProtection="nur neu änderbar" writeable="true" meaning="Erfassungsdatum" changePriority="A" viewPriority="A" primaryName="erfass"/>
+    <entries englishName="responsOperator" name="zeich" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="zeich"/>
+    <entries englishName="lastProcessor" name="zeichen" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" alias="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="zeich"/>
+    <entries englishName="userDefinedVersion" name="index" type="GLU2" guiType="INPUT" description="" width="2" screenProtection="änderbar" writeable="true" meaning="Versionskennung" changePriority="A" viewPriority="A" primaryName="index"/>
+    <entries englishName="sourceClient" name="urmand" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" meaning="Ursprungsmandant des Datensatzes" changePriority="A" viewPriority="A" primaryName="urmand"/>
+    <entries englishName="recordClient" name="mandkenn" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" skip="true" meaning="Mandantenkennung des Datensatzes" changePriority="A" viewPriority="A" primaryName="mandkenn"/>
+    <entries englishName="GUID" name="guid" type="GLA38" guiType="INPUT" description="" width="38" screenProtection="nur neu änderbar" writeable="true" meaning="GUID des Datensatzes" changePriority="A" viewPriority="A" primaryName="guid"/>
+    <entries englishName="package" name="paket" type="P87:10" guiType="REFERENCE" description="" width="9" screenProtection="standardgesteuert" writeable="true" meaning="Paketzugehörigkeit" changePriority="A" viewPriority="A" primaryName="paket"/>
+    <entries englishName="workCenter" name="mgr" type="P8:2" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Maschinengruppe" changePriority="A" viewPriority="A" primaryName="mgr"/>
+    <entries englishName="workCenterDescr" name="mgrname" type="PT8:2" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Maschinengruppe" changePriority="A" viewPriority="A" primaryName="mgr"/>
+    <entries englishName="teamSize" name="grgr" type="MP4.2" guiType="REAL" description="" width="7" screenProtection="änderbar" writeable="true" meaning="Gruppengröße" changePriority="A" viewPriority="A" primaryName="grgr"/>
+    <entries englishName="wageGrp" name="lgr" type="IP3" guiType="INTEGER" description="" width="3" screenProtection="änderbar" writeable="true" meaning="Lohngruppe" changePriority="A" viewPriority="A" primaryName="lgr"/>
+    <entries englishName="wageGrpSetup" name="lgrruesten" type="IP3" guiType="INTEGER" description="" width="3" screenProtection="änderbar" writeable="true" meaning="Lohngruppe Rüsten" changePriority="A" viewPriority="A" primaryName="lgrruesten"/>
+    <entries englishName="domCurr" name="inlwaehr" type="PS94:1" guiType="REFERENCE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Inlandswährung" changePriority="A" viewPriority="A" primaryName="inlwaehr"/>
+    <entries englishName="specialCostDomCurr" name="skosten" type="RP5.2" guiType="REAL" description="" width="8" screenProtection="immer geschützt" skip="true" meaning="Sonderkosten in Inlandswährung" changePriority="A" viewPriority="A" primaryName="skosten"/>
+    <entries englishName="specialCostFxdDomCurr" name="skostfix" type="RP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Sonderkosten fix in Inlandswährung" changePriority="A" viewPriority="A" primaryName="skostfix"/>
+    <entries englishName="specialCostVarDomCurr" name="skostvar" type="RP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Sonderkosten var in Inlandswährung" changePriority="A" viewPriority="A" primaryName="skostvar"/>
+    <entries englishName="directCostsPerUse" name="ekosten" type="RP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Einzelkosten pro Einsatz" changePriority="A" viewPriority="A" primaryName="ekosten"/>
+    <entries englishName="timeUnit" name="ze" type="TAZ1" guiType="COMBOBOX" description="" width="6" screenProtection="änderbar" writeable="true" meaning="Einzelzeiteinheit" changePriority="A" viewPriority="A" primaryName="ze"/>
+    <entries englishName="unitTimeSec" name="zesek" type="MP5.4" guiType="REAL" description="" width="10" screenProtection="änderbar" writeable="true" meaning="Sekunden pro Einzelzeiteinheit" changePriority="A" viewPriority="A" primaryName="zesek"/>
+    <entries englishName="setupTimeUnit" name="zr" type="TAZ1" guiType="COMBOBOX" description="" width="6" screenProtection="änderbar" writeable="true" meaning="Rüstzeiteinheit" changePriority="A" viewPriority="A" primaryName="zr"/>
+    <entries englishName="setupTimeSec" name="zrsek" type="MP5.4" guiType="REAL" description="" width="10" screenProtection="änderbar" writeable="true" meaning="Sekunden pro Rüstzeiteinheit" changePriority="A" viewPriority="A" primaryName="zrsek"/>
+    <entries englishName="setupTime" name="tr" type="MP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Rüstzeit in Rüstzeiteinheiten" changePriority="A" viewPriority="A" primaryName="tr"/>
+    <entries englishName="timeLimUnit" name="te" type="MP5.2" guiType="REAL" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Einzelzeit in Einzelzeiteinheiten" changePriority="A" viewPriority="A" primaryName="te"/>
+    <entries englishName="createWSlip" name="aschein" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Soll bei Freigabe ein Arbeitsschein erstellt werden?" changePriority="A" viewPriority="A" primaryName="aschein"/>
+    <entries englishName="freeText" name="ftext" type="TN" guiType="FREETEXT" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Freitext" changePriority="A" viewPriority="A" primaryName="ftext"/>
+    <entries englishName="code" name="kenn" type="NT64" guiType="INPUT" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Kennzeichen" changePriority="A" viewPriority="A" primaryName="kenn"/>
+    <entries englishName="comments" name="bem" type="T64" guiType="TEXTAREA" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Bemerkungen" changePriority="A" viewPriority="A" primaryName="bem"/>
+    <entries englishName="note" name="hinweis" type="GL15" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" meaning="Hinweis" changePriority="A" viewPriority="A" primaryName="hinweis"/>
+    <entries englishName="regulation" name="vorschr" type="GL12" guiType="INPUT" description="" width="12" screenProtection="änderbar" writeable="true" meaning="Vorschrift" changePriority="A" viewPriority="A" primaryName="vorschr"/>
+    <entries englishName="userBar1" name="sres1" type="BU1" description="" width="1" screenProtection="zeigen änderbar" writeable="true" meaning="Reserveleiste" changePriority="A" viewPriority="A" primaryName="sres1"/>
+  </schema:Variables>
+</xmi:XMI>
