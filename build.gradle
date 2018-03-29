@@ -61,7 +61,7 @@ esdk {
 		data = ["data.json"]
 		keys = ["2738"]
 		enums = ["FILE_FORMAT"]
-		screens = ["Customer:Customer": ["A"], "Sales:BlanketOrder": ["A"], "TestDb:TestStructure": ["A"]]
+		screens = ["Customer:Customer": ["A"], "Sales:BlanketOrder": ["A"], "Operation:Operation": ["A"], "Pricing:Pricing": ["A"], "TestDb:TestStructure": ["A"]]
 		essentialsVersions = ["2016r1n00-2016r4n16", "2017r1n00-2017r4n16", "2018r1n00-2018r4n16"]
 		preconditions = ["workDirs=ow1"]
 		languages = "DEA"
