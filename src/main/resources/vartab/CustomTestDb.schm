@@ -19,6 +19,14 @@ database master TestDb {
 				showPriority A
 				changePriority A
 			}
+			field ARTR1000001 testnamed {
+				label ""
+				heading ""
+				description "Test named type head"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
 		}
 		table {
 			field GL30 testtable {

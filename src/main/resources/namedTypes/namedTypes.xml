@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ABASData>
+    <RecordSet tableNumber="132:1" tableName="Arten:Real" identifier="guid" standard="false" importOnce="false">
+        <Record id="(190,132,0)">
+            <Head>
+                <Field name="id" abasType="ID132">(190,132,0)</Field>
+                <Field name="guid" abasType="GLA38">22214c20-5969-4551-a9d5-71b2e4824799</Field>
+                <Field name="nummer" abasType="NK132">1000001</Field>
+                <Field name="such" abasType="SWK132">TESTRNT</Field>
+                <Field name="name" abasType="GL45">test for named types in training app</Field>
+                <Field name="name14" abasType="GL45"></Field>
+                <Field name="classname" abasType="GLA40">TestRealNamedType</Field>
+                <Field name="vitf" abasType="NT24">R2.4</Field>
+                <Field name="vitnf" abasType="NT24"></Field>
+            </Head>
+        </Record>
+    </RecordSet>
+</ABASData>
