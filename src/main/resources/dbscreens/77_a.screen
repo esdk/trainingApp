@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="/de.abas.screen.model.core/model/core.ecore" xmlns:schema="/de.abas.screen.model.schema/model/schema.ecore" xmlns:screen="/de.abas.screen.model.screen/model/screen.ecore" xsi:schemaLocation="/de.abas.screen.model.core/model/core.ecore platform:/de.abas.screen.model.core/model/core.ecore">
+  <screen:Screen variables="/1" featureType="erpgui" smartScreenId="NG_DATABASE" smartScreenVersion="1.0.0">
+    <popups>
+      <popup id="menuTable"/>
+      <popup id="menuExecute"/>
+    </popups>
+    <language code="68" text="Deutsch" iso="de"/>
+    <id xsi:type="screen:DatabaseId" name="Betriebsaufträge/Betr-Auftrag" priority="A" groupName="Betriebsaufträge" group="1" number="9" numberName="Betr-Auftrag" screenNumber="77"/>
+    <frames standardHelp="5.5.6">
+      <elements xsi:type="core:GridLayout">
+        <cells alignmentX="fill" alignmentY="fill">
+          <elements xsi:type="core:NotebookLayout">
+            <notebookPanes>
+              <elements xsi:type="core:GridLayout">
+                <cells alignmentY="center">
+                  <elements xsi:type="core:Label">
+                    <label viewLanguage="de" key="workorders_fhead_id">
+                      <value key="de" value="Datensatz-ID"/>
+                    </label>
+                  </elements>
+                </cells>
+                <cells column="1" alignmentY="center">
+                  <elements xsi:type="core:ReferenceInput" dimX="30" dimY="1" accessType="readonly">
+                    <variable englishName="id" name="id" type="ID9" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
+                  </elements>
+                </cells>
+              </elements>
+              <label viewLanguage="de" key="workorders$0">
+                <value key="de" value="train"/>
+              </label>
+            </notebookPanes>
+          </elements>
+        </cells>
+        <metaInfo axis="column" stretch="zoom"/>
+        <metaInfo stretch="zoom"/>
+      </elements>
+      <label viewLanguage="de" key="b243d1e16ec919fef705626b90f1ebcf">
+        <value key="de" value="Arbeitsschein"/>
+      </label>
+    </frames>
+  </screen:Screen>
+  <schema:Variables searchWord="V-09-01    " group="true" name="WorkOrders">
+    <entries englishName="" name="grust" type="I9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Gruppe" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpNo" name="gruppe" type="GRN9" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpDescr" name="grbez" type="GRB9" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="recordNo" name="sn" type="P9" guiType="REFERENCE" description="" width="12" screenProtection="immer geschützt" meaning="Satznummer" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="id" name="id" type="ID9" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="DBNo" name="dnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="DBDescr" name="dbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung" changePriority="A" viewPriority="A" primaryName="dnr"/>
+    <entries englishName="objectGrpNo" name="objgruppe" type="GRN9" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" meaning="Gruppennummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectGrpDescr" name="objgrbez" type="GRB9" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectDBNo" name="objdnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectDBDescr" name="objdbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
+    <entries englishName="objectInTable" name="objinzeile" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Gehört das Objekt zur Tabelle?" changePriority="A" viewPriority="A" primaryName="objinzeile"/>
+    <entries englishName="rowNo" name="zn" type="I5" guiType="INTEGER" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Laufende Zeilennummer" changePriority="A" viewPriority="A" primaryName="zn"/>
+    <entries englishName="rowCount" name="ozeilen" type="I5" guiType="INTEGER" description="" width="5" screenProtection="immer geschützt" meaning="Anzahl Zeilen im Tabellenteil" changePriority="A" viewPriority="A" primaryName="ozeilen"/>
+    <entries englishName="archiveFile" name="dateiarchivieren" type="DV0" guiType="FILEREFERENCE" description="" width="255" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Zu archivierendes Dokument" changePriority="A" viewPriority="A" primaryName="dateiarchivieren"/>
+    <entries englishName="print" name="budruck" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck"/>
+    <entries englishName="print2" name="budruck2" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck2"/>
+    <entries englishName="runIS" name="buinfosys" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Infosystem" changePriority="A" viewPriority="A" primaryName="buinfosys"/>
+    <entries englishName="callAction" name="buaktion" type="BU14" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Aktion auslösen" changePriority="A" viewPriority="A" primaryName="buaktion"/>
+    <entries englishName="version" name="versionn" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Versionsnummer" changePriority="A" viewPriority="A" primaryName="versionn"/>
+    <entries englishName="dontCreateVersion" name="versionierenicht" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Satz nicht versionieren?" changePriority="A" viewPriority="A" primaryName="versionierenicht"/>
+    <entries englishName="versionedRecord" name="versioniertersatz" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Handelt es sich um eine gespeicherte Version?" changePriority="A" viewPriority="A" primaryName="versioniertersatz"/>
+    <entries englishName="createVersion" name="versionerstellen" type="A274" guiType="COMBOBOX" description="" width="22" screenProtection="änderbar" writeable="true" skip="true" meaning="Soll beim nächsten Speichern eine Version erstellt werden?" changePriority="A" viewPriority="A" primaryName="versionerstellen"/>
+    <entries englishName="relevantVersion" name="versionrelevant" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Hat sich in diesem Satz ein konfigurierter VA geändert?" changePriority="A" viewPriority="A" primaryName="versionrelevant"/>
+    <entries englishName="marked" name="markiert" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" meaning="Zeile markiert?" changePriority="A" viewPriority="A" primaryName="markiert"/>
+    <entries englishName="marker" name="markierung" type="I5" guiType="INTEGER" description="" width="5" screenProtection="änderbar" writeable="true" skip="true" meaning="Markierungsordnung" changePriority="A" viewPriority="A" primaryName="markierung"/>
+    <entries englishName="recordFilingVersion" name="ablagen" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="immer geschützt" meaning="Zeitstempel der Datensatzablage" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="recordFiled" name="ablagef" type="ZAE0" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" alias="true" meaning="Datensatz abgelegt?" changePriority="A" viewPriority="A" primaryName="ablagen"/>
+    <entries englishName="wOrderInWSlips" name="snba" type="P9:1" guiType="REFERENCE" description="" width="12" screenProtection="immer geschützt" meaning="Betriebsauftrag (in Arbeitsscheinen)" changePriority="A" viewPriority="A" primaryName="snba"/>
+    <entries englishName="type" name="typ" type="A279" guiType="COMBOBOX" description="" width="50" screenProtection="immer geschützt" meaning="Datensatztyp" changePriority="A" viewPriority="A" primaryName="typ"/>
+    <entries englishName="" name="num9" type="N9" guiType="INPUT" description="" width="11" screenProtection="immer geschützt" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num9"/>
+    <entries englishName="idno" name="nummer" type="NK9" guiType="INPUT" description="" width="11" screenProtection="immer geschützt" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num9"/>
+    <entries englishName="idnoPadded" name="nummerb" type="NL9" guiType="INPUT" description="" width="11" screenProtection="immer geschützt" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num9"/>
+    <entries englishName="" name="such9" type="SW9" guiType="INPUT" description="" width="30" screenProtection="immer geschützt" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such9"/>
+    <entries englishName="swd" name="such" type="SWK9" guiType="INPUT" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such9"/>
+    <entries englishName="swdPadded" name="suchb" type="SWL9" guiType="INPUT" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such9"/>
+    <entries englishName="comments" name="bem" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Bemerkungen" changePriority="A" viewPriority="A" primaryName="bem"/>
+    <entries englishName="searchExt" name="sucherw" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="immer geschützt" skip="true" meaning="Sucherweiterung" changePriority="A" viewPriority="A" primaryName="sucherw"/>
+    <entries englishName="modificationDate" name="stand" type="GD19" guiType="DATE" description="" width="19" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Änderungsdatum" changePriority="A" viewPriority="A" primaryName="stand"/>
+    <entries englishName="creationDate" name="erfass" type="GD19" guiType="DATE" description="" width="19" screenProtection="nur neu änderbar" writeable="true" meaning="Erfassungsdatum" changePriority="A" viewPriority="A" primaryName="erfass"/>
+    <entries englishName="lastOperator" name="aezeich" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="aezeich"/>
+    <entries englishName="lastProcessor" name="zeichen" type="GL15" guiType="INPUT" description="" width="15" screenProtection="Multisiteimport änderbar" writeable="true" alias="true" meaning="Letzter Bearbeiter" changePriority="A" viewPriority="A" primaryName="aezeich"/>
+    <entries englishName="userDefinedVersion" name="index" type="GLU2" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" skip="true" meaning="Versionskennung" changePriority="A" viewPriority="A" primaryName="index"/>
+    <entries englishName="sourceClient" name="urmand" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" meaning="Ursprungsmandant des Datensatzes" changePriority="A" viewPriority="A" primaryName="urmand"/>
+    <entries englishName="recordClient" name="mandkenn" type="GLA15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" skip="true" meaning="Mandantenkennung des Datensatzes" changePriority="A" viewPriority="A" primaryName="mandkenn"/>
+    <entries englishName="GUID" name="guid" type="GLA38" guiType="INPUT" description="" width="38" screenProtection="nur neu änderbar" writeable="true" meaning="GUID des Datensatzes" changePriority="A" viewPriority="A" primaryName="guid"/>
+    <entries englishName="package" name="paket" type="P87:10" guiType="REFERENCE" description="" width="9" screenProtection="standardgesteuert" writeable="true" meaning="Paketzugehörigkeit" changePriority="A" viewPriority="A" primaryName="paket"/>
+    <entries englishName="modificationVersion" name="version" type="IP4" guiType="INTEGER" description="" width="4" screenProtection="änderbar" writeable="true" meaning="Änderungsstand" changePriority="A" viewPriority="A" primaryName="version"/>
+    <entries englishName="attach" name="barm" type="P9:2" guiType="REFERENCE" description="" width="12" screenProtection="immer geschützt" meaning="Anhängende Rückmeldung" changePriority="A" viewPriority="A" primaryName="barm"/>
+    <entries englishName="" name="art" type="PS2:1.5" guiType="REFERENCE" description="" width="31" screenProtection="immer geschützt" meaning="Fertigartikel" changePriority="A" viewPriority="A" primaryName="art"/>
+    <entries englishName="product" name="artikel" type="PS2:1.5" guiType="REFERENCE" description="" width="31" screenProtection="immer geschützt" alias="true" meaning="Fertigartikel" changePriority="A" viewPriority="A" primaryName="art"/>
+    <entries englishName="productDescr" name="tename" type="PT2:1.5" guiType="REFERENCE" description="" width="32" screenProtection="immer geschützt" alias="true" meaning="Artikelbezeichnung" changePriority="A" viewPriority="A" primaryName="art"/>
+    <entries englishName="seriesOfOperations" name="ag" type="PS7:0" guiType="REFERENCE" description="" width="31" screenProtection="immer geschützt" meaning="Arbeitsgang" changePriority="A" viewPriority="A" primaryName="ag"/>
+    <entries englishName="status" name="status" type="NT1" guiType="INPUT" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Statuszeichen" changePriority="A" viewPriority="A" primaryName="status"/>
+    <entries englishName="confYieldSUTotal" name="rgutmge" type="MP6.3" guiType="REAL" description="" width="10" screenProtection="immer geschützt" meaning="Gesamte rückgemeldete Gutmenge in Lagereinheit" changePriority="A" viewPriority="A" primaryName="rgutmge"/>
+    <entries englishName="confScrapSUTotal" name="rverlust" type="MP6.3" guiType="REAL" description="" width="10" screenProtection="immer geschützt" meaning="Gesamter rückgemeldeter Ausschuss in Lagereinheit" changePriority="A" viewPriority="A" primaryName="rverlust"/>
+    <entries englishName="autoEnteredYield" name="emge" type="MP6.3" guiType="REAL" description="" width="10" screenProtection="immer geschützt" meaning="Automatisch gebuchte Gutmenge" changePriority="A" viewPriority="A" primaryName="emge"/>
+    <entries englishName="stdTimeHrs" name="vzeit" type="M5.2" guiType="REAL" description="" width="8" screenProtection="immer geschützt" skip="true" meaning="Vorgabezeit in Stunden" changePriority="A" viewPriority="A" primaryName="vzeit"/>
+    <entries englishName="setupTime" name="tr" type="MP5.2" guiType="REAL" description="" width="8" screenProtection="immer geschützt" meaning="Rüstzeit in Rüstzeiteinheiten" changePriority="A" viewPriority="A" primaryName="tr"/>
+    <entries englishName="timeLimUnit" name="te" type="MP5.2" guiType="REAL" description="" width="8" screenProtection="immer geschützt" meaning="Einzelzeit in Einzelzeiteinheiten" changePriority="A" viewPriority="A" primaryName="te"/>
+    <entries englishName="use" name="nutzen" type="MP4.4" guiType="REAL" description="" width="9" screenProtection="immer geschützt" skip="true" meaning="Nutzen" changePriority="A" viewPriority="A" primaryName="nutzen"/>
+    <entries englishName="" name="anzahl" type="MP4.4" guiType="REAL" description="" width="9" screenProtection="immer geschützt" meaning="Ausführungsanzahl des Arbeitsgangs" changePriority="A" viewPriority="A" primaryName="anzahl"/>
+    <entries englishName="elemQty" name="elanzahl" type="MP4.4" guiType="REAL" description="" width="9" screenProtection="immer geschützt" alias="true" meaning="Ausführungsanzahl des Arbeitsgangs" changePriority="A" viewPriority="A" primaryName="anzahl"/>
+    <entries englishName="unitTimeSec" name="zesek" type="MP5.4" guiType="REAL" description="" width="10" screenProtection="immer geschützt" meaning="Sekunden pro Einzelzeiteinheit" changePriority="A" viewPriority="A" primaryName="zesek"/>
+    <entries englishName="timeUnit" name="ze" type="TAZ1" guiType="COMBOBOX" description="" width="6" screenProtection="immer geschützt" meaning="Einzelzeiteinheit" changePriority="A" viewPriority="A" primaryName="ze"/>
+    <entries englishName="setupTimeUnit" name="zr" type="TAZ1" guiType="COMBOBOX" description="" width="6" screenProtection="immer geschützt" meaning="Rüstzeiteinheit" changePriority="A" viewPriority="A" primaryName="zr"/>
+    <entries englishName="setupTimeSec" name="zrsek" type="MP5.4" guiType="REAL" description="" width="10" screenProtection="immer geschützt" meaning="Sekunden pro Rüstzeiteinheit" changePriority="A" viewPriority="A" primaryName="zrsek"/>
+    <entries englishName="prodListBase" name="flbasis" type="MP6.4" guiType="REAL" description="" width="11" screenProtection="immer geschützt" skip="true" meaning="Fertigungslistenbasis" changePriority="A" viewPriority="A" primaryName="flbasis"/>
+    <entries englishName="unitQty" name="mge" type="M6.3" guiType="REAL" description="" width="10" screenProtection="kerngesteuert" writeable="true" meaning="Menge in Lagereinheit" changePriority="A" viewPriority="A" primaryName="mge"/>
+    <entries englishName="workCenter" name="mgr" type="P8" guiType="REFERENCE" description="" width="9" screenProtection="änderbar" writeable="true" meaning="Maschinengruppe/Abteilung" changePriority="A" viewPriority="A" primaryName="mgr"/>
+    <entries englishName="dateFrom" name="vom" type="GD2" guiType="DATE" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Erstellungsdatum" changePriority="A" viewPriority="A" primaryName="vom"/>
+    <entries englishName="performanceDate" name="leidat" type="GD2" guiType="DATE" description="" width="8" screenProtection="änderbar" writeable="true" meaning="Leistungsdatum (Kostenrechnung)" changePriority="A" viewPriority="A" primaryName="leidat"/>
+    <entries englishName="factorQty" name="menge" type="RP6.4" guiType="REAL" description="" width="11" screenProtection="immer geschützt" meaning="Mengenfaktor pro Fertigteil" changePriority="A" viewPriority="A" primaryName="menge"/>
+    <entries englishName="costCenter" name="kstelle" type="P5:2.4.8" guiType="REFERENCE" description="" width="9" screenProtection="kerngesteuert" writeable="true" meaning="Kostenstelle, Kostenträger, Kostenverteiler" changePriority="A" viewPriority="A" primaryName="kstelle"/>
+    <entries englishName="usage" name="verw" type="GL15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" meaning="Verwendung" changePriority="A" viewPriority="A" primaryName="verw"/>
+    <entries englishName="openMatAlloc" name="mzsubm" type="BU8" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Materialzuordnung anzeigen/bearbeiten" changePriority="A" viewPriority="A" primaryName="mzsubm"/>
+    <entries englishName="responsOperator" name="zeich" type="GL15" guiType="INPUT" description="" width="15" screenProtection="immer geschützt" meaning="Zuständiger Bearbeiter" changePriority="A" viewPriority="A" primaryName="zeich"/>
+    <entries englishName="lastReservation" name="lres" type="P4:4.5" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" meaning="Fertigungsvorschlag / Arbeitsgangreservierung" changePriority="A" viewPriority="A" primaryName="lres"/>
+    <entries englishName="firstRes" name="eres" type="P4:4" guiType="REFERENCE" description="" width="9" screenProtection="immer geschützt" meaning="Erste Reservierung des Arbeitsscheins" changePriority="A" viewPriority="A" primaryName="eres"/>
+    <entries englishName="wageGrp" name="lgr" type="IP3" guiType="INTEGER" description="" width="3" screenProtection="immer geschützt" meaning="Lohngruppe" changePriority="A" viewPriority="A" primaryName="lgr"/>
+    <entries englishName="wageGrpSetup" name="lgrruesten" type="IP3" guiType="INTEGER" description="" width="3" screenProtection="immer geschützt" meaning="Lohngruppe Rüsten" changePriority="A" viewPriority="A" primaryName="lgrruesten"/>
+    <entries englishName="startDateWeek" name="sterm" type="GW2" guiType="DATE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Anfangstermin (Woche)" changePriority="A" viewPriority="A" primaryName="sterm"/>
+    <entries englishName="startDateDay" name="tsterm" type="GD2" guiType="DATE" description="" width="8" screenProtection="immer geschützt" skip="true" alias="true" meaning="Anfangstermin (Tag)" changePriority="A" viewPriority="A" primaryName="sterm"/>
+    <entries englishName="startDateTime" name="psterm" type="GD19" guiType="DATE" description="" width="19" screenProtection="immer geschützt" skip="true" alias="true" meaning="Anfangstermin (Zeitpunkt)" changePriority="A" viewPriority="A" primaryName="sterm"/>
+    <entries englishName="startDateWeekOrDay" name="wtsterm" type="GD2" guiType="DATE" description="" width="8" screenProtection="immer geschützt" skip="true" alias="true" meaning="Anfangstermin" changePriority="A" viewPriority="A" primaryName="sterm"/>
+    <entries englishName="deadline" name="term" type="GW2" guiType="DATE" description="" width="5" screenProtection="immer geschützt" skip="true" meaning="Endtermin (Woche)" changePriority="A" viewPriority="A" primaryName="term"/>
+    <entries englishName="deadlineDay" name="tterm" type="GD2" guiType="DATE" description="" width="8" screenProtection="immer geschützt" skip="true" alias="true" meaning="Endtermin (Tag)" changePriority="A" viewPriority="A" primaryName="term"/>
+    <entries englishName="deadlineTime" name="pterm" type="GD19" guiType="DATE" description="" width="19" screenProtection="immer geschützt" skip="true" alias="true" meaning="Endtermin (Zeitpunkt)" changePriority="A" viewPriority="A" primaryName="term"/>
+    <entries englishName="deadlineWeekOrDay" name="wtterm" type="GD2" guiType="DATE" description="" width="8" screenProtection="immer geschützt" skip="true" alias="true" meaning="Endtermin" changePriority="A" viewPriority="A" primaryName="term"/>
+    <entries englishName="prnt" name="druck" type="ZAE0" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="druck"/>
+    <entries englishName="" name="as" type="P9:1" guiType="REFERENCE" description="" width="12" screenProtection="Feld unsichtbar" writeable="true" meaning="[deprecated, nicht benutzen]" changePriority="A" viewPriority="A" primaryName="as"/>
+    <entries englishName="prevWSlip" name="pba" type="P9:1" guiType="REFERENCE" description="" width="12" screenProtection="immer geschützt" meaning="Vorheriger Arbeitsschein dieses Betriebsauftrags" changePriority="A" viewPriority="A" primaryName="pba"/>
+    <entries englishName="complConfTotalNo" name="ngrm" type="IP4" guiType="INTEGER" description="" width="4" screenProtection="immer geschützt" meaning="Gesamtanzahl der Rückmeldungen" changePriority="A" viewPriority="A" primaryName="ngrm"/>
+    <entries englishName="complConfOutstNo" name="nrm" type="IP4" guiType="INTEGER" description="" width="4" screenProtection="immer geschützt" meaning="Anzahl offener Rückmeldungen" changePriority="A" viewPriority="A" primaryName="nrm"/>
+    <entries englishName="descendEditProdList" name="stlab" type="BU3" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Absteigen in editierbare Fertigungsliste" changePriority="A" viewPriority="A" primaryName="stlab"/>
+    <entries englishName="PDCExport" name="bdemerk" type="T64" guiType="TEXTAREA" description="" width="64" screenProtection="änderbar" writeable="true" meaning="Hilfsfeld zum Export von Arbeitsscheindaten an BDE" changePriority="A" viewPriority="A" primaryName="bdemerk"/>
+    <entries englishName="specialCostEntered" name="skgebucht" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" meaning="Sind die Sonderkosten schon gebucht?" changePriority="A" viewPriority="A" primaryName="skgebucht"/>
+    <entries englishName="allocNo" name="zuord" type="IP9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Zuordnungsnummer" changePriority="A" viewPriority="A" primaryName="zuord"/>
+    <entries englishName="displayCostSht" name="kblatt" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Kalkulationsblatt anzeigen?" changePriority="A" viewPriority="A" primaryName="kblatt"/>
+    <entries englishName="calculating" name="kalkul" type="BU8" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Kalkulieren" changePriority="A" viewPriority="A" primaryName="kalkul"/>
+    <entries englishName="wOrderDelProtection" name="noloesch" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="kerngesteuert" writeable="true" meaning="Löschschutz für Betriebsauftrag?" changePriority="A" viewPriority="A" primaryName="noloesch"/>
+    <entries englishName="project" name="projekt" type="PS86:1" guiType="REFERENCE" description="" width="31" screenProtection="immer geschützt" meaning="Projekt" changePriority="A" viewPriority="A" primaryName="projekt"/>
+    <entries englishName="userBar1" name="sres1" type="BU1" description="" width="1" screenProtection="zeigen änderbar" writeable="true" meaning="Reserveleiste" changePriority="A" viewPriority="A" primaryName="sres1"/>
+    <entries englishName="descendProdList" name="absteig" type="BU5" description="" width="1" screenProtection="zeigen kerngesteuert" writeable="true" skip="true" meaning="Absteigen in Auftragsfertigungsliste" changePriority="A" viewPriority="A" primaryName="absteig"/>
+    <entries englishName="warehGrp" name="lgruppe" type="PS39:2" guiType="REFERENCE" description="" width="11" screenProtection="immer geschützt" meaning="Lagergruppe" changePriority="A" viewPriority="A" primaryName="lgruppe"/>
+    <entries englishName="adminSalesOverheadRate1" name="vvgmksatz1" type="MP3.2" guiType="REAL" description="" width="6" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Verwaltung und Vertriebsgemeinkostensatz 1" changePriority="A" viewPriority="A" primaryName="vvgmksatz1"/>
+    <entries englishName="adminSalesOverheadRate2" name="vvgmksatz2" type="MP3.2" guiType="REAL" description="" width="6" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Verwaltung und Vertriebsgemeinkostensatz 2" changePriority="A" viewPriority="A" primaryName="vvgmksatz2"/>
+    <entries englishName="adminSalesOverheadRate3" name="vvgmksatz3" type="MP3.2" guiType="REAL" description="" width="6" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Verwaltung und Vertriebsgemeinkostensatz 3" changePriority="A" viewPriority="A" primaryName="vvgmksatz3"/>
+    <entries englishName="adminSalesOverheadRate4" name="vvgmksatz4" type="MP3.2" guiType="REAL" description="" width="6" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Verwaltung und Vertriebsgemeinkostensatz 4" changePriority="A" viewPriority="A" primaryName="vvgmksatz4"/>
+    <entries englishName="adminSalesOverheadRate5" name="vvgmksatz5" type="MP3.2" guiType="REAL" description="" width="6" screenProtection="kerngesteuert" writeable="true" skip="true" meaning="Verwaltung und Vertriebsgemeinkostensatz 5" changePriority="A" viewPriority="A" primaryName="vvgmksatz5"/>
+    <entries englishName="typeOfDocumentInPrint" name="drbelegart" type="PS88:11" guiType="REFERENCE" description="" width="16" screenProtection="immer geschützt" skip="true" meaning="Belegart im Druck" changePriority="A" viewPriority="A" primaryName="drbelegart"/>
+  </schema:Variables>
+</xmi:XMI>
