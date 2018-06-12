@@ -39,8 +39,7 @@ node {
 					sleep 30
 				}
 				stage('Installation') {
-					shGradle("checkPreconditions -x importKeys")
-					shGradle("publishHomeDirJars")
+					shGradle("checkPreconditions")
 					shGradle("fullInstall")
 				}
 				stage('Verify') {
@@ -48,8 +47,7 @@ node {
 				}
 				onMaster {
 					stage('Publish') {
-						shGradle("createAppJar")
-						shGradle("publish")
+						shGradle("publish -x fullInstall")
 					}
 				}
 				currentBuild.description = currentBuild.description + " => successful"
