@@ -6,7 +6,7 @@
       <popup id="menuExecute"/>
     </popups>
     <language code="68" text="Deutsch" iso="de"/>
-    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="25" numberName="TestDb" screenNumber="107"/>
+    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="30" numberName="TestDb" screenNumber="171"/>
     <frames standardHelp="2.7">
       <elements xsi:type="core:GridLayout">
         <cells alignmentX="fill" alignmentY="fill">
@@ -22,7 +22,7 @@
                 </cells>
                 <cells column="1" alignmentY="center">
                   <elements xsi:type="core:Input" dimX="15">
-                    <variable englishName="idno" name="nummer" type="NK25" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num25"/>
+                    <variable englishName="idno" name="nummer" type="NK30" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num30"/>
                   </elements>
                 </cells>
                 <cells column="2" alignmentY="center">
@@ -34,7 +34,7 @@
                 </cells>
                 <cells column="3" alignmentY="center">
                   <elements xsi:type="core:Input" dimX="30">
-                    <variable englishName="swd" name="such" type="SWK25" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such25"/>
+                    <variable englishName="swd" name="such" type="SWK30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such30"/>
                   </elements>
                 </cells>
                 <cells row="1" alignmentY="center">
@@ -89,7 +89,7 @@
                   <elements xsi:type="core:Table">
                     <elements xsi:type="core:Column">
                       <elements xsi:type="core:ReferenceInput" accessType="readonly">
-                        <variable englishName="rowId" name="zid" type="IDZ25:0" guiType="REFERENCE" description="" tableEntry="true" width="30" screenProtection="immer geschützt" skip="true" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="zid"/>
+                        <variable englishName="rowId" name="zid" type="IDZ30:0" guiType="REFERENCE" description="" tableEntry="true" width="30" screenProtection="immer geschützt" skip="true" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="zid"/>
                       </elements>
                       <label viewLanguage="de" key="ac7cf308-0ab2-4602-a062-92556b99ef2a">
                         <value key="de" value="Zeilen-ID"/>
@@ -120,16 +120,16 @@
       </label>
     </frames>
   </screen:Screen>
-  <schema:Variables searchWord="V-25-00    " group="true" name="TestStructure">
+  <schema:Variables searchWord="V-30-00    " group="true" name="TestStructure">
     <entries englishName="" name="grust" type="I9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Gruppe" changePriority="A" viewPriority="A" primaryName="grust"/>
-    <entries englishName="grpNo" name="gruppe" type="GRN25" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
-    <entries englishName="grpDescr" name="grbez" type="GRB25" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
-    <entries englishName="recordNo" name="sn" type="P25" guiType="REFERENCE" description="" width="16" screenProtection="immer geschützt" meaning="Satznummer" changePriority="A" viewPriority="A" primaryName="sn"/>
-    <entries englishName="id" name="id" type="ID25" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="grpNo" name="gruppe" type="GRN30" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="grpDescr" name="grbez" type="GRB30" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
+    <entries englishName="recordNo" name="sn" type="P30" guiType="REFERENCE" description="" width="16" screenProtection="immer geschützt" meaning="Satznummer" changePriority="A" viewPriority="A" primaryName="sn"/>
+    <entries englishName="id" name="id" type="ID30" guiType="REFERENCE" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datensatz-ID" changePriority="A" viewPriority="A" primaryName="sn"/>
     <entries englishName="DBNo" name="dnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer" changePriority="A" viewPriority="A" primaryName="dnr"/>
     <entries englishName="DBDescr" name="dbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung" changePriority="A" viewPriority="A" primaryName="dnr"/>
-    <entries englishName="objectGrpNo" name="objgruppe" type="GRN25" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" meaning="Gruppennummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
-    <entries englishName="objectGrpDescr" name="objgrbez" type="GRB25" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectGrpNo" name="objgruppe" type="GRN30" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" meaning="Gruppennummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
+    <entries englishName="objectGrpDescr" name="objgrbez" type="GRB30" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objgruppe"/>
     <entries englishName="objectDBNo" name="objdnr" type="AN177" guiType="COMBOBOX" description="" width="3" screenProtection="immer geschützt" meaning="Datenbanknummer der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
     <entries englishName="objectDBDescr" name="objdbez" type="A177" guiType="COMBOBOX" description="" width="30" screenProtection="immer geschützt" alias="true" meaning="Datenbankbezeichnung der Objektgruppe" changePriority="A" viewPriority="A" primaryName="objdnr"/>
     <entries englishName="objectInTable" name="objinzeile" type="B1" guiType="CHECKBOX" description="" width="1" screenProtection="immer geschützt" skip="true" meaning="Gehört das Objekt zur Tabelle?" changePriority="A" viewPriority="A" primaryName="objinzeile"/>
@@ -147,12 +147,12 @@
     <entries englishName="recordFilingVersion" name="ablagen" type="ZAE1" guiType="INPUT" description="" width="22" screenProtection="änderbar" writeable="true" meaning="Zeitstempel der Datensatzablage" changePriority="A" viewPriority="A" primaryName="ablagen"/>
     <entries englishName="recordFiled" name="ablagef" type="ZAE0" guiType="CHECKBOX" description="" width="1" screenProtection="änderbar" writeable="true" alias="true" meaning="Datensatz abgelegt?" changePriority="A" viewPriority="A" primaryName="ablagen"/>
     <entries englishName="type" name="typ" type="K2" guiType="INTEGER" description="" width="2" screenProtection="immer geschützt" meaning="Datensatztyp" changePriority="A" viewPriority="A" primaryName="typ"/>
-    <entries englishName="" name="num25" type="N25" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num25"/>
-    <entries englishName="idno" name="nummer" type="NK25" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num25"/>
-    <entries englishName="idnoPadded" name="nummerb" type="NL25" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num25"/>
-    <entries englishName="" name="such25" type="SW25" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such25"/>
-    <entries englishName="swd" name="such" type="SWK25" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such25"/>
-    <entries englishName="swdPadded" name="suchb" type="SWL25" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such25"/>
+    <entries englishName="" name="num30" type="N30" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num30"/>
+    <entries englishName="idno" name="nummer" type="NK30" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num30"/>
+    <entries englishName="idnoPadded" name="nummerb" type="NL30" guiType="INPUT" description="" width="15" screenProtection="änderbar" writeable="true" alias="true" meaning="Identnummer" changePriority="A" viewPriority="A" primaryName="num30"/>
+    <entries englishName="" name="such30" type="SW30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such30"/>
+    <entries englishName="swd" name="such" type="SWK30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such30"/>
+    <entries englishName="swdPadded" name="suchb" type="SWL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" alias="true" meaning="Suchwort" changePriority="A" viewPriority="A" primaryName="such30"/>
     <entries englishName="descr" name="name" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Bezeichnung" changePriority="A" viewPriority="A" primaryName="name"/>
     <entries englishName="descr1" name="name1" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" alias="true" meaning="Text in Deutsch" changePriority="A" viewPriority="A" primaryName="name"/>
     <entries englishName="descr2" name="name2" type="T34" guiType="TEXTAREA" description="" width="34" screenProtection="änderbar" writeable="true" meaning="Text in Englisch" changePriority="A" viewPriority="A" primaryName="name2"/>
@@ -210,7 +210,7 @@
     <entries englishName="ytraintesthead" name="ytraintesthead" type="GL30" guiType="INPUT" description="" width="30" screenProtection="änderbar" writeable="true" custom="true" meaning="Test field head" changePriority="A" viewPriority="A" primaryName="ytraintesthead"/>
     <entries englishName="ytraintestbu" name="ytraintestbu" type="BU3" description="" width="1" screenProtection="änderbar" writeable="true" skip="true" custom="true" meaning="Test button head" changePriority="A" viewPriority="A" primaryName="ytraintestbu"/>
     <entries englishName="rowIdNo" name="tabnr" type="TZN" guiType="INPUT" description="" tableEntry="true" width="5" screenProtection="immer geschützt" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="tabnr"/>
-    <entries englishName="rowId" name="zid" type="IDZ25:0" guiType="REFERENCE" description="" tableEntry="true" width="30" screenProtection="immer geschützt" skip="true" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="zid"/>
+    <entries englishName="rowId" name="zid" type="IDZ30:0" guiType="REFERENCE" description="" tableEntry="true" width="30" screenProtection="immer geschützt" skip="true" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="zid"/>
     <entries englishName="rowNo" name="zn" type="I5" guiType="INTEGER" description="" tableEntry="true" width="5" screenProtection="immer geschützt" skip="true" meaning="Laufende Zeilennummer" changePriority="A" viewPriority="A" primaryName="zn"/>
     <entries englishName="print" name="budruck" type="BU8" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck"/>
     <entries englishName="print2" name="budruck2" type="BU8" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" meaning="Drucken" changePriority="A" viewPriority="A" primaryName="budruck2"/>

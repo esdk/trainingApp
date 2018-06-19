@@ -1,5 +1,5 @@
 " VERSION 2
-"******** screens/screen_107/a/Resources.language ********"
+"******** screens/screen_171/a/Resources.language ********"
       1 de   |Suchwort
       1 en   |Search word
       1 en-US|Search word
