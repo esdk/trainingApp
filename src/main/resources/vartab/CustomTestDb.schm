@@ -27,6 +27,22 @@ database master TestDb {
 				showPriority A
 				changePriority A
 			}
+			field AZL1000011 testenum11 {
+				label ""
+				heading ""
+				description "Test enum type number 11"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field AZL1000111 testenum111 {
+				label ""
+				heading ""
+				description "Test named type number 111"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
 		}
 		table {
 			field GL30 testtable {
