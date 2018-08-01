@@ -15,7 +15,7 @@ database Kunde {
 			field GL30 testhead2 {
 				label ""
 				heading ""
-				description "Test field table"
+				description "Second test field head"
 				screen EDITABLE
 				showPriority A
 				changePriority A
@@ -23,7 +23,15 @@ database Kunde {
 			field "P2:1" testhead3 {
 				label ""
 				heading ""
-				description "Test field table"
+				description "Third test field head"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "P30:0" testreference {
+				label ""
+				heading ""
+				description "Reference additional database"
 				screen EDITABLE
 				showPriority A
 				changePriority A

@@ -21,6 +21,38 @@
                 <Field name="vaufzelem" abasType="VID88">(1047,109,0)</Field>
             </Row>
         </Record>
+        <Record id="(455,107,0)">
+            <Head>
+                <Field name="id" abasType="ID107">(455,107,0)</Field>
+                <Field name="guid" abasType="GLA38">c5c7c173-0a48-44cf-87e6-d3e0772db858</Field>
+                <Field name="nummer" abasType="NK107">1000011</Field>
+                <Field name="such" abasType="SWK107">FILE_FORMAT2</Field>
+                <Field name="name" abasType="GL45">Datei Format 2</Field>
+                <Field name="name14" abasType="GL45"></Field>
+                <Field name="classname" abasType="GLA40">Importfileformat2</Field>
+                <Field name="tabart" abasType="NT24">P109:2</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ107:1">(455,107,0,1)</Field>
+                <Field name="vaufzelem" abasType="VID88">(1048,109,0)</Field>
+            </Row>
+        </Record>
+        <Record id="(456,107,0)">
+            <Head>
+                <Field name="id" abasType="ID107">(456,107,0)</Field>
+                <Field name="guid" abasType="GLA38">d5c7c173-0a48-44cf-87e6-d3e0772db858</Field>
+                <Field name="nummer" abasType="NK107">1000111</Field>
+                <Field name="such" abasType="SWK107">FILE_FORMAT3</Field>
+                <Field name="name" abasType="GL45">Datei Format 3</Field>
+                <Field name="name14" abasType="GL45"></Field>
+                <Field name="classname" abasType="GLA40">Importfileformat3</Field>
+                <Field name="tabart" abasType="NT24">P109:2</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ107:1">(456,107,0,1)</Field>
+                <Field name="vaufzelem" abasType="VID88">(1048,109,0)</Field>
+            </Row>
+        </Record>
     </RecordSet>
     <RecordSet tableNumber="109:2" tableName="Wertemengen:Bezeichner">
         <Record id="(1048,109,0)">
