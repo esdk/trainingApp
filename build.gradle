@@ -126,7 +126,9 @@ publishing {
 		mavenJava(MavenPublication) {
 			groupId 'de.abas.esdk.app'
 			artifactId 'trainingApp'
-			artifact createAppJar
+			afterEvaluate {
+				artifact tasks.getByName("createAppJar")
+			}
 		}
 	}
 	repositories {
