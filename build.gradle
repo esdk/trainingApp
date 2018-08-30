@@ -120,34 +120,33 @@ configurations.installer {
 }
 
 group = 'de.abas.esdk.app'
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			groupId 'de.abas.esdk.app'
-			artifactId 'trainingApp'
-			afterEvaluate {
-				artifact tasks.getByName("createAppJar")
+afterEvaluate {
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				groupId 'de.abas.esdk.app'
+				artifactId 'trainingApp'
+				artifact createAppJar
 			}
 		}
-	}
-	repositories {
-		if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
-				&& project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")) {
-			if (version.endsWith('-SNAPSHOT')) {
-				maven {
-					url esdkSnapshotURL
-					credentials {
-						username nexusUser
-						password nexusPassword
+		repositories {
+			if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
+					&& project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")) {
+				if (version.endsWith('-SNAPSHOT')) {
+					maven {
+						url esdkSnapshotURL
+						credentials {
+							username nexusUser
+							password nexusPassword
+						}
 					}
-				}
-			} else {
-				maven {
-					url esdkReleaseURL
-					credentials {
-						username nexusUser
-						password nexusPassword
+				} else {
+					maven {
+						url esdkReleaseURL
+						credentials {
+							username nexusUser
+							password nexusPassword
+						}
 					}
 				}
 			}
