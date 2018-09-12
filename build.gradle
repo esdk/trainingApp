@@ -48,6 +48,12 @@ repositories {
 	}
 	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
 	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT" }
+	ivy {
+		url 'https://bitbucket.org/'
+		layout 'pattern', {
+			artifact '/[organisation]/[module]/get/[revision].[ext]'
+		}
+	}
 }
 
 esdk {
