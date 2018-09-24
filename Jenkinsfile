@@ -36,7 +36,7 @@ timestamps {
 					withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 						shDockerComposeUp()
 					}
-					waitForNexus()
+					waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
 				}
 				stage('Installation') {
 					shGradle("checkPreconditions")
