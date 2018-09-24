@@ -15,7 +15,6 @@ buildscript {
 			}
 			url esdkReleaseURL
 		}
-		jcenter()
 	}
 	dependencies {
 		classpath "de.abas.esdk:gradlePlugin:$version"
@@ -31,7 +30,6 @@ apply plugin: "de.abas.esdk"
 
 repositories {
 	mavenLocal()
-	jcenter()
 	maven {
 		url esdkSnapshotURL
 		credentials {
@@ -97,6 +95,12 @@ esdk {
 	installType = "SSH"
 }
 
+gradle.taskGraph.whenReady {
+	abasAppDocumentation {
+		attributes 'productVersion': version.split("-")[0]
+	}
+}
+
 configurations {
 	installer
 }
@@ -106,33 +110,31 @@ configurations.installer {
 }
 
 group = 'de.abas.esdk.app'
-afterEvaluate {
-	publishing {
-		publications {
-			mavenJava(MavenPublication) {
-				groupId 'de.abas.esdk.app'
-				artifactId 'trainingApp'
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			groupId 'de.abas.esdk.app'
+			artifactId 'trainingApp'
 				artifact createAppJar
-			}
 		}
-		repositories {
-			if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
-					&& project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")) {
-				if (version.endsWith('-SNAPSHOT')) {
-					maven {
-						url esdkSnapshotURL
-						credentials {
-							username nexusUser
-							password nexusPassword
-						}
+	}
+	repositories {
+		if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
+				&& project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")) {
+			if (version.endsWith('-SNAPSHOT')) {
+				maven {
+					url esdkSnapshotURL
+					credentials {
+						username nexusUser
+						password nexusPassword
 					}
-				} else {
-					maven {
-						url esdkReleaseURL
-						credentials {
-							username nexusUser
-							password nexusPassword
-						}
+				}
+			} else {
+				maven {
+					url esdkReleaseURL
+					credentials {
+						username nexusUser
+						password nexusPassword
 					}
 				}
 			}

@@ -1,0 +1,9 @@
+== Introduction
+
+The Training App is an abas App by the abas Essentials SDK team to demonstrate the usage of ESDK for abas App development.
+
+It contains all currently supported components. You can use it to find out how to configure your project for different components.
+
+It is not meant to be installed in a productive client, it is only a demo project to help you get started with abas App development
+and for the ESDK Team to test all components work as expected. The project will grow over time as more components are supported.
+We also might include special cases and current workarounds.
