@@ -8,3 +8,10 @@ This is the documentation for the abas Essentials SDK https://github.com/Tschasm
 include::introduction.adoc[]
 
 include::installation.adoc[]
+
+== About
+
+Training App +
+(C) abas Software AG
+
+https://abas-essentials-sdk.com/

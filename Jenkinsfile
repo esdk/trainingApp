@@ -36,7 +36,7 @@ timestamps {
 					withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 						shDockerComposeUp()
 					}
-					sleep 30
+					waitForNexus()
 				}
 				stage('Installation') {
 					shGradle("checkPreconditions")
@@ -50,7 +50,7 @@ timestamps {
 						shGradle("publish -x fullInstall")
 					}
 					stage('Upload') {
-						shGradle("packAbasApp -x createAppJar -x fullInstall")
+						shGradle("packAbasApp -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
 							withAWS(credentials: '07d490a3-c053-4108-960f-458307e91742', region: "us-east-1") {
 								s3Upload(
