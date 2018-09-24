@@ -55,7 +55,7 @@ timestamps {
 							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
 							abasApp = abasApp.trim()
 							s3Upload(
-									bucket: "abas-app-releases",
+									bucket: "abas-apps",
 									file: "build/abas-app/$abasApp",
 									path: "trainingApp-abasApp-${version}.zip",
 									pathStyleAccessEnabled: true,
