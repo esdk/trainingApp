@@ -53,6 +53,7 @@ timestamps {
 						shGradle("packAbasApp -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
 							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
+							abasApp = abasApp.trim()
 							s3Upload(
 									bucket: "abas-app-releases",
 									file: "build/abas-app/$abasApp",
