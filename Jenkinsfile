@@ -3,9 +3,9 @@
 def version = ""
 String errorMessage = null
 
-node {
-	timestamps {
-		ansiColor('xterm') {
+timestamps {
+	ansiColor('xterm') {
+		node {
 			try {
 				properties([parameters([
 						string(name: 'ESDK_VERSION', defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)'),
@@ -49,6 +49,21 @@ node {
 					stage('Publish') {
 						shGradle("publish -x fullInstall")
 					}
+					stage('Upload') {
+						shGradle("packAbasApp -x createAppJar -x fullInstall")
+						if (!version.endsWith("SNAPSHOT")) {
+							withAWS(credentials: '07d490a3-c053-4108-960f-458307e91742', region: "us-east-1") {
+								s3Upload(
+										bucket: "abas-app-releases",
+										file: "build/abas-app/trainingApp-abasApp-${version}.zip",
+										path: "trainingApp-abasApp-${version}.zip",
+										pathStyleAccessEnabled: true,
+										cacheControl: 'max-age=0',
+										acl: 'Private'
+								)
+							}
+						}
+					}
 				}
 				currentBuild.description = currentBuild.description + " => successful"
 			} catch (any) {
@@ -62,13 +77,28 @@ node {
 
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
-
-				String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
-				if (null != errorMessage) {
-					message += "\n${errorMessage}"
-				}
-				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
+		}
+		try {
+			onMaster {
+				if (!version.endsWith("SNAPSHOT")) {
+					stage('Test') {
+						build job: 'esdk/abasAppTestBucketScan', parameters: [string(name: 'INSTALLER_VERSION', value: "$version")], wait: true
+					}
+				}
+			}
+		} catch (any) {
+			any.printStackTrace()
+			errorMessage = any.message
+			currentBuild.result = 'FAILURE'
+			currentBuild.description = currentBuild.description + " => failed"
+			throw any
+		} finally {
+			String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
+			if (null != errorMessage) {
+				message += "\n${errorMessage}"
+			}
+			slackNotify(currentBuild.result, "esdk-bot", message)
 		}
 	}
 }
