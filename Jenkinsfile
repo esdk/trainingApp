@@ -52,16 +52,16 @@ timestamps {
 					stage('Upload') {
 						shGradle("packAbasApp -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
-							withAWS(credentials: '07d490a3-c053-4108-960f-458307e91742', region: "us-east-1") {
-								s3Upload(
-										bucket: "abas-app-releases",
-										file: "build/abas-app/trainingApp-abasApp-${version}.zip",
-										path: "trainingApp-abasApp-${version}.zip",
-										pathStyleAccessEnabled: true,
-										cacheControl: 'max-age=0',
-										acl: 'Private'
-								)
-							}
+							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
+							s3Upload(
+									bucket: "abas-app-releases",
+									file: "build/abas-app/$abasApp",
+									path: "trainingApp-abasApp-${version}.zip",
+									pathStyleAccessEnabled: true,
+									cacheControl: 'max-age=0',
+									acl: 'Private'
+							)
+							build job: 'esdk/abasAppTestBucketScan', parameters: [string(name: 'INSTALLER_VERSION', value: "$version")], wait: false
 						}
 					}
 				}
@@ -78,27 +78,6 @@ timestamps {
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
 			}
-		}
-		try {
-			onMaster {
-				if (!version.endsWith("SNAPSHOT")) {
-					stage('Test') {
-						build job: 'esdk/abasAppTestBucketScan', parameters: [string(name: 'INSTALLER_VERSION', value: "$version")], wait: true
-					}
-				}
-			}
-		} catch (any) {
-			any.printStackTrace()
-			errorMessage = any.message
-			currentBuild.result = 'FAILURE'
-			currentBuild.description = currentBuild.description + " => failed"
-			throw any
-		} finally {
-			String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
-			if (null != errorMessage) {
-				message += "\n${errorMessage}"
-			}
-			slackNotify(currentBuild.result, "esdk-bot", message)
 		}
 	}
 }
