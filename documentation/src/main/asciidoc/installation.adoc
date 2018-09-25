@@ -10,7 +10,7 @@ In order to install it you need to have a hybrid tenant configured. Follow the i
 to setup a hybrid tenant.
 
 Once you have your hybrid tenant up and running you can install the app via the link::https://documentation.abas.cloud/en/esdk/#abas-app-installer[abas App Installer].
-In the abas client you want to install the Training App in run the following command:
+In the abas client, you want to install the Training App in, run the following command:
 
 [source,shell,subs="verbatim,attributes"]
 ----
@@ -24,7 +24,7 @@ To do so execute the following commands:
 [source,shell]
 ----
 docker-compose up -d
-./initGradleProperties
+./initGradleProperties.sh
 ./gradlew checkPreconditions
 ----
 
