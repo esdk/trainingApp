@@ -3,9 +3,9 @@
 def version = ""
 String errorMessage = null
 
-node {
-	timestamps {
-		ansiColor('xterm') {
+timestamps {
+	ansiColor('xterm') {
+		node {
 			try {
 				properties([parameters([
 						string(name: 'ESDK_VERSION', defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)'),
@@ -36,7 +36,7 @@ node {
 					withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 						shDockerComposeUp()
 					}
-					sleep 30
+					waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
 				}
 				stage('Installation') {
 					shGradle("checkPreconditions")
@@ -48,6 +48,24 @@ node {
 				onMaster {
 					stage('Publish') {
 						shGradle("publish -x fullInstall")
+					}
+					stage('Upload') {
+						shGradle("packAbasApp -x createAppJar")
+						if (!version.endsWith("SNAPSHOT")) {
+							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
+							abasApp = abasApp.trim()
+							withAWS(credentials: 'e4ec24aa-35e1-4650-a4bd-6d9b06654e9b', region: "us-east-1") {
+								s3Upload(
+										bucket: "abas-apps",
+										file: "build/abas-app/$abasApp",
+										path: "trainingApp-abasApp-${version}.zip",
+										pathStyleAccessEnabled: true,
+										cacheControl: 'max-age=0',
+										acl: 'Private'
+								)
+							}
+							build job: 'esdk/abasAppTestBucketScan', parameters: [string(name: 'INSTALLER_VERSION', value: "$version")], wait: false
+						}
 					}
 				}
 				currentBuild.description = currentBuild.description + " => successful"
@@ -62,12 +80,6 @@ node {
 
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
-
-				String message = "ESDK version: '${params.ESDK_VERSION}'\nabas version: '${params.ERP_VERSION}'"
-				if (null != errorMessage) {
-					message += "\n${errorMessage}"
-				}
-				slackNotify(currentBuild.result, "esdk-bot", message)
 			}
 		}
 	}

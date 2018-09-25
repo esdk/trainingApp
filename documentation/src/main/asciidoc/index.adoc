@@ -1,0 +1,17 @@
+:docinfo:
+= Training App
+Documentation
+:nofooter:
+
+This is the documentation for the abas Essentials SDK https://github.com/Tschasmine/trainingApp/[Training App].
+
+include::introduction.adoc[]
+
+include::installation.adoc[]
+
+== About
+
+Training App +
+(C) abas Software AG
+
+https://abas-essentials-sdk.com/
