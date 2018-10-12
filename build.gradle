@@ -30,6 +30,9 @@ apply plugin: "de.abas.esdk"
 
 repositories {
 	mavenLocal()
+	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
+	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT" }
+	mavenCentral()
 	maven {
 		url esdkSnapshotURL
 		credentials {
@@ -44,8 +47,7 @@ repositories {
 		}
 		url esdkReleaseURL
 	}
-	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
-	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT" }
+	maven { url publicReleaseURL }
 }
 
 esdk {
@@ -115,7 +117,7 @@ publishing {
 		mavenJava(MavenPublication) {
 			groupId 'de.abas.esdk.app'
 			artifactId 'trainingApp'
-				artifact createAppJar
+			artifact createAppJar
 		}
 	}
 	repositories {
@@ -153,6 +155,7 @@ task downloadInstaller(type: Copy) {
 dependencies {
 	installer group: "de.abas.esdk", name: "installer", version: version, classifier: "", ext: 'zip',
 			changing: true
+	licensing "de.abas.esdk:client-api:0.0.1:all"
 	testCompile "junit:junit:4.12"
 	testCompile 'org.hamcrest:hamcrest-all:1.3'
 }

@@ -6,7 +6,7 @@ services:
     # ssh in the Container:   ssh localhost -l s3 -p 2214 -i docker_erp.key
     #
     erp-train:
-      image: intra.registry.abas.sh/cloud-erp-neumand1:${ERP_VERSION:-2016r4n13}
+      image: intra.registry.abas.sh/cloud-erp-neumand1:${ERP_VERSION:-2016r4n16}
       container_name: "erp-train"
 
       ports:
