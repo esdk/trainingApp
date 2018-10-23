@@ -45,7 +45,7 @@ timestamps {
 				stage('Installation') {
 					shGradle("checkPreconditions")
 					shGradle("createAppJar")
-					releaseTrainingApp(version)
+					releaseAppVersion('trainingApp', 'train', version)
 				}
 				stage('Verify') {
 					shGradle("check")
