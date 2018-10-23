@@ -1,4 +1,4 @@
-@Library('esdk-jenkins-lib@ESDK-701-provide-api-for-license-check-a') _
+@Library('esdk-jenkins-lib@master') _
 
 def version = ""
 String errorMessage = null
