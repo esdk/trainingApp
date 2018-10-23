@@ -10,14 +10,16 @@ timestamps {
 				properties([parameters([
 						string(name: 'ESDK_VERSION', defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)'),
 						string(name: 'BUILD_USER_PARAM', defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)'),
-						string(name: 'ERP_VERSION', defaultValue: '2016r4n13', description: 'abas Essentials version')
-					])
+						string(name: 'ERP_VERSION', defaultValue: '2016r4n16', description: 'abas Essentials version')
+				])
 				])
 				stage('Setup') {
 					timeout(1) {
 						checkout scm
+						sh returnStatus: true, script: "sudo rm -rf logs"
 						sh "git reset --hard origin/$BRANCH_NAME"
 						sh "git clean -fd"
+						sh "mkdir logs"
 					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
@@ -27,6 +29,7 @@ timestamps {
 				stage('Set version') {
 					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
 					initGradleProps()
+					version = readVersion()
 				}
 				stage('Preparation') { // for display purposes
 					withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
@@ -37,17 +40,20 @@ timestamps {
 						shDockerComposeUp()
 					}
 					waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
+					installJQ()
+					setupHybridTenant("d72216db-346d-499f-97f7-19b589c412bd", 6569, 2214)
 				}
 				stage('Installation') {
 					shGradle("checkPreconditions")
-					shGradle("fullInstall")
+					shGradle("createAppJar")
+					releaseAppVersion('trainingApp', 'train', version)
 				}
 				stage('Verify') {
-					shGradle("verify")
+					shGradle("check")
 				}
 				onMaster {
 					stage('Publish') {
-						shGradle("publish -x fullInstall")
+						shGradle("publish -x createAppJar")
 					}
 					stage('Upload') {
 						shGradle("packAbasApp -x createAppJar")
@@ -80,6 +86,7 @@ timestamps {
 
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 				archiveArtifacts 'build/reports/**'
+				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
 			}
 		}
 	}

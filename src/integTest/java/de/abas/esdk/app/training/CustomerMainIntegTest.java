@@ -1,9 +1,13 @@
 package de.abas.esdk.app.training;
 
 import de.abas.erp.db.DbContext;
+import de.abas.erp.db.DbMessage;
+import de.abas.erp.db.MessageListener;
 import de.abas.erp.db.exception.DBRuntimeException;
+import de.abas.erp.db.infosystem.custom.ow1.TrainingTest;
 import de.abas.erp.db.schema.customer.CustomerEditor;
 import de.abas.erp.db.util.ContextHelper;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.w3c.dom.events.EventException;
 
@@ -11,22 +15,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
+import static org.hamcrest.Matchers.hasItem;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class CustomerMainIntegTest {
 
-	String hostname = "";
-	String client = "";
-	int port = 6550;
-	String password = "";
+	private static String hostname = "";
+	private static String client = "";
+	private static int port = 6550;
+	private static String password = "";
 
 	@Test
 	public void customerContactPersonTest() {
-		loadProperties();
 		try {
-			DbContext ctx = ContextHelper.createClientContext(hostname, port, client, password, "Test");
+			DbContext ctx = getContext();
 			CustomerEditor customerEditor = ctx.newObject(CustomerEditor.class);
 			customerEditor.setContactPerson("blub");
 			fail("EventException expected");
@@ -35,7 +42,18 @@ public class CustomerMainIntegTest {
 		}
 	}
 
-	private void loadProperties() {
+	@Test
+	public void infosystemEventHandlerPassesLicenseCheck() {
+		DbContext ctx = getContext();
+		List<String> messages = new LinkedList<>();
+		ctx.addMessageListener(dbMessage -> messages.add(dbMessage.toString()));
+		TrainingTest trainingTest = ctx.openInfosystem(TrainingTest.class);
+		trainingTest.invokeStart();
+		assertThat(messages, hasItem("TEXT_MESSAGE: License check passed: true"));
+	}
+
+	@BeforeClass
+	public static void loadProperties() {
 		final Properties pr = new Properties();
 		final File configFile = new File("gradle.properties");
 		try {
@@ -51,4 +69,7 @@ public class CustomerMainIntegTest {
 		}
 	}
 
+	private DbContext getContext() {
+		return ContextHelper.createClientContext(hostname, port, client, password, "Test");
+	}
 }
