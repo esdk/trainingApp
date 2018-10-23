@@ -19,8 +19,7 @@ timestamps {
 						sh returnStatus: true, script: "sudo rm -rf logs"
 						sh "git reset --hard origin/$BRANCH_NAME"
 						sh "git clean -fd"
-						sh "sudo mkdir logs"
-						sh "sudo chown ec2-user logs"
+						sh "mkdir logs"
 					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
