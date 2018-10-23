@@ -16,9 +16,11 @@ timestamps {
 				stage('Setup') {
 					timeout(1) {
 						checkout scm
-						sh returnStatus: true, script: "sudo rm -f logs/jwt-auth-userinfo"
+						sh returnStatus: true, script: "sudo rm -rf logs"
 						sh "git reset --hard origin/$BRANCH_NAME"
 						sh "git clean -fd"
+						sh "sudo mkdir logs"
+						sh "sudo chown ec2-user logs"
 					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
