@@ -82,6 +82,7 @@ timestamps {
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
 			} finally {
+				stopHybridTenant()
 				shDockerComposeCleanUp()
 
 				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
