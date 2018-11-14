@@ -1,0 +1,20 @@
+{
+  "roots" : [
+	{
+	  "dbnr" : 107,
+	  "grnr" : 1,
+	  "headfields" : ["id", "guid", "nummer", "such", "name", "name14", "classname", "tabart", "fldname", "fldkname", "fldbezname", "fldiname", "leerok"],
+	  "tablefields" : ["zid", "vaufzelem", "aefix", "aekfix", "aebezfix", "aeaktiv", "aedefault", "aebezeichner"],
+	  "criteria" : "classname==ThenSteps"
+	}
+  ],
+  "dependents" : [
+	{
+	  "dbnr" : 15,
+	  "grnr" : 0,
+	  "identifier" : "guid",
+	  "headfields" : [ "id", "guid", "such", "name" ],
+	  "tablefields" : []
+	}
+  ]
+}

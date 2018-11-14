@@ -26,7 +26,6 @@ services:
       user: s3
       hostname: dockerbau
 
-    # nexus host for madep
     nexus-train:
       image: sonatype/nexus:oss
       container_name: "nexus-train"
