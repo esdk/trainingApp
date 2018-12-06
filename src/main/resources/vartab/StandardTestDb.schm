@@ -28,7 +28,7 @@ database Kunde {
 				showPriority A
 				changePriority A
 			}
-			field "P30:0" testreference {
+			field "P15:0" testreference {
 				label ""
 				heading ""
 				description "Reference additional database"
