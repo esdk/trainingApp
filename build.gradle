@@ -155,7 +155,7 @@ task downloadInstaller(type: Copy) {
 dependencies {
 	installer group: "de.abas.esdk", name: "installer", version: version, classifier: "", ext: 'zip',
 			changing: true
-	licensing "de.abas.esdk:client-api:0.0.1:all"
+	licensing "de.abas.esdk:client-api:0.0.5:all"
 	testCompile "junit:junit:4.12"
 	testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
