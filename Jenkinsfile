@@ -23,13 +23,14 @@ timestamps {
 					}
 					prepareEnv()
 					rmDirInMavenLocal '​de/abas/esdk'
-					currentBuild.description = "ERP Version: ${params.ERP_VERSION}"
+					currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 					initGradleProps()
 				}
 				stage('Set version') {
 					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
 					initGradleProps()
 					version = readVersion()
+					currentBuild.description += ", ESDK version: $version"
 				}
 				stage('Preparation') { // for display purposes
 					withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
@@ -46,17 +47,19 @@ timestamps {
 				stage('Installation') {
 					shGradle("checkPreconditions")
 					shGradle("createAppJar")
-					releaseAppVersion('trainingApp', 'train', version)
+					registerAppDevVersion('trainingApp', 'train', version)
 				}
 				stage('Verify') {
-					shGradle("check")
+					try {
+						shGradle("check")
+					} finally {
+						junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
+						archiveArtifacts 'build/reports/**'
+					}
 				}
 				onMaster {
-					stage('Publish') {
-						shGradle("publish -x createAppJar")
-					}
 					stage('Upload') {
-						shGradle("packAbasApp -x createAppJar")
+						shGradle("packAbasApp")
 						if (!version.endsWith("SNAPSHOT")) {
 							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
 							abasApp = abasApp.trim()
@@ -85,8 +88,6 @@ timestamps {
 				stopHybridTenant()
 				shDockerComposeCleanUp()
 
-				junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
-				archiveArtifacts 'build/reports/**'
 				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
 			}
 		}
