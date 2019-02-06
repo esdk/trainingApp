@@ -65,7 +65,7 @@ Z#0#isisref##n####(0)######n#0#n#0##n##
 Z#0#isselect##n####(1)######n#0#n#0##n##
 Z#0#isauswahl##n####(1)######n#0#n#0##n##
 Z#0#isstufe##n####(1)######n#0#n#0##n##
-Z#0#isbstart##n####(1)##java:de.abas.esdk.app.training.Main@trainingApp####n#0#n#0##n##
+Z#0#isbstart##n####(1)##java:de.abas.esdk.app.training.Main@train####n#0#n#0##n##
 Z#0#isstartzeit##n####(0)######n#0#n#0##n##
 Z#1#istestbu#BU3#n#test button#A#A#(1)######y#1#n#0##n##
 Z#1#istesthead#GL10#n#test head field#A#A#(2)######y#1#n#0##n##

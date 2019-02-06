@@ -8,7 +8,7 @@
 	"field": "kontakt",
 	"headOrTable": "K",
 	"isContinue": "[C]",
-	"handler": "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
+	"handler": "java:de.abas.esdk.app.training.CustomerMain@train"
   },
   {
 	"databaseName": "(Customer)",
@@ -19,6 +19,6 @@
 	"field": "kontakt",
 	"headOrTable": "K",
 	"isContinue": "[C]",
-	"handler": "java:de.abas.esdk.app.training.CustomerMain@trainingApp"
+	"handler": "java:de.abas.esdk.app.training.CustomerMain@train"
   }
 ]
