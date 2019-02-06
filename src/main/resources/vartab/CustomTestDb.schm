@@ -1,5 +1,5 @@
 database master TestDb {
-	number 30
+	number 15
 	classname TestDb
 	structure TestStructure {
 		head {
@@ -27,7 +27,7 @@ database master TestDb {
 				showPriority A
 				changePriority A
 			}
-			field AZL1000011 testenum11 {
+			field AZL1000008 testenum11 {
 				label ""
 				heading ""
 				description "Test enum type number 11"
@@ -35,7 +35,7 @@ database master TestDb {
 				showPriority A
 				changePriority A
 			}
-			field AZL1000111 testenum111 {
+			field AZL1000009 testenum111 {
 				label ""
 				heading ""
 				description "Test named type number 111"

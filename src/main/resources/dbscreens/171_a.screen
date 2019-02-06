@@ -6,7 +6,7 @@
       <popup id="menuExecute"/>
     </popups>
     <language code="68" text="Deutsch" iso="de"/>
-    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="30" numberName="TestDb" screenNumber="171"/>
+    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="15" numberName="TestDb" screenNumber="171"/>
     <frames standardHelp="2.7">
       <elements xsi:type="core:GridLayout">
         <cells alignmentX="fill" alignmentY="fill">

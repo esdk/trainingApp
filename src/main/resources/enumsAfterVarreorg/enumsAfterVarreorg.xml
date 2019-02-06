@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ABASData>
+    <RecordSet tableNumber="15:0" tableName="TestDb:TestStructure" identifier="guid" standard="false" importOnce="false" importMode="normal">
+        <Record id="(154,15,0)">
+            <Head>
+                <Field name="id" abasType="ID15">(154,15,0)</Field>
+                <Field name="guid" abasType="GLA38">2038010100001200052967:2:eks</Field>
+                <Field name="such" abasType="SWK15">THENSTEPTWO</Field>
+                <Field name="name" abasType="T34">in rowspec</Field>
+            </Head>
+        </Record>
+        <Record id="(153,15,0)">
+            <Head>
+                <Field name="id" abasType="ID15">(153,15,0)</Field>
+                <Field name="guid" abasType="GLA38">2038010100001200052960:2:eks</Field>
+                <Field name="such" abasType="SWK15">THENSTEPONE</Field>
+                <Field name="name" abasType="T34">in row</Field>
+            </Head>
+        </Record>
+    </RecordSet>
+    <RecordSet tableNumber="107:1" tableName="Aufzählung:Aufzählung" identifier="guid" standard="false" importOnce="false" importMode="normal">
+        <Record id="(266,107,0)">
+            <Head>
+                <Field name="id" abasType="ID107">(266,107,0)</Field>
+                <Field name="guid" abasType="GLA38">2038010100001200049220:2:eks</Field>
+                <Field name="nummer" abasType="NK107">1000010</Field>
+                <Field name="such" abasType="SWK107">MYTHENSTEPS</Field>
+                <Field name="name" abasType="GL45">benutzerdefinierte then steps</Field>
+                <Field name="name14" abasType="GL45"></Field>
+                <Field name="classname" abasType="GLA40">ThenSteps</Field>
+                <Field name="tabart" abasType="NT24">P15:0</Field>
+                <Field name="fldname" abasType="GL20">sucherw</Field>
+                <Field name="fldkname" abasType="GL20">such</Field>
+                <Field name="fldbezname" abasType="GL20">such</Field>
+                <Field name="fldiname" abasType="GL20"></Field>
+                <Field name="leerok" abasType="B1">0</Field>
+            </Head>
+            <Row number="2">
+                <Field name="zid" abasType="IDZ107:1">(266,107,0,2)</Field>
+                <Field name="vaufzelem" abasType="VID88">(154,15,0)</Field>
+                <Field name="aefix" abasType="B1">0</Field>
+                <Field name="aekfix" abasType="B1">0</Field>
+                <Field name="aebezfix" abasType="B1">0</Field>
+                <Field name="aeaktiv" abasType="B1">1</Field>
+                <Field name="aedefault" abasType="B1">0</Field>
+                <Field name="aebezeichner" abasType="GL40">THENSTEPTWO</Field>
+            </Row>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ107:1">(266,107,0,1)</Field>
+                <Field name="vaufzelem" abasType="VID88">(153,15,0)</Field>
+                <Field name="aefix" abasType="B1">0</Field>
+                <Field name="aekfix" abasType="B1">0</Field>
+                <Field name="aebezfix" abasType="B1">0</Field>
+                <Field name="aeaktiv" abasType="B1">1</Field>
+                <Field name="aedefault" abasType="B1">0</Field>
+                <Field name="aebezeichner" abasType="GL40">THENSTEPONE</Field>
+            </Row>
+        </Record>
+    </RecordSet>
+</ABASData>
