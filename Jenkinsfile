@@ -59,7 +59,8 @@ timestamps {
 				}
 				onMaster {
 					stage('Upload') {
-						shGradle("packAbasApp")
+						shGradle("publish")
+						shGradle("packAbasApp -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
 							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
 							abasApp = abasApp.trim()
