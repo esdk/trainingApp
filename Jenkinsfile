@@ -62,9 +62,7 @@ timestamps {
 						shGradle("publish")
 						shGradle("packAbasApp -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
-							def abasAppSha = sh returnStdout: true, script: "sha1sum build/libs/trainingApp-$version-standalone-app.jar"
-							def logicAppSha = sh returnStdout: true, script: "sha1sum build/libs/train-${version}.jar"
-							markAppVersionReleased(generateAuth0Token(), "train", version, abasAppSha, logicAppSha)
+							releaseAppVersion("trainingApp", "train", version)
 							def abasApp = sh returnStdout: true, script: "ls build/abas-app/ | grep 'abasApp-$version'"
 							abasApp = abasApp.trim()
 							withAWS(credentials: 'e4ec24aa-35e1-4650-a4bd-6d9b06654e9b', region: "us-east-1") {
