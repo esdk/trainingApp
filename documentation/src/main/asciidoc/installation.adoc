@@ -9,12 +9,12 @@ since it is for demonstration purposes.
 In order to install it you need to have a hybrid tenant configured. Follow the instructions for link::https://documentation.abas.cloud/en/cloud-connect/[abas Cloud Connect]
 to setup a hybrid tenant.
 
-Once you have your hybrid tenant up and running you can install the app via the link::https://documentation.abas.cloud/en/esdk/#abas-app-installer[abas App Installer].
+Once you have your hybrid tenant up and running you can install the app via the link::https://documentation.abas.cloud/en/esdk/#esdk-app-installer[ESDK App Installer].
 In the abas client, you want to install the Training App in, run the following command:
 
 [source,shell,subs="verbatim,attributes"]
 ----
-abas-app-installer -a https://s3.amazonaws.com/abas-app-releases/train/{productVersion}/trainingApp-{productVersion}-app.jar
+esdk-app-installer -a https://s3.amazonaws.com/abas-app-releases/train/{productVersion}/trainingApp-{productVersion}-app.jar
 ----
 
 You can also install the Training App using the ESDK Gradle Plugin.

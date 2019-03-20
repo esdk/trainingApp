@@ -97,7 +97,7 @@ esdk {
 }
 
 gradle.taskGraph.whenReady {
-	abasAppDocumentation {
+	esdkAppDocumentation {
 		attributes 'productVersion': version.split("-")[0]
 	}
 }
