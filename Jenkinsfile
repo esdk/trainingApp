@@ -59,8 +59,8 @@ timestamps {
 				}
 				onMaster {
 					stage('Upload') {
-						shGradle("publish")
-						shGradle("packEsdkApp -x createAppJar")
+						shGradle("packEsdkApp")
+						shGradle("publish -x createAppJar")
 						if (!version.endsWith("SNAPSHOT")) {
 							releaseAppVersion("trainingApp", "train", version)
 							def esdkApp = sh returnStdout: true, script: "ls build/esdk-app/ | grep 'esdkApp-$version'"
