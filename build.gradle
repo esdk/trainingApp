@@ -163,6 +163,7 @@ dependencies {
 
 	implementation "de.abas.homedir:abas-axi2:1.0.0"
 	implementation "de.abas.homedir:abas-axi:1.0.0"
+	implementation 'de.abas.homedir:abas-db-internal:1.0.0'
 	implementation "de.abas.clientdir:abas-db:1.0.0-SNAPSHOT"
 	implementation "de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT"
 
@@ -170,9 +171,7 @@ dependencies {
 	testImplementation "junit:junit:4.12"
 	testImplementation 'org.hamcrest:hamcrest-all:1.3'
 
-	integTestImplementation "de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT"
 	integTestImplementation "de.abas.homedir:abas-db-util:1.0.0"
-	integTestImplementation "de.abas.homedir:abas-db-internal:1.0.0"
 	integTestImplementation "de.abas.homedir:commons-collections:1.0.0"
 	integTestImplementation "de.abas.homedir:abas-enums:1.0.0"
 }
