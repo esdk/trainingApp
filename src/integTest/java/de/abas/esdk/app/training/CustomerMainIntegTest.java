@@ -7,9 +7,6 @@ import de.abas.esdk.test.util.DoNotFailOnError;
 import de.abas.esdk.test.util.EsdkIntegTest;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
