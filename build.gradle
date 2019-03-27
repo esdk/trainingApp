@@ -168,10 +168,15 @@ dependencies {
 	implementation "de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT"
 
 	licensing "de.abas.esdk:client-api:0.0.5:all"
+
+	runtime "de.abas.homedir:commons-collections:1.0.0"
+	runtime "de.abas.homedir:abas-jfop-base:1.0.0"
+
 	testImplementation "junit:junit:4.12"
 	testImplementation 'org.hamcrest:hamcrest-all:1.3'
 
 	integTestImplementation "de.abas.homedir:abas-db-util:1.0.0"
-	integTestImplementation "de.abas.homedir:commons-collections:1.0.0"
 	integTestImplementation "de.abas.homedir:abas-enums:1.0.0"
+	integTestImplementation "de.abas.esdk.test.util:esdk-test-utils:0.0.2"
+
 }
