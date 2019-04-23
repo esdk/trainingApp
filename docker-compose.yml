@@ -2,22 +2,19 @@ version: '2.1'
 services:
     # The ERP Container
     # -----------------
-    # Accessing container via ssh:
-    # ssh in the Container:   ssh localhost -l s3 -p 2214 -i docker_erp.key
+    # Accessing the Container: docker exec -u erp -it erp-train bash
     #
     erp-train:
-      image: intra.registry.abas.sh/cloud-erp-neumand1:${ERP_VERSION:-2016r4n16}
+      image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2017r4n16p02}
       container_name: "erp-train"
 
       ports:
-      - "${SSH_TEST_PORT:-2214}:22"
-      - "${MINI_GUI_PORT:-8010}:80"
-      - "${EDP_TEST_PORT:-6569}:6550"
-      - "${GUI_TEST_PORT:-48601}:48392"
+      - "2214:22"
+      - "8010:80"
+      - "6569:6550"
+      - "48601:48392"
 
       environment:
-      - ABAS_HOST
-      - ABAS_GUI_PORT=${GUI_TEST_PORT:-48601}
       - http_proxy
       - https_proxy
       - no_proxy
@@ -25,7 +22,9 @@ services:
       # The hostname is very important, especially if you intend to use `docker commit`
       user: s3
       hostname: dockerbau
+      command: run
 
+    # The Nexus Container
     nexus-train:
       image: sonatype/nexus:oss
       container_name: "nexus-train"
