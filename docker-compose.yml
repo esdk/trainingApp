@@ -5,7 +5,7 @@ services:
     # Accessing the Container: docker exec -u erp -it erp-train bash
     #
     erp-train:
-      image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2017r4n16p01}
+      image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2017r4n16p02}
       container_name: "erp-train"
 
       ports:
