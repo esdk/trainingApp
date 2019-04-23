@@ -35,7 +35,7 @@ timestamps {
 				stage('Preparation') { // for display purposes
 					withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
 							passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
-						shDocker('login intra.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
+						shDocker('login sdp.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 					}
 						withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 							shDockerComposeUp()
