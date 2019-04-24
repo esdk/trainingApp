@@ -88,6 +88,9 @@ timestamps {
 			} finally {
 				stopHybridTenant()
 				shDockerComposeCleanUp()
+				if (BUILD_CAUSE_TIMERTRIGGER == true) {
+					shDocker("system prune -a -f")
+				}
 
 				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
 			}
