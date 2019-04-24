@@ -88,8 +88,12 @@ timestamps {
 			} finally {
 				stopHybridTenant()
 				shDockerComposeCleanUp()
-				if (BUILD_CAUSE_TIMERTRIGGER == true) {
-					shDocker("system prune -a -f")
+				def causes = currentBuild.rawBuild.getCauses()
+				for (def cause in causes) {
+					println(cause)
+					if (cause instanceof hudson.triggers.TimerTrigger.TimerTriggerCause) {
+						shDocker("system prune -a -f")
+					}
 				}
 
 				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
