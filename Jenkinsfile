@@ -2,6 +2,7 @@
 
 def version = ""
 String errorMessage = null
+String defaultErpVersion = "2017r4n16p02"
 
 timestamps {
 	ansiColor('xterm') {
@@ -10,7 +11,7 @@ timestamps {
 				properties([parameters([
 						string(name: 'ESDK_VERSION', defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)'),
 						string(name: 'BUILD_USER_PARAM', defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)'),
-						string(name: 'ERP_VERSION', defaultValue: '2017r4n16p02', description: 'abas Essentials version')
+						string(name: 'ERP_VERSION', defaultValue: defaultErpVersion, description: 'abas Essentials version')
 				])
 				])
 				stage('Setup') {
@@ -88,12 +89,8 @@ timestamps {
 			} finally {
 				stopHybridTenant()
 				shDockerComposeCleanUp()
-				def causes = currentBuild.rawBuild.getCauses()
-				for (def cause in causes) {
-					println(cause)
-					if (cause instanceof hudson.triggers.TimerTrigger.TimerTriggerCause) {
-						shDocker("system prune -a -f")
-					}
+				if (params.ESDK_VERSION.trim() != defaultErpVersion) {
+					shDocker("system prune -a -f")
 				}
 
 				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
