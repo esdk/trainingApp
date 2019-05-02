@@ -6,7 +6,7 @@
       <popup id="menuExecute"/>
     </popups>
     <language code="68" text="Deutsch" iso="de"/>
-    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="15" numberName="TestDb" screenNumber="171"/>
+    <id xsi:type="screen:DatabaseId" name="TestStructure/TestDb" priority="A" groupName="TestStructure" number="15" numberName="TestDb" screenNumber="70"/>
     <frames standardHelp="2.7">
       <elements xsi:type="core:GridLayout">
         <cells alignmentX="fill" alignmentY="fill">
@@ -120,7 +120,7 @@
       </label>
     </frames>
   </screen:Screen>
-  <schema:Variables searchWord="V-30-00    " group="true" name="TestStructure">
+  <schema:Variables searchWord="V-15-00" group="true" name="TestStructure">
     <entries englishName="" name="grust" type="I9" guiType="INTEGER" description="" width="9" screenProtection="immer geschützt" meaning="Gruppe" changePriority="A" viewPriority="A" primaryName="grust"/>
     <entries englishName="grpNo" name="gruppe" type="GRN30" guiType="INPUT" description="" width="2" screenProtection="immer geschützt" alias="true" meaning="Gruppennummer" changePriority="A" viewPriority="A" primaryName="grust"/>
     <entries englishName="grpDescr" name="grbez" type="GRB30" guiType="INPUT" description="" width="80" screenProtection="immer geschützt" alias="true" meaning="Gruppenbezeichnung" changePriority="A" viewPriority="A" primaryName="grust"/>
