@@ -14,7 +14,7 @@ In the abas client, you want to install the Training App in, run the following c
 
 [source,shell,subs="verbatim,attributes"]
 ----
-esdk-app-installer -a https://s3.amazonaws.com/abas-app-releases/train/{productVersion}/trainingApp-{productVersion}-app.jar
+esdk-app-installer -a https://s3.amazonaws.com/abas-app-releases/train/{productVersion}/trainingApp-{productVersion}-app.jar --yes-i-have-a-backup
 ----
 
 You can also install the Training App using the ESDK Gradle Plugin.
