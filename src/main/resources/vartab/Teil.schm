@@ -1,0 +1,27 @@
+database master Teil {
+	number 2
+	classname Part
+	structure Artikel {
+		groupNumber 1
+		head {
+			field BU3 skip hbutton {
+				label ""
+				heading ""
+				description "Menue button"
+				screen VIEW_EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+		table {
+			field BU4 skip tbutton {
+				label ""
+				heading ""
+				description "Menue button"
+				screen VIEW_EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+	}
+}
