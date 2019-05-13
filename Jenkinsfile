@@ -89,9 +89,7 @@ timestamps {
 			} finally {
 				stopHybridTenant()
 				shDockerComposeCleanUp()
-				if (params.ESDK_VERSION.trim() != defaultErpVersion) {
-					shDocker("system prune -a -f")
-				}
+				dockerPruneWhenSpaceLessThan(10)
 
 				slackNotify(currentBuild.result, 'esdk-bot', currentBuild.description)
 			}
