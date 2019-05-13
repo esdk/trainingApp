@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2.3'
 services:
     # The ERP Container
     # -----------------
@@ -6,6 +6,7 @@ services:
     #
     erp-train:
       image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2017r4n16p02}
+      init: true
       container_name: "erp-train"
 
       ports:
