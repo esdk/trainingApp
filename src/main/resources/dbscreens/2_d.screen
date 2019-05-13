@@ -20,7 +20,7 @@
       </popup>
     </popups>
     <language text="Deutsch" iso="de"/>
-    <id xsi:type="screen:DatabaseId" priority="D" screenNumber="2"/>
+    <id xsi:type="screen:DatabaseId" name="Teil/Artikel" priority="D" groupName="Artikel" group="1" number="2" numberName="Teil" screenNumber="2" />
     <frames>
       <elements xsi:type="core:NotebookLayout">
         <notebookPanes>
