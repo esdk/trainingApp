@@ -5,6 +5,7 @@ import de.abas.erp.db.infosystem.custom.ow1.TrainingTest;
 import de.abas.erp.db.schema.customer.CustomerEditor;
 import de.abas.esdk.test.util.DoNotFailOnError;
 import de.abas.esdk.test.util.EsdkIntegTest;
+import org.junit.After;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.contains;
@@ -16,13 +17,15 @@ import static org.junit.Assert.fail;
 public class CustomerMainIntegTest extends EsdkIntegTest {
 
 	private static final String FIELD_VALUE_ERROR_MESSAGE = "Field value invalid!";
-	private static final String FIELD_VALUE_ERROR = "ERROR_MESSAGE Cat=ERROR Fld=contactPerson: FOP: " + FIELD_VALUE_ERROR_MESSAGE;
+	private static final String FIELD_VALUE_ERROR = "ERROR_MESSAGE Cat=ERROR Fld=contactPerson: " + FIELD_VALUE_ERROR_MESSAGE;
+
+	private CustomerEditor customerEditor = null;
 
 	@DoNotFailOnError(message = FIELD_VALUE_ERROR)
 	@Test
 	public void customerContactPersonTest() {
 		try {
-			CustomerEditor customerEditor = ctx.newObject(CustomerEditor.class);
+			customerEditor = ctx.newObject(CustomerEditor.class);
 			customerEditor.setContactPerson("blub");
 			fail("DBRuntimeException expected");
 		} catch (DBRuntimeException e) {
@@ -36,6 +39,13 @@ public class CustomerMainIntegTest extends EsdkIntegTest {
 		TrainingTest trainingTest = ctx.openInfosystem(TrainingTest.class);
 		trainingTest.invokeStart();
 		assertThat(getMessages(), hasItem("TEXT_MESSAGE: License check passed: true"));
+	}
+
+	@After
+	public void cleanup() {
+		if (customerEditor != null && customerEditor.active()) {
+			customerEditor.abort();
+		}
 	}
 
 }
