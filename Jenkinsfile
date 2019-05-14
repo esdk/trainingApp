@@ -26,6 +26,7 @@ timestamps {
 					rmDirInMavenLocal '​de/abas/esdk'
 					currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 					initGradleProps()
+					docker("exec -u erp -t erp-train sh -c 'cd /abas/erp && eval \$(sh denv.sh) && ajo_install.sh -R'")
 				}
 				stage('Set version') {
 					updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
