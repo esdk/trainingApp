@@ -4,18 +4,18 @@
     <popups>
       <popup id="menuExecute">
         <menuItems visibleInToolbar="true">
-          <label viewLanguage="de" key="product_mhead_ytestahbutton">
+          <label viewLanguage="de" key="product_mhead_ytrainhbutton">
             <value key="de" value="Menue button"/>
           </label>
-          <variable englishName="ytestahbutton" name="ytestahbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytestahbutton"/>
+          <variable englishName="ytrainhbutton" name="ytrainhbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytrainhbutton"/>
         </menuItems>
       </popup>
       <popup id="menuTable">
         <menuItems visibleInToolbar="true">
-          <label viewLanguage="de" key="product_mtable_ytestatbutton">
+          <label viewLanguage="de" key="product_mtable_ytraintbutton">
             <value key="de" value="Menue button"/>
           </label>
-          <variable englishName="ytestatbutton" name="ytestatbutton" type="BU4" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytestatbutton"/>
+          <variable englishName="ytraintbutton" name="ytraintbutton" type="BU4" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytraintbutton"/>
         </menuItems>
       </popup>
     </popups>
@@ -27,19 +27,19 @@
           <elements xsi:type="core:GridLayout">
             <cells alignmentY="center">
               <elements xsi:type="core:Label">
-                <label viewLanguage="de" key="product_fhead_ytestahbutton">
+                <label viewLanguage="de" key="product_fhead_ytrainhbutton">
                   <value key="de" value="Menue button"/>
                 </label>
               </elements>
               <elements xsi:type="core:Button">
-                <variable englishName="ytestahbutton" name="ytestahbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytestahbutton"/>
-                <label viewLanguage="de" key="product_fhead_ytestahbutton">
+                <variable englishName="ytrainhbutton" name="ytrainhbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytrainhbutton"/>
+                <label viewLanguage="de" key="product_fhead_ytrainhbutton">
                   <value key="de" value="Menue button"/>
                 </label>
               </elements>
             </cells>
           </elements>
-          <label viewLanguage="de" key="product$testa_0">
+          <label viewLanguage="de" key="product$train_0">
             <value key="de" value="Test App"/>
           </label>
         </notebookPanes>
@@ -742,7 +742,7 @@
     <entries englishName="lastProcureDate" name="lbsdatum" type="GD2" guiType="DATE" description="" width="8" screenProtection="kerngesteuert" writeable="true" meaning="Datum letzte Beschaffung" changePriority="A" viewPriority="A" primaryName="lbsdatum"/>
     <entries englishName="lastUsageDate" name="lverwdatum" type="GD2" guiType="DATE" description="" width="8" screenProtection="kerngesteuert" writeable="true" meaning="Datum letzte Verwendung" changePriority="A" viewPriority="A" primaryName="lverwdatum"/>
     <entries englishName="comparisonDate" name="vgltermin" type="A311" guiType="COMBOBOX" description="" width="13" screenProtection="kerngesteuert" writeable="true" meaning="Vergleichstermin" changePriority="A" viewPriority="A" primaryName="vgltermin"/>
-    <entries englishName="ytestahbutton" name="ytestahbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytestahbutton"/>
+    <entries englishName="ytrainhbutton" name="ytrainhbutton" type="BU3" description="" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytrainhbutton"/>
     <entries englishName="rowIdNo" name="tabnr" type="TZN" guiType="INPUT" description="" tableEntry="true" width="5" screenProtection="immer geschützt" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="tabnr"/>
     <entries englishName="rowId" name="zid" type="IDZ2:1" guiType="REFERENCE" description="" tableEntry="true" width="30" screenProtection="immer geschützt" skip="true" meaning="Zeilen-ID" changePriority="A" viewPriority="A" primaryName="zid"/>
     <entries englishName="rowNo" name="zn" type="I5" guiType="INTEGER" description="" tableEntry="true" width="5" screenProtection="immer geschützt" skip="true" meaning="Laufende Zeilennummer" changePriority="A" viewPriority="A" primaryName="zn"/>
@@ -839,6 +839,6 @@
     <entries englishName="lastUsageDateTab" name="tlverwdatum" type="GD2" guiType="DATE" description="" tableEntry="true" width="8" screenProtection="kerngesteuert" writeable="true" meaning="Datum letzte Verwendung" changePriority="A" viewPriority="A" primaryName="tlverwdatum"/>
     <entries englishName="comparisonDateTab" name="tvgltermin" type="A311" guiType="COMBOBOX" description="" tableEntry="true" width="13" screenProtection="immer geschützt" skip="true" meaning="Vergleichstermin" changePriority="A" viewPriority="A" primaryName="tvgltermin"/>
     <entries englishName="discontinuedStatusIcon" name="auslaufstatusicon" type="DVS1" guiType="IMAGE" description="" tableEntry="true" width="1" screenProtection="immer geschützt" skip="true" meaning="Status Ausgelaufen (Icon)" changePriority="A" viewPriority="A" primaryName="auslaufstatusicon"/>
-    <entries englishName="ytestatbutton" name="ytestatbutton" type="BU4" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytestatbutton"/>
+    <entries englishName="ytraintbutton" name="ytraintbutton" type="BU4" description="" tableEntry="true" width="1" screenProtection="zeigen änderbar" writeable="true" skip="true" custom="true" meaning="Menue button" changePriority="A" viewPriority="A" primaryName="ytraintbutton"/>
   </schema:Variables>
 </xmi:XMI>
