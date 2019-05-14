@@ -87,7 +87,7 @@ timestamps {
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
 			} finally {
-				for (line in shReturnStdoutTrimmed("docker exec -t erp-train ls -1 /abas/erp/ | grep '.\\.FEHL'").split("\n")) {
+				for (line in shReturnStdoutTrimmed("docker exec -t erp-train sh -c 'ls -1 /abas/erp/*.FEHL'").split("\n")) {
 					archiveFileFromContainers("/abas/erp", line.trim())
 				}
 				stopHybridTenant()
