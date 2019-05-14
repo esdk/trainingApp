@@ -52,7 +52,7 @@ timestamps {
 				}
 				stage('Verify') {
 					try {
-						shGradle("check")
+						shGradle("verify")
 					} finally {
 						junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 						archiveArtifacts 'build/reports/**'
