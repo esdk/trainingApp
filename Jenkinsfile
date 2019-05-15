@@ -39,11 +39,12 @@ timestamps {
 								passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
 							shDocker('login sdp.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 						}
-							withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
-								shDockerComposeUp()
-							}
-						waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
+						withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
+							shDockerComposeUp()
+						}
 						setupHybridTenant("d72216db-346d-499f-97f7-19b589c412bd", 6569, 2214)
+						shDocker("exec -u erp -t erp-train sh -c 'cd /abas/erp && eval \$(sh denv.sh) && ajo_install.sh -R -a -c'")
+						waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
 					}
 					stage('Installation') {
 						shGradle("checkPreconditions")
@@ -52,7 +53,7 @@ timestamps {
 					}
 					stage('Verify') {
 						try {
-							shGradle("check")
+							shGradle("verify")
 						} finally {
 							junit allowEmptyResults: true, testResults: 'build/test-results/**/*.xml'
 							archiveArtifacts 'build/reports/**'
@@ -89,6 +90,9 @@ timestamps {
 				currentBuild.description = currentBuild.description + " => failed"
 				throw any
 			} finally {
+				for (line in shReturnStdoutTrimmed("docker exec -t erp-train sh -c 'ls -1 /abas/erp/*.FEHL'").split("\n")) {
+					archiveFileFromContainers("/abas/erp", line.trim())
+				}
 				stopHybridTenant()
 				shDockerComposeCleanUp()
 				dockerPruneWhenSpaceLessThan(10)
