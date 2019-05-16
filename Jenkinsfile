@@ -8,7 +8,7 @@ timestamps {
 	ansiColor('xterm') {
 		node {
 			try {
-				timeout(activity: true, time: 10) {
+				timeout(activity: true, time: 20) {
 					properties([parameters([
 							string(name: 'ESDK_VERSION', defaultValue: '', description: 'Version of ESDK to use (if not same as project version, project version will be updated as well)'),
 							string(name: 'BUILD_USER_PARAM', defaultValue: 'anonymous', description: 'User who triggered the build implicitly (through a commit in another project)'),
