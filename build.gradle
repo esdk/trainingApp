@@ -28,6 +28,16 @@ plugins {
 
 apply plugin: "de.abas.esdk"
 
+static Boolean after2018() {
+	def erpVersion = System.getenv("ERP_VERSION")
+	if (erpVersion == null || erpVersion == "") {
+		return false
+	}
+	def majorVersion = Integer.parseInt(erpVersion.substring(0, 4))
+	return majorVersion >= 2018
+}
+
+
 repositories {
 	mavenLocal()
 	maven { url "http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME" }
@@ -167,6 +177,10 @@ dependencies {
 	implementation 'de.abas.homedir:abas-db-internal:1.0.0'
 	implementation "de.abas.clientdir:abas-db:1.0.0-SNAPSHOT"
 	implementation "de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT"
+	if (after2018()) {
+		println("after 2018")
+		implementation "de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT"
+	}
 
 	licensing "de.abas.esdk:client-api:0.0.11:all"
 
