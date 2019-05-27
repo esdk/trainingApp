@@ -29,7 +29,7 @@ timestamps {
 						initGradleProps()
 					}
 					stage('Set version') {
-						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/Tschasmine/trainingApp.git')
+						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'github.com/esdk/trainingApp.git')
 						initGradleProps()
 						version = readVersion()
 						currentBuild.description += ", ESDK version: $version"
