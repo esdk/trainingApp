@@ -20,9 +20,10 @@ timestamps {
 							checkout scm
 							sh returnStatus: true, script: "sudo rm -rf logs"
 							sh "git reset --hard origin/$BRANCH_NAME"
-							sh "git clean -fd"
-							sh "mkdir logs"
+							sh 'git clean -fd'
+							sh 'mkdir logs'
 						}
+						gitSetUser()
 						prepareEnv()
 						rmDirInMavenLocal '​de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
