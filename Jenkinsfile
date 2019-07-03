@@ -62,7 +62,7 @@ timestamps {
 					}
 					onMaster {
 						stage('Upload') {
-							shGradle("packEsdkApp")
+							shGradle("packEsdkApp -x checkForSnapshot")
 							shGradle("publish -x createAppJar")
 							if (!version.endsWith("SNAPSHOT")) {
 								releaseAppVersion("trainingApp", "train", version)
