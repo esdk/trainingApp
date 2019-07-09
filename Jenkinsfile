@@ -25,7 +25,7 @@ timestamps {
 						}
 						gitSetUser()
 						prepareEnv()
-						rmDirInMavenLocal '​de/abas/esdk'
+						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
 					}
