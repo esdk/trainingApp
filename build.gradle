@@ -178,7 +178,6 @@ dependencies {
 	implementation "de.abas.clientdir:abas-db:1.0.0-SNAPSHOT"
 	implementation "de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT"
 	if (after2018()) {
-		println("after 2018")
 		implementation "de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT"
 	}
 
