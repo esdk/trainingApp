@@ -21,4 +21,4 @@ SSH_KEY=
 
 installType=SSH
 
-version=0.12.14-SNAPSHOT
+version=0.12.14
