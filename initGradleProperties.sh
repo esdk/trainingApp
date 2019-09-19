@@ -1,4 +1,5 @@
 #!/bin/bash
+set-e
 
 if [ ! $DOCKER_ENV_HOST ]; then
     if [ Msys = '$(uname -o)2>/dev/null' ]; then #git for windows
