@@ -74,7 +74,7 @@ esdk {
 		namedTypes = ["TestRealNamedType"]
 		screens = ["Customer:Customer": ["A"], "Sales:BlanketOrder": ["A"], "Operation:Operation": ["A"], "77": ["A"], "Pricing:Pricing": ["A"], "TestDb:TestStructure": ["A"]]
 		advancedScreens = ["75": ["A"]]
-		essentialsVersions = ["2016r1n00-2016r4n16", "2017r1n00-2017r4n16", "2018r1n00-2018r4n16"]
+		essentialsVersions = ["2017r1n00-2017r4n16", "2018r1n00-2018r4n16", "2019r1n00-2019r4n16"]
 		preconditions = ["workDirs=ow1"]
 		languages = "DEA"
 		workdirs = ["ow1", "owbi"]
