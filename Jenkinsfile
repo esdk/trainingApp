@@ -2,7 +2,7 @@
 
 def version = ""
 String errorMessage = null
-String defaultErpVersion = "2017r4n16p02"
+String defaultErpVersion = "2017r4n16p27"
 
 timestamps {
 	ansiColor('xterm') {
