@@ -5,7 +5,7 @@ services:
     # Accessing the Container: docker exec -u erp -it erp-train bash
     #
     erp-train:
-      image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2017r4n16p02}
+      image: sdp.registry.abas.sh/abas/test:${ERP_VERSION:-2018r4n14p18}
       init: true
       container_name: "erp-train"
 
@@ -23,9 +23,9 @@ services:
       # The hostname is very important, especially if you intend to use `docker commit`
       user: s3
       hostname: dockerbau
-      command: ["sh", "-c", "cd /abas/erp && eval $$(sh denv.sh) && datmod -s && echo success && pwd && /data/starteVersion.sh run" ]
+      command: ["sh", "-c", "cd /abas/erp && eval $$(sh denv.sh) && datmeta -s && echo success && pwd && /abas/bin/starteVersion.sh run" ]
 
-    # The Nexus Container
+  # The Nexus Container
     nexus-train:
       image: sonatype/nexus:oss
       container_name: "nexus-train"
