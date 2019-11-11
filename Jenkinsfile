@@ -44,7 +44,6 @@ timestamps {
 							shDockerComposeUp()
 						}
 						setupHybridTenant("d72216db-346d-499f-97f7-19b589c412bd", 6569, 2214)
-						shDocker("exec -u erp -t erp-train sh -c 'cd /abas/erp && eval \$(sh denv.sh) && ajo_install.sh -R -a -c'")
 						waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
 					}
 					stage('Installation') {
