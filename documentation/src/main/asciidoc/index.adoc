@@ -12,6 +12,6 @@ include::installation.adoc[]
 == About
 
 Training App +
-(C) abas Software AG
+(C) abas Software GmbH
 
 https://abas-essentials-sdk.com/
