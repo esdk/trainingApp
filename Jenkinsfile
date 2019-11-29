@@ -1,6 +1,6 @@
 @Library('esdk-jenkins-lib@master') _
 
-def version = ""
+String version = ""
 String errorMessage = null
 String defaultErpVersion = "2017r4n16p27"
 
@@ -61,6 +61,10 @@ timestamps {
 					}
 					onMaster {
 						stage('Upload') {
+							if (currentVersionIsReleaseButNoNewVersionGiven(version, params.ESDK_VERSION)) {
+								echo "It seems a release build is currently in progress. Skipping publish and release steps."
+								return
+							}
 							shGradle("packEsdkApp -x checkForSnapshot")
 							shGradle("publish -x createAppJar")
 							if (!version.endsWith("SNAPSHOT")) {
@@ -101,4 +105,8 @@ timestamps {
 			}
 		}
 	}
+}
+
+def currentVersionIsReleaseButNoNewVersionGiven(String currentVersion, String newVersion) {
+	return !currentVersion.endsWith("SNAPSHOT") && (null == newVersion || "" == newVersion)
 }
