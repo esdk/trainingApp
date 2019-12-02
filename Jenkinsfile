@@ -1,6 +1,6 @@
 @Library('esdk-jenkins-lib@master') _
 
-def version = ""
+String version = ""
 String errorMessage = null
 String defaultErpVersion = "2017r4n16p27"
 
@@ -34,6 +34,11 @@ timestamps {
 						initGradleProps()
 						version = readVersion()
 						currentBuild.description += ", ESDK version: $version"
+					}
+					if (currentVersionIsReleaseButNoNewVersionGiven(version, params.ESDK_VERSION)) {
+						echo "It seems a release build is currently in progress. Skipping this build."
+						currentBuild.result = 'ABORTED'
+						return
 					}
 					stage('Preparation') { // for display purposes
 						withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
@@ -101,4 +106,8 @@ timestamps {
 			}
 		}
 	}
+}
+
+def currentVersionIsReleaseButNoNewVersionGiven(String currentVersion, String newVersion) {
+	return !currentVersion.endsWith("SNAPSHOT") && (null == newVersion || "" == newVersion)
 }
