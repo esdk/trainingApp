@@ -35,6 +35,11 @@ timestamps {
 						version = readVersion()
 						currentBuild.description += ", ESDK version: $version"
 					}
+					if (currentVersionIsReleaseButNoNewVersionGiven(version, params.ESDK_VERSION)) {
+						echo "It seems a release build is currently in progress. Skipping this build."
+						currentBuild.result = 'ABORTED'
+						return
+					}
 					stage('Preparation') { // for display purposes
 						withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
 								passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
@@ -61,10 +66,6 @@ timestamps {
 					}
 					onMaster {
 						stage('Upload') {
-							if (currentVersionIsReleaseButNoNewVersionGiven(version, params.ESDK_VERSION)) {
-								echo "It seems a release build is currently in progress. Skipping publish and release steps."
-								return
-							}
 							shGradle("packEsdkApp -x checkForSnapshot")
 							shGradle("publish -x createAppJar")
 							if (!version.endsWith("SNAPSHOT")) {
