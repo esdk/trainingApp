@@ -6,6 +6,24 @@
 	  "headfields" : [ "id", "guid", "such", "name" ],
 	  "tablefields" : [],
 	  "criteria" : "such==TEST"
+	},
+	{
+	  "dbnr" : 2,
+	  "grnr" : 1,
+	  "identifiers": ["such", "name"],
+	  "headfields" : [ "id", "guid", "such", "name" ],
+	  "tablefields" : ["zid", "elem", "elanzahl"],
+	  "criteria" : "such==TEST",
+	  "rowimportmode" : "alwaysAdd"
+	}
+  ],
+  "dependents" : [
+	{
+	  "dbnr" : 7,
+	  "grnr" : 0,
+	  "identifiers" : [ "guid" ],
+	  "headfields" : [ "id", "guid", "such", "name" ],
+	  "tablefields" : []
 	}
   ]
 }
