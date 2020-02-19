@@ -10,4 +10,60 @@
             </Head>
         </Record>
     </RecordSet>
+    <RecordSet tableNumber="2:1" tableName="Teil:Artikel" identifiers="such,name" standard="false" importOnce="false" importMode="normal" rowImportMode="alwaysAdd">
+        <Record id="(271,2,0)">
+            <Head>
+                <Field name="id" abasType="ID2">(271,2,0)</Field>
+                <Field name="guid" abasType="GLA38">bfb9d0b7-8989-4994-90fd-f41db920ce35</Field>
+                <Field name="such" abasType="SWK2">SCHMIEDEROHLING-MESSER-47</Field>
+                <Field name="name" abasType="T32">Schmiederohling Messer 47 cm</Field>
+            </Head>
+        </Record>
+        <Record id="(596,2,0)">
+            <Head>
+                <Field name="id" abasType="ID2">(596,2,0)</Field>
+                <Field name="guid" abasType="GLA38">2a6136da-ba0b-48f7-b580-15bdd4ad9fe9</Field>
+                <Field name="such" abasType="SWK2">TEST</Field>
+                <Field name="name" abasType="T32">Test 2</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ2:1">(596,2,0,1)</Field>
+                <Field name="elem" abasType="VID1">(271,2,0)</Field>
+                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+            </Row>
+            <Row number="2">
+                <Field name="zid" abasType="IDZ2:1">(596,2,0,2)</Field>
+                <Field name="elem" abasType="VID1">(186,7,0)</Field>
+                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+            </Row>
+        </Record>
+        <Record id="(595,2,0)">
+            <Head>
+                <Field name="id" abasType="ID2">(595,2,0)</Field>
+                <Field name="guid" abasType="GLA38">346aecb6-1375-4040-ad3b-edd8d36eb010</Field>
+                <Field name="such" abasType="SWK2">TEST</Field>
+                <Field name="name" abasType="T32">Test 1</Field>
+            </Head>
+            <Row number="1">
+                <Field name="zid" abasType="IDZ2:1">(595,2,0,1)</Field>
+                <Field name="elem" abasType="VID1">(271,2,0)</Field>
+                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+            </Row>
+            <Row number="2">
+                <Field name="zid" abasType="IDZ2:1">(595,2,0,2)</Field>
+                <Field name="elem" abasType="VID1">(186,7,0)</Field>
+                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+            </Row>
+        </Record>
+    </RecordSet>
+    <RecordSet tableNumber="7:0" tableName="Arbeitsgang:Arbeitsgang" identifiers="guid" standard="false" importOnce="false" importMode="normal" rowImportMode="clearBeforeImport">
+        <Record id="(186,7,0)">
+            <Head>
+                <Field name="id" abasType="ID7">(186,7,0)</Field>
+                <Field name="guid" abasType="GLA38">afca980e-206e-4d57-ac06-c81af6712c6a</Field>
+                <Field name="such" abasType="SWK7">SCHLEIFEN</Field>
+                <Field name="name" abasType="T32">Schleifen</Field>
+            </Head>
+        </Record>
+    </RecordSet>
 </ABASData>
