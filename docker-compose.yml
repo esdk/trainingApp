@@ -23,7 +23,7 @@ services:
       # The hostname is very important, especially if you intend to use `docker commit`
       user: s3
       hostname: dockerbau
-      command: ["sh", "-c", "cd /abas/erp && eval $$(sh denv.sh) && datmeta -s && echo success && pwd && /abas/bin/starteVersion.sh run" ]
+      command: __RUN_COMMAND__
 
   # The Nexus Container
     nexus-train:
