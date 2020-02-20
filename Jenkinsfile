@@ -41,6 +41,7 @@ timestamps {
 						return
 					}
 					stage('Preparation') { // for display purposes
+						setProperCommandForDockerCompose(params.ERP_VERSION)
 						withCredentials([usernamePassword(credentialsId: '82305355-11d8-400f-93ce-a33beb534089',
 								passwordVariable: 'MAVENPASSWORD', usernameVariable: 'MAVENUSER')]) {
 							shDocker('login sdp.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
@@ -110,4 +111,13 @@ timestamps {
 
 def currentVersionIsReleaseButNoNewVersionGiven(String currentVersion, String newVersion) {
 	return !currentVersion.endsWith("SNAPSHOT") && (null == newVersion || "" == newVersion)
+}
+
+private void setProperCommandForDockerCompose(String image) {
+	String[] notUpdatedImages = ["2018r4n03", "2018r4n04", "2018r4n04p01", "2018r4n05", "2018r4n06", "2018r4n07", "2018r4n08", "2018r4n09", "2018r4n10", "2018r4n11", "2018r4n12", "2018r4n13"]
+	String runCommandLocation = "/abas/bin/"
+	if (notUpdatedImages.contains(image)) {
+		runCommandLocation = "/data/"
+	}
+	justReplace('__RUN_COMMAND__', "[\"sh\", \"-c\", \"cd /abas/erp \\&\\& eval \$\$(sh denv.sh) \\&\\& datmeta -s \\&\\& ${runCommandLocation}starteVersion.sh run\"]", 'docker-compose.yml', ';')
 }
