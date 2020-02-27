@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ABASData>
-    <RecordSet tableNumber="2:1" tableName="Teil:Artikel" identifiers="such,name" standard="false" importOnce="false" importMode="normal" rowImportMode="alwaysAdd">
+    <RecordSet tableNumber="2:1" tableName="Teil:Artikel" identifiers="such,name" rowIdentifiers="elem" standard="false" importOnce="false" importMode="normal" rowImportMode="updateMatching">
         <Record id="(271,2,0)">
             <Head>
                 <Field name="id" abasType="ID2">(271,2,0)</Field>
-                <Field name="guid" abasType="GLA38">82996bb7-20fb-40fd-8f1d-a97dcfffcbf4</Field>
+                <Field name="guid" abasType="GLA38">c5d583f6-e149-4e51-ab09-7faac82f5acc</Field>
                 <Field name="such" abasType="SWK2">SCHMIEDEROHLING-MESSER-47</Field>
                 <Field name="name" abasType="T32">Schmiederohling Messer 47 cm</Field>
             </Head>
@@ -19,14 +19,14 @@
             <Row number="1">
                 <Field name="zid" abasType="IDZ2:1">(596,2,0,1)</Field>
                 <Field name="elem" abasType="VID1">(271,2,0)</Field>
-                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+                <Field name="elanzahl" abasType="M4.4">   11     </Field>
                 <Field name="ellme" abasType="TAZ1"></Field>
                 <Field name="melle" abasType="TAZ1">Stück</Field>
             </Row>
             <Row number="2">
                 <Field name="zid" abasType="IDZ2:1">(596,2,0,2)</Field>
                 <Field name="elem" abasType="VID1">(216,7,0)</Field>
-                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+                <Field name="elanzahl" abasType="M4.4">   11     </Field>
                 <Field name="ellme" abasType="TAZ1">min</Field>
                 <Field name="melle" abasType="TAZ1"></Field>
             </Row>
@@ -41,27 +41,17 @@
             <Row number="1">
                 <Field name="zid" abasType="IDZ2:1">(595,2,0,1)</Field>
                 <Field name="elem" abasType="VID1">(271,2,0)</Field>
-                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+                <Field name="elanzahl" abasType="M4.4">   11     </Field>
                 <Field name="ellme" abasType="TAZ1"></Field>
                 <Field name="melle" abasType="TAZ1">Stück</Field>
             </Row>
             <Row number="2">
                 <Field name="zid" abasType="IDZ2:1">(595,2,0,2)</Field>
                 <Field name="elem" abasType="VID1">(216,7,0)</Field>
-                <Field name="elanzahl" abasType="M4.4">   1     </Field>
+                <Field name="elanzahl" abasType="M4.4">   11     </Field>
                 <Field name="ellme" abasType="TAZ1">min</Field>
                 <Field name="melle" abasType="TAZ1"></Field>
             </Row>
-        </Record>
-    </RecordSet>
-    <RecordSet tableNumber="1:1" tableName="Lieferant:Lieferant" identifiers="guid" standard="false" importOnce="false" importMode="normal" rowImportMode="clearBeforeImport">
-        <Record id="(199,1,0)">
-            <Head>
-                <Field name="id" abasType="ID1">(199,1,0)</Field>
-                <Field name="guid" abasType="GLA38">ada1f311-747a-4ee7-ad06-e9e73fc8c6de</Field>
-                <Field name="such" abasType="SWK1">TEST</Field>
-                <Field name="name" abasType="GL45">Testlieferant</Field>
-            </Head>
         </Record>
     </RecordSet>
     <RecordSet tableNumber="7:0" tableName="Arbeitsgang:Arbeitsgang" identifiers="guid" standard="false" importOnce="false" importMode="normal" rowImportMode="clearBeforeImport">

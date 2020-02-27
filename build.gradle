@@ -79,7 +79,7 @@ esdk {
 		shared = false
 		infosystems = ["IS.OW1.TESTINFO"]
 		tables = ["TestDb", "Teil"]
-		data = ["data.json"]
+		data = ["data.json", "updateData.json"]
 		keys = ["2738"]
 		enums = ["Importfileformat", "Importfileformat2", "Importfileformat3", "ThenSteps"]
 		namedTypes = ["TestRealNamedType"]
