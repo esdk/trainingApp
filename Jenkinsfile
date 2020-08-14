@@ -47,7 +47,7 @@ timestamps {
 							shDocker('login sdp.registry.abas.sh -u $MAVENUSER -p $MAVENPASSWORD')
 						}
 						withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
-							shDockerComposeUp()
+							shDockerCompose("up -d --build")
 						}
 						setupHybridTenant("d72216db-346d-499f-97f7-19b589c412bd", 6569, 2214)
 						waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
