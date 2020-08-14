@@ -2,7 +2,7 @@
 
 String version = ""
 String errorMessage = null
-String defaultErpVersion = "2017r4n16p27"
+String defaultErpVersion = "2017r4n16p36"
 
 timestamps {
 	ansiColor('xterm') {

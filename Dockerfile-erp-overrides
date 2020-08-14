@@ -1,0 +1,6 @@
+ARG ERP_VERSION=$ERP_VERSION
+FROM sdp.registry.abas.sh/abas/test:${ERP_VERSION}
+
+USER root
+# Disable DNS lookup in sshd.
+RUN echo 'UseDNS no' >> /etc/ssh/sshd_config
