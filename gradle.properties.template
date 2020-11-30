@@ -21,4 +21,4 @@ SSH_KEY=
 
 installType=SSH
 
-version=0.14.1
+version=0.14.2
