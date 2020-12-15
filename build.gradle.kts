@@ -1,5 +1,3 @@
-import de.abas.esdk.gradle.EsdkConfig
-
 buildscript {
     val esdkSnapshotURL: String by project
     val esdkReleaseURL: String by project
