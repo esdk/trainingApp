@@ -65,8 +65,14 @@ fun after2018(): Boolean {
 
 repositories {
     mavenLocal()
-    maven { url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME") }
-    maven { url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT") }
+    maven {
+        url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
+        isAllowInsecureProtocol = true
+    }
+    maven {
+        url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
+        isAllowInsecureProtocol = true
+    }
     mavenCentral()
     maven {
         url = uri(esdkSnapshotURL)
