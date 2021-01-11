@@ -5,7 +5,8 @@ buildscript {
 	val esdkReleaseURL: String by project
 	val nexusUser: String by project
 	val nexusPassword: String by project
-	if ((version as String).endsWith("-SNAPSHOT")) {
+	val versionString = "0.14.5-SNAPSHOT"
+	if ((versionString as String).endsWith("-SNAPSHOT")) {
 		repositories {
 			mavenLocal()
 			maven {
@@ -24,7 +25,7 @@ buildscript {
 			}
 		}
 		dependencies {
-			classpath("de.abas.esdk:gradlePlugin:$version")
+			classpath("de.abas.esdk:gradlePlugin:$versionString")
 		}
 	} else {
 		repositories {
@@ -33,7 +34,7 @@ buildscript {
 			}
 		}
 		dependencies {
-			classpath("esdk:gradlePlugin:$version")
+			classpath("esdk:gradlePlugin:$versionString")
 		}
 	}
 }

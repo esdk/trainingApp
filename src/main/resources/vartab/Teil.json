@@ -1,0 +1,31 @@
+{
+  "name": "Teil",
+  "number": 2,
+  "isMasterData": true,
+  "classname": "Part",
+  "groups": [{
+    "name": "Artikel",
+    "number": 1,
+    "classname": "",
+    "headFields": [{
+      "name": "hbutton",
+      "newName": "hbutton",
+      "isSkip": true,
+      "type": "BU3",
+      "description": "Menue button",
+      "screenVisibility": "ViewEditable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }],
+    "tableFields": [{
+      "name": "tbutton",
+      "newName": "tbutton",
+      "isSkip": true,
+      "type": "BU4",
+      "description": "Menue button",
+      "screenVisibility": "ViewEditable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }]
+  }]
+}
