@@ -27,6 +27,11 @@ timestamps {
 						prepareEnv()
 						// set HOSTNAME env variable for HOCON application.conf
 						env.HOSTNAME = sh returnStdout: true, script: "hostname"
+						env.HOSTNAME2 = sh returnStdout: true, script: "sh hostname"
+						env.HOSTNAME3 = sh returnStdout: true, script: "$(hostname)"
+						echo 'hostname=${env.HOSTNAME}'
+						echo 'hostname2=${env.HOSTNAME2}'
+						echo 'hostname3=${env.HOSTNAME3}'
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
