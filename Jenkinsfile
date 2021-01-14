@@ -26,12 +26,12 @@ timestamps {
 						gitSetUser()
 						prepareEnv()
 						// set HOSTNAME env variable for HOCON application.conf
-						env.HOSTNAME = sh returnStdout: true, script: "hostname"
-						echo 'hostname=${env.HOSTNAME}'
-						env.HOSTNAME3 = sh returnStdout: true, script: '$(hostname)'
-						echo 'hostname3=${env.HOSTNAME3}'
+// 						env.HOSTNAME = sh returnStdout: true, script: "hostname"
+// 						echo 'hostname=${env.HOSTNAME}'
+// 						env.HOSTNAME3 = sh returnStdout: true, script: '$(hostname)'
+// 						echo 'hostname3=${env.HOSTNAME3}'
 						env.HOSTNAME4 = sh returnStdout: true, script: 'echo $(hostname)'
-						echo 'hostname4=${env.HOSTNAME3}'
+						echo 'hostname4=${env.HOSTNAME4}'
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
