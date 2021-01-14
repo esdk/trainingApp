@@ -30,8 +30,8 @@ timestamps {
 // 						echo 'hostname=${env.HOSTNAME}'
 // 						env.HOSTNAME3 = sh returnStdout: true, script: '$(hostname)'
 // 						echo 'hostname3=${env.HOSTNAME3}'
-						env.HOSTNAME4 = sh returnStdout: true, script: 'echo $(hostname)'
-						echo 'hostname4=${env.HOSTNAME4}'
+						env.HOSTNAME = sh returnStdout: true, script: 'echo $(hostname)'
+						echo "hostname=${env.HOSTNAME}"
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
