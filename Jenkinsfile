@@ -36,6 +36,8 @@ timestamps {
 					stage('Set version') {
 						echo "HOSTNAME2=${env.HOSTNAME}"
 						sh returnStdout: true, script: 'echo PWD: $(pwd)'
+						sh returnStdout: true, script: 'echo ls: $(ls -al)'
+						sh returnStdout: true, script: 'echo cat: $(cat application.conf)'
 						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'git@github.com:esdk/trainingApp.git')
 						initGradleProps()
 						version = readVersion()
