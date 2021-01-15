@@ -1,0 +1,62 @@
+{
+  "name": "TestDb",
+  "number": 15,
+  "isMasterData": true,
+  "classname": "TestDb",
+  "groups": [{
+    "name": "TestStructure",
+    "number": 0,
+    "classname": "TestStructure",
+    "headFields": [{
+      "name": "testhead",
+      "newName": "testhead",
+      "type": "GL30",
+      "description": "Test field head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testbu",
+      "newName": "testbu",
+      "isSkip": true,
+      "type": "BU3",
+      "description": "Test button head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testnamed",
+      "newName": "testnamed",
+      "type": "ARTR1000001",
+      "description": "Test named type head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testenum11",
+      "newName": "testenum11",
+      "type": "AZL1000008",
+      "description": "Test enum type number 11",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testenum111",
+      "newName": "testenum111",
+      "type": "AZL1000009",
+      "description": "Test named type number 111",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }],
+    "tableFields": [{
+      "name": "testtable",
+      "newName": "testtable",
+      "type": "GL30",
+      "description": "Test field table",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }]
+  }]
+}

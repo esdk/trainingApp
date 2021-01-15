@@ -1,0 +1,44 @@
+{
+  "name": "Kunde",
+  "number": 0,
+  "isMasterData": true,
+  "classname": "Customer",
+  "groups": [{
+    "name": "Kunde",
+    "number": 1,
+    "classname": "Customer",
+    "headFields": [{
+      "name": "testhead",
+      "newName": "testhead",
+      "type": "GL30",
+      "description": "Test field head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testhead2",
+      "newName": "testhead2",
+      "type": "GL30",
+      "description": "Second test field head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testhead3",
+      "newName": "testhead3",
+      "type": "P2:1",
+      "description": "Third test field head",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }, {
+      "name": "testreference",
+      "newName": "testreference",
+      "type": "P{TestDb}:0",
+      "description": "Reference additional database",
+      "screenVisibility": "Editable",
+      "showPriority": "A",
+      "changePriority": "A"
+    }]
+  }]
+}

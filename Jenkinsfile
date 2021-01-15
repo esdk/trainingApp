@@ -52,13 +52,11 @@ timestamps {
 						withEnv(["ERP_VERSION=${params.ERP_VERSION}"]) {
 							shDockerCompose("up -d --build")
 						}
-						setupHybridTenant("d72216db-346d-499f-97f7-19b589c412bd", 6569, 2214)
 						waitForNexus(2, "localhost", "8090", 10, 10, "admin", "admin123")
 					}
 					stage('Installation') {
 						shGradle("checkPreconditions")
 						shGradle("createAppJar")
-						registerAppDevVersion('trainingApp', 'train', version)
 					}
 					stage('Verify') {
 						try {
@@ -72,22 +70,6 @@ timestamps {
 						stage('Upload') {
 							shGradle("packEsdkApp -x checkForSnapshot")
 							shGradle("publish -x createAppJar")
-							if (!version.endsWith("SNAPSHOT")) {
-								releaseAppVersion("trainingApp", "train", version)
-								def esdkApp = sh returnStdout: true, script: "ls build/esdk-app/ | grep 'esdkApp-$version'"
-								esdkApp = esdkApp.trim()
-								withAWS(credentials: 'e4ec24aa-35e1-4650-a4bd-6d9b06654e9b', region: "us-east-1") {
-									s3Upload(
-											bucket: "abas-apps",
-											file: "build/esdk-app/$esdkApp",
-											path: "trainingApp-esdkApp-${version}.zip",
-											pathStyleAccessEnabled: true,
-											cacheControl: 'max-age=0',
-											acl: 'Private'
-									)
-								}
-								build job: 'esdk/esdkAppTestBucketScan', parameters: [string(name: 'INSTALLER_VERSION', value: "$version")], wait: false
-							}
 						}
 					}
 					currentBuild.description = currentBuild.description + " => successful"
@@ -102,7 +84,6 @@ timestamps {
 				for (line in shReturnStdoutTrimmed("docker exec -t erp-train sh -c 'ls -1 /abas/erp/*.FEHL'").split("\n")) {
 					archiveFileFromContainers("/abas/erp", line.trim())
 				}
-				stopHybridTenant()
 				shDockerComposeCleanUp()
 				dockerPruneWhenSpaceLessThan(10)
 
