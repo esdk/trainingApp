@@ -26,18 +26,16 @@ timestamps {
 						gitSetUser()
 						prepareEnv()
 						// set HOSTNAME env variable for HOCON application.conf
-// 						env.HOSTNAME = sh returnStdout: true, script: "hostname"
-// 						echo 'hostname=${env.HOSTNAME}'
-// 						env.HOSTNAME3 = sh returnStdout: true, script: '$(hostname)'
-// 						echo 'hostname3=${env.HOSTNAME3}'
 						env.HOSTNAME = sh returnStdout: true, script: 'echo $(hostname)'
 						echo "HOSTNAME=${env.HOSTNAME}"
+						echo 'PWD: $(pwd)'
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
 					}
 					stage('Set version') {
 						echo "HOSTNAME2=${env.HOSTNAME}"
+						echo 'PWD: $(pwd)'
 						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'git@github.com:esdk/trainingApp.git')
 						initGradleProps()
 						version = readVersion()
