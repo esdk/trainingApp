@@ -28,14 +28,14 @@ timestamps {
 						// set HOSTNAME env variable for HOCON application.conf
 						env.HOSTNAME = sh returnStdout: true, script: 'echo $(hostname)'
 						echo "HOSTNAME=${env.HOSTNAME}"
-						echo 'PWD: $(pwd)'
+						echo "PWD: $(pwd)"
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
 					}
 					stage('Set version') {
 						echo "HOSTNAME2=${env.HOSTNAME}"
-						echo 'PWD: $(pwd)'
+						echo "PWD: $(pwd)"
 						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'git@github.com:esdk/trainingApp.git')
 						initGradleProps()
 						version = readVersion()
