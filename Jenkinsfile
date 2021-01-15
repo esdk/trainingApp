@@ -31,12 +31,13 @@ timestamps {
 // 						env.HOSTNAME3 = sh returnStdout: true, script: '$(hostname)'
 // 						echo 'hostname3=${env.HOSTNAME3}'
 						env.HOSTNAME = sh returnStdout: true, script: 'echo $(hostname)'
-						echo "hostname=${env.HOSTNAME}"
+						echo "HOSTNAME=${env.HOSTNAME}"
 						rmDirInMavenLocal 'de/abas/esdk'
 						currentBuild.description = "ERP version: ${params.ERP_VERSION}"
 						initGradleProps()
 					}
 					stage('Set version') {
+						echo "HOSTNAME2=${env.HOSTNAME}"
 						updateEssentialsAppVersion(params.ESDK_VERSION, 'gradle.properties.template', params.BUILD_USER_PARAM, 'git@github.com:esdk/trainingApp.git')
 						initGradleProps()
 						version = readVersion()
