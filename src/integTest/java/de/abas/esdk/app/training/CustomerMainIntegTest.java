@@ -34,13 +34,6 @@ public class CustomerMainIntegTest extends EsdkIntegTest {
 		}
 	}
 
-	@Test
-	public void infosystemEventHandlerPassesLicenseCheck() {
-		TrainingTest trainingTest = ctx.openInfosystem(TrainingTest.class);
-		trainingTest.invokeStart();
-		assertThat(getMessages(), hasItem("TEXT_MESSAGE: License check passed: true"));
-	}
-
 	@After
 	public void cleanup() {
 		if (customerEditor != null && customerEditor.active()) {

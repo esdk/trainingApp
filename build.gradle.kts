@@ -157,7 +157,7 @@ dependencies {
 
     licensing("de.abas.esdk:client-api:0.0.11:all")
 
-    runtimeOnly("de.abas.homedir:commons-collections:1.0.0")
+    implementation("de.abas.homedir:commons-collections:1.0.0")
     runtimeOnly("de.abas.homedir:abas-jfop-base:1.0.0")
 
     testImplementation("junit:junit:4.12")
