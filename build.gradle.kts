@@ -213,7 +213,7 @@ dependencies {
 		implementation("de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT")
 	}
 
-	licensing("de.abas.esdk:client-api:0.0.11:all")
+	implementation("de.abas.esdk:client-api:0.0.11:all")
 
 	runtime("de.abas.homedir:commons-collections:1.0.0")
 	runtime("de.abas.homedir:abas-jfop-base:1.0.0")
