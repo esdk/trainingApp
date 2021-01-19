@@ -113,7 +113,7 @@ esdk.apply {
 		namedTypes = listOf("TestRealNamedType")
 		screens = mapOf("Customer:Customer" to listOf("A"), "Sales:BlanketOrder" to listOf("A"), "Operation:Operation" to listOf("A"), "77" to listOf("A"), "Pricing:Pricing" to listOf("A"), "TestDb:TestStructure" to listOf("A"))
 		advancedScreens = mapOf("75" to listOf("A"))
-		essentialsVersions = listOf("2017r1n00-2017r4n16", "2018r1n00-2018r4n16", "2019r1n00-2019r4n16")
+		essentialsVersions = listOf("2017r1-2017r4", "2018r1-2018r99", "2019r1-2019r99")
 		preconditions = listOf("workDirs=ow1")
 		languages = "DEA"
 		workdirs = listOf("ow1", "owbi")
