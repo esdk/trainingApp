@@ -94,7 +94,6 @@ gradle.taskGraph.whenReady {
 }
 
 val provided by configurations
-val licensing by configurations
 val integTestImplementation by configurations
 
 val installer by configurations.creating {
@@ -155,7 +154,7 @@ dependencies {
         implementation("de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT")
     }
 
-    licensing("de.abas.esdk:client-api:0.0.11:all")
+    implementation("de.abas.esdk:client-api:0.0.11:all")
 
     implementation("de.abas.homedir:commons-collections:1.0.0")
     runtimeOnly("de.abas.homedir:abas-jfop-base:1.0.0")
