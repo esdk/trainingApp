@@ -153,7 +153,6 @@ gradle.taskGraph.whenReady {
 }
 
 val provided by configurations
-val licensing by configurations
 val integTestImplementation by configurations
 
 val installer by configurations.creating {
