@@ -165,7 +165,8 @@ dependencies {
 
     integTestImplementation("de.abas.homedir:abas-db-util:1.0.0")
     integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
-    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.3")
+    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.1-SNAPSHOT")
+    integTestImplementation("org.slf4j:slf4j-log4j12:1.7.30")
 
 }
 
