@@ -14,12 +14,18 @@ buildscript {
 					username = nexusUser
 					password = nexusPassword
 				}
+				content {
+					includeGroupByRegex("de\\.abas\\..*")
+				}
 			}
 			maven {
 				url = uri(esdkReleaseURL)
 				credentials {
 					username = nexusUser
 					password = nexusPassword
+				}
+				content {
+					includeGroupByRegex("de\\.abas\\..*")
 				}
 			}
 		}
@@ -83,18 +89,43 @@ fun after2018(): Boolean {
 
 repositories {
 	mavenLocal()
-	maven { url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME") }
-	maven { url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT") }
-	mavenCentral()
+	maven {
+		url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
+		isAllowInsecureProtocol = true
+		content {
+			includeGroupByRegex("de\\.abas\\.homedir")
+			includeGroupByRegex("de\\.abas\\.clientdir")
+		}
+	}
+	maven {
+		url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
+		isAllowInsecureProtocol = true
+		content {
+			includeGroupByRegex("de\\.abas\\.homedir")
+			includeGroupByRegex("de\\.abas\\.clientdir")
+		}
+	}
 	maven {
 		url = uri(esdkSnapshotURL)
 		withCredentials()
+		content {
+			includeGroupByRegex("de\\.abas\\..*")
+		}
 	}
 	maven {
 		url = uri(esdkReleaseURL)
 		withCredentials()
+		content {
+			includeGroupByRegex("de\\.abas\\..*")
+		}
 	}
-	maven { url = uri(publicReleaseURL) }
+	maven {
+		url = uri(publicReleaseURL)
+		content {
+			includeGroupByRegex("de\\.abas\\..*")
+		}
+	}
+	mavenCentral()
 }
 
 val esdk: EsdkConfig = extensions["esdk"] as EsdkConfig
