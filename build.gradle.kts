@@ -233,7 +233,7 @@ tasks.register<Copy>("downloadInstaller") {
     into(file("${project.buildDir}/installer/"))
 }
 
-tasks.test {
+tasks.withType(Test::class.java) {
     useJUnitPlatform()
     testLogging {
         events("passed", "skipped", "failed")
@@ -282,8 +282,8 @@ dependencies {
         because("allows JUnit 3 and JUnit 4 tests to run")
     }
 
-    // // JUnit Jupiter
-    // testImplementation("org.junit.jupiter:junit-jupiter")
+    // JUnit Jupiter
+    testImplementation("org.junit.jupiter:junit-jupiter")
 
     testImplementation("org.hamcrest:hamcrest-all:1.3")
 
