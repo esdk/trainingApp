@@ -141,7 +141,7 @@ esdk.apply {
         infosystems = listOf("IS.OW1.TESTINFO")
         tables = listOf("TestDb", "Teil")
         data = listOf("data.json")
-        keys = listOf("2738")
+        keys = listOf("testkey")
         enums = listOf("Importfileformat", "Importfileformat2", "Importfileformat3", "ThenSteps")
         namedTypes = listOf("TestRealNamedType")
         screens = mapOf(
