@@ -51,6 +51,7 @@ apply(plugin = "de.abas.esdk")
 plugins {
     java
     `maven-publish`
+    idea
 }
 
 val esdkSnapshotURL: String by project
@@ -297,5 +298,14 @@ fun MavenArtifactRepository.withCredentials() {
     credentials {
         username = nexusUser
         password = nexusPassword
+    }
+}
+
+sourceSets {
+    idea {
+        module {
+            testSourceDirs = testSourceDirs.plus(file("src/integTest/java"))
+            testResourceDirs = testResourceDirs.plus(file("src/integTest/resources"))
+        }
     }
 }
