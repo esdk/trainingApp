@@ -91,7 +91,7 @@ fun after2018(): Boolean {
 
 
 repositories {
-    mavenLocal()
+    // mavenLocal()
     maven {
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
         isAllowInsecureProtocol = true
@@ -128,7 +128,7 @@ repositories {
             includeGroupByRegex("de\\.abas\\..*")
         }
     }
-    mavenCentral()
+    // mavenCentral()
 }
 
 val esdk: EsdkConfig = extensions["esdk"] as EsdkConfig
