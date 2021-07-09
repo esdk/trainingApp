@@ -1,8 +1,6 @@
 @file:Suppress("PropertyName")
 
 import de.abas.esdk.gradle.EsdkConfig
-import de.abas.esdk.info.EsdkLibraries
-import kotlinx.coroutines.runBlocking
 
 buildscript {
     val version = file("version.txt").readText().trim()
@@ -43,7 +41,6 @@ buildscript {
     }
     dependencies {
         classpath("esdk:gradlePlugin:$version")
-        classpath("de.abas.esdk:esdk-info-builder:1.0.1")
     }
 }
 
@@ -93,22 +90,12 @@ fun after2018(): Boolean {
     return majorVersion >= 2018
 }
 
-task("alignVersionToEsdkRelease") {
-    description = "Prints the current project version."
-    val currentEsdkVersion = runBlocking { EsdkLibraries.getLatestReleaseVersion("core") }
-    file("version.txt").writeText(currentEsdkVersion)
-    version = currentEsdkVersion
-    doLast {
-        logger.quiet(currentEsdkVersion)
-    }
-}
-
-task("setVersion") {
-    description = "Sets the project version to value of parameter 'newVersion'."
-    val newVersion = findProperty("newVersion") as String? ?: ""
-    if (newVersion.isNotBlank()) {
-        file("version.txt").writeText(newVersion)
-        version = newVersion
+tasks.register("alignVersionToEsdk") {
+    description = "Sets project version to value of 'esdk/version.txt' if it exists"
+    if (file("esdk/version.txt").exists()) {
+        val esdkVersion = file("esdk/version.txt").readText().trim()
+        file("version.txt").writeText(esdkVersion)
+        version = esdkVersion
     }
     doLast {
         logger.quiet(version)
