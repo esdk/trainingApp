@@ -36,3 +36,8 @@ services:
       container_name: "nexus-train"
       ports:
       - "8090:8081"
+      healthcheck:
+        test: [ "CMD", "curl", "--show-error", "http://localhost:8081/" ]
+        interval: 10s
+        timeout: 5s
+        retries: 10
