@@ -80,6 +80,7 @@ val SSH_PASSWORD: String by project
 val SSH_KEY: String by project
 
 var version: String = file("version.txt").readText().trim()
+project.version = version
 
 fun after2018(): Boolean {
     val erpVersion = System.getenv("ERP_VERSION")
