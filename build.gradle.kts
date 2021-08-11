@@ -3,11 +3,12 @@
 import de.abas.esdk.gradle.EsdkConfig
 
 buildscript {
+    val version = file("version.txt").readText().trim()
     val esdkSnapshotURL: String by project
     val esdkReleaseURL: String by project
     val nexusUser: String by project
     val nexusPassword: String by project
-    if ((version as String).endsWith("-SNAPSHOT")) {
+    if (version.endsWith("-SNAPSHOT")) {
         repositories {
             mavenLocal()
             maven {
@@ -31,18 +32,15 @@ buildscript {
                 }
             }
         }
-        dependencies {
-            classpath("de.abas.esdk:gradlePlugin:$version")
-        }
     } else {
         repositories {
             maven {
                 url = uri("https://plugins.gradle.org/m2/")
             }
         }
-        dependencies {
-            classpath("esdk:gradlePlugin:$version")
-        }
+    }
+    dependencies {
+        classpath("esdk:gradlePlugin:$version")
     }
 }
 
@@ -63,6 +61,7 @@ val nexusPassword: String by project
 val NEXUS_HOST: String by project
 val NEXUS_PORT: String by project
 val NEXUS_NAME: String by project
+val NEXUS_USER_NAME: String by project
 val NEXUS_PASSWORD: String by project
 
 val ABAS_HOMEDIR: String by project
@@ -80,6 +79,9 @@ val SSH_USER: String by project
 val SSH_PASSWORD: String by project
 val SSH_KEY: String by project
 
+var version: String = file("version.txt").readText().trim()
+project.version = version
+
 fun after2018(): Boolean {
     val erpVersion = System.getenv("ERP_VERSION")
     if (erpVersion == null || erpVersion == "") {
@@ -89,10 +91,29 @@ fun after2018(): Boolean {
     return majorVersion >= 2018
 }
 
+tasks.register("alignVersionToEsdk") {
+    description = "Sets project version to value of 'esdk/version.txt' if it exists"
+    if (file("esdk/version.txt").exists()) {
+        val esdkVersion = file("esdk/version.txt").readText().trim()
+        file("version.txt").writeText(esdkVersion)
+        version = esdkVersion
+    }
+    doLast {
+        logger.quiet(version)
+    }
+}
+
+task("reportVersionToTeamCity") {
+    description = "Prints the current project version in a format picked up and evaluated by TeamCity."
+    doLast {
+        logger.quiet("##teamcity[buildNumber '${version}_{build.number}']")
+    }
+}
 
 repositories {
     // mavenLocal()
     maven {
+        @Suppress("HttpUrlsUsage")
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
         isAllowInsecureProtocol = true
         content {
@@ -101,6 +122,7 @@ repositories {
         }
     }
     maven {
+        @Suppress("HttpUrlsUsage")
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
         isAllowInsecureProtocol = true
         content {
@@ -172,6 +194,7 @@ esdk.apply {
         nexusHost = NEXUS_HOST
         nexusPort = NEXUS_PORT.toInt()
         nexusRepoName = NEXUS_NAME
+        nexusUserName = NEXUS_USER_NAME
         nexusPassword = NEXUS_PASSWORD
     }
     ssh.apply {
@@ -188,7 +211,7 @@ esdk.apply {
 gradle.taskGraph.whenReady {
     tasks {
         "esdkAppDocumentation"(org.asciidoctor.gradle.jvm.AsciidoctorTask::class) {
-            attributes(mapOf("productVersion" to (version as String).split("-")[0]))
+            attributes(mapOf("productVersion" to version.split("-")[0]))
         }
     }
 }
@@ -196,7 +219,7 @@ gradle.taskGraph.whenReady {
 val provided by configurations
 val integTestImplementation by configurations
 
-val installer by configurations.creating {
+val installer: Configuration by configurations.creating {
     resolutionStrategy.cacheChangingModulesFor(0, "seconds")
 }
 
@@ -213,7 +236,7 @@ publishing {
         if (project.hasProperty("esdkSnapshotURL") && project.hasProperty("esdkReleaseURL")
             && project.hasProperty("nexusUser") && project.hasProperty("nexusPassword")
         ) {
-            if ((version as String).endsWith("-SNAPSHOT")) {
+            if (version.endsWith("-SNAPSHOT")) {
                 maven {
                     url = uri(esdkSnapshotURL)
                     withCredentials()
@@ -242,7 +265,7 @@ tasks.withType(Test::class.java) {
 }
 
 dependencies {
-    installer(group = "de.abas.esdk", name = "installer", version = (version as String), classifier = "", ext = "zip") {
+    installer(group = "de.abas.esdk", name = "installer", version = version, classifier = "", ext = "zip") {
         isChanging = true
     }
 
