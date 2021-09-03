@@ -11,8 +11,8 @@ systemProp.http.proxyPort=8000
 systemProp.https.proxyHost=webproxy.abas.de
 systemProp.https.proxyPort=8000
 
-nexusSnapshotURL=https://registry.abas.sh/repository/abas.snapshots
-nexusReleaseURL=https://registry.abas.sh/repository/abas.releases
+esdkSnapshotURL=https://artifactory.abas.sh/artifactory/abas.esdk.snapshots/
+esdkReleaseURL=https://artifactory.abas.sh/artifactory/abas.esdk.releases/
 nexusUser=<extranet username>
 nexusPassword=<extranet password>
 ```
