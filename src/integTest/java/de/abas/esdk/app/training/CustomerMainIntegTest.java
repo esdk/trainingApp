@@ -6,6 +6,7 @@ import de.abas.erp.db.schema.customer.CustomerEditor;
 import de.abas.esdk.test.util.DoNotFailOnError;
 import de.abas.esdk.test.util.EsdkIntegTest;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.contains;
@@ -16,36 +17,41 @@ import static org.junit.Assert.fail;
 
 public class CustomerMainIntegTest extends EsdkIntegTest {
 
-	private static final String FIELD_VALUE_ERROR_MESSAGE = "Field value invalid!";
-	private static final String FIELD_VALUE_ERROR = "ERROR_MESSAGE Cat=ERROR Fld=contactPerson: " + FIELD_VALUE_ERROR_MESSAGE;
+    private static final String FIELD_VALUE_ERROR_MESSAGE = "Field value invalid!";
+    private static final String FIELD_VALUE_ERROR = "ERROR_MESSAGE Cat=ERROR Fld=contactPerson: " + FIELD_VALUE_ERROR_MESSAGE;
 
-	private CustomerEditor customerEditor = null;
+    private CustomerEditor customerEditor = null;
 
-	@DoNotFailOnError(message = FIELD_VALUE_ERROR)
-	@Test
-	public void customerContactPersonTest() {
-		try {
-			customerEditor = ctx.newObject(CustomerEditor.class);
-			customerEditor.setContactPerson("blub");
-			fail("DBRuntimeException expected");
-		} catch (DBRuntimeException e) {
-			assertThat(e.getMessage(), containsString(FIELD_VALUE_ERROR_MESSAGE));
-			assertThat(getErrors(), contains(FIELD_VALUE_ERROR));
-		}
-	}
+    @Before
+    public void printErpVersion() {
+        System.out.println("ERP_VERSION from environment: " + System.getenv("ERP_VERSION"));
+    }
 
-	@Test
-	public void infosystemEventHandlerPassesLicenseCheck() {
-		TrainingTest trainingTest = ctx.openInfosystem(TrainingTest.class);
-		trainingTest.invokeStart();
-		assertThat(getMessages(), hasItem("TEXT_MESSAGE: I produce some output."));
-	}
+    @DoNotFailOnError(message = FIELD_VALUE_ERROR)
+    @Test
+    public void customerContactPersonTest() {
+        try {
+            customerEditor = ctx.newObject(CustomerEditor.class);
+            customerEditor.setContactPerson("blub");
+            fail("DBRuntimeException expected");
+        } catch (DBRuntimeException e) {
+            assertThat(e.getMessage(), containsString(FIELD_VALUE_ERROR_MESSAGE));
+            assertThat(getErrors(), contains(FIELD_VALUE_ERROR));
+        }
+    }
 
-	@After
-	public void cleanup() {
-		if (customerEditor != null && customerEditor.active()) {
-			customerEditor.abort();
-		}
-	}
+    @Test
+    public void infosystemEventHandlerPassesLicenseCheck() {
+        TrainingTest trainingTest = ctx.openInfosystem(TrainingTest.class);
+        trainingTest.invokeStart();
+        assertThat(getMessages(), hasItem("TEXT_MESSAGE: I produce some output."));
+    }
+
+    @After
+    public void cleanup() {
+        if (customerEditor != null && customerEditor.active()) {
+            customerEditor.abort();
+        }
+    }
 
 }

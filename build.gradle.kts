@@ -84,6 +84,7 @@ project.version = version
 
 fun after2018(): Boolean {
     val erpVersion = System.getenv("ERP_VERSION")
+    println("ERP_VERSION from environment: $erpVersion")
     if (erpVersion == null || erpVersion == "") {
         return false
     }
