@@ -292,23 +292,17 @@ dependencies {
 
     // ----- testing support -----
 
-    val junit4Version = "4.13.1"
-    val junitBomVersion = "5.7.0"
-
-    // Use junit-bom to align versions
-    // https://docs.gradle.org/current/userguide/managing_transitive_dependencies.html#sec:bom_import
-    implementation(platform("org.junit:junit-bom:$junitBomVersion")) {
-        because("Platform, Jupiter, and Vintage versions should match")
-    }
+    val junit4Version = "4.13.2"
+    val junitBomVersion = "5.7.2"
 
     // JUnit Vintage
     testImplementation("junit:junit:$junit4Version")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine") {
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junitBomVersion") {
         because("allows JUnit 3 and JUnit 4 tests to run")
     }
 
     // JUnit Jupiter
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitBomVersion")
 
     testImplementation("org.hamcrest:hamcrest-all:1.3")
 
