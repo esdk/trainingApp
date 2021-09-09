@@ -9,7 +9,7 @@ services:
         context: .
         dockerfile: Dockerfile-erp-overrides
         args:
-          - ERP_VERSION=${ERP_VERSION:-2017r4n16p39}
+          - ERP_VERSION=${ERP_VERSION:-v2017r4}
       init: true
       container_name: "erp-train"
 

@@ -88,7 +88,11 @@ fun after2018(): Boolean {
     if (erpVersion == null || erpVersion == "") {
         return false
     }
-    val majorVersion = Integer.parseInt(erpVersion.substring(0, 4))
+    val majorVersion = if (erpVersion.startsWith("v")) {
+        Integer.parseInt(erpVersion.substring(1, 5))
+    } else {
+        Integer.parseInt(erpVersion.substring(0, 4))
+    }
     return majorVersion >= 2018
 }
 
