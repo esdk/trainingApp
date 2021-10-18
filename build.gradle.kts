@@ -19,6 +19,8 @@ buildscript {
                 }
                 content {
                     includeGroupByRegex("de\\.abas\\..*")
+                    excludeGroup("de.abas.homedir")
+                    excludeGroup("de.abas.clientdir")
                 }
             }
             maven {
@@ -29,6 +31,8 @@ buildscript {
                 }
                 content {
                     includeGroupByRegex("de\\.abas\\..*")
+                    excludeGroup("de.abas.homedir")
+                    excludeGroup("de.abas.clientdir")
                 }
             }
         }
@@ -122,8 +126,8 @@ repositories {
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
         isAllowInsecureProtocol = true
         content {
-            includeGroupByRegex("de\\.abas\\.homedir")
-            includeGroupByRegex("de\\.abas\\.clientdir")
+            includeGroup("de.abas.homedir")
+            includeGroup("de.abas.clientdir")
         }
     }
     maven {
@@ -131,8 +135,8 @@ repositories {
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
         isAllowInsecureProtocol = true
         content {
-            includeGroupByRegex("de\\.abas\\.homedir")
-            includeGroupByRegex("de\\.abas\\.clientdir")
+            includeGroup("de.abas.homedir")
+            includeGroup("de.abas.clientdir")
         }
     }
     maven {
@@ -140,6 +144,8 @@ repositories {
         withCredentials()
         content {
             includeGroupByRegex("de\\.abas\\..*")
+            excludeGroup("de.abas.homedir")
+            excludeGroup("de.abas.clientdir")
         }
     }
     maven {
@@ -147,12 +153,16 @@ repositories {
         withCredentials()
         content {
             includeGroupByRegex("de\\.abas\\..*")
+            excludeGroup("de.abas.homedir")
+            excludeGroup("de.abas.clientdir")
         }
     }
     maven {
         url = uri(publicReleaseURL)
         content {
             includeGroupByRegex("de\\.abas\\..*")
+            excludeGroup("de.abas.homedir")
+            excludeGroup("de.abas.clientdir")
         }
     }
     // mavenCentral()
