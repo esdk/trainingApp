@@ -10,7 +10,7 @@ buildscript {
     val nexusPassword: String by project
     if (version.endsWith("-SNAPSHOT")) {
         repositories {
-            mavenLocal()
+            // mavenLocal()
             maven {
                 url = uri(esdkSnapshotURL)
                 credentials {
