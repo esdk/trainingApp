@@ -5,11 +5,7 @@ services:
     # Accessing the Container: docker exec -u erp -it erp-train bash
     #
     erp-train:
-      build:
-        context: .
-        dockerfile: Dockerfile-erp-overrides
-        args:
-          - ERP_VERSION=${ERP_VERSION:-v2019r4}
+      image: partner.registry.abas.sh/abas/test:${ERP_VERSION:-v2019r4}
       init: true
       container_name: "erp-train"
 
