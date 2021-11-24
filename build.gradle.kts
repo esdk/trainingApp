@@ -90,7 +90,7 @@ fun after2018(): Boolean {
     val erpVersion = System.getenv("ERP_VERSION")
     println("ERP_VERSION from environment: $erpVersion")
     if (erpVersion == null || erpVersion == "") {
-        return false
+        return true
     }
     val majorVersion = if (erpVersion.startsWith("v")) {
         Integer.parseInt(erpVersion.substring(1, 5))
@@ -307,7 +307,7 @@ dependencies {
     // ----- testing support -----
 
     val junit4Version = "4.13.2"
-    val junitBomVersion = "5.7.2"
+    val junitBomVersion = "5.8.1"
 
     // JUnit Vintage
     testImplementation("junit:junit:$junit4Version")
@@ -323,7 +323,6 @@ dependencies {
     integTestImplementation("de.abas.homedir:abas-db-util:1.0.0")
     integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
     integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.2")
-
 }
 
 fun MavenArtifactRepository.withCredentials() {
