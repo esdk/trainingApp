@@ -89,7 +89,7 @@ project.version = version
 fun after2018(): Boolean {
     val erpVersion = System.getenv("ERP_VERSION")
     println("ERP_VERSION from environment: $erpVersion")
-    if (erpVersion == null || erpVersion == "") {
+    if (erpVersion == null || erpVersion == "" || erpVersion == "latest") {
         return true
     }
     val majorVersion = if (erpVersion.startsWith("v")) {
