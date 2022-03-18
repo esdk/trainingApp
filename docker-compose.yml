@@ -28,7 +28,7 @@ services:
 
   # The Nexus Container
     nexus-train:
-      image: sonatype/nexus:oss
+      image: sonatype/nexus:2.14.21-02
       container_name: "nexus-train"
       ports:
       - "8090:8081"
