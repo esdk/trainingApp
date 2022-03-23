@@ -322,7 +322,7 @@ dependencies {
 
     integTestImplementation("de.abas.homedir:abas-db-util:1.0.0")
     integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
-    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.2")
+    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.8")
 }
 
 fun MavenArtifactRepository.withCredentials() {
