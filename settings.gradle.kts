@@ -6,12 +6,22 @@ pluginManagement {
     repositories {
         maven {
             url = uri("https://artifactory.abas.sh/artifactory/abas.maven-public/")
+            content {
+                includeGroupByRegex("de\\.abas\\..*")
+                excludeGroup("de.abas.homedir")
+                excludeGroup("de.abas.clientdir")
+            }
         }
         maven {
             url = uri(esdkSnapshotURL)
             credentials {
                 username = nexusUser
                 password = nexusPassword
+            }
+            content {
+                includeGroupByRegex("de\\.abas\\..*")
+                excludeGroup("de.abas.homedir")
+                excludeGroup("de.abas.clientdir")
             }
         }
         gradlePluginPortal()

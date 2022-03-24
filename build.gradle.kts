@@ -127,7 +127,6 @@ repositories {
         isAllowInsecureProtocol = true
         content {
             includeGroup("de.abas.homedir")
-            includeGroup("de.abas.clientdir")
         }
     }
     maven {
@@ -135,7 +134,6 @@ repositories {
         url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
         isAllowInsecureProtocol = true
         content {
-            includeGroup("de.abas.homedir")
             includeGroup("de.abas.clientdir")
         }
     }
