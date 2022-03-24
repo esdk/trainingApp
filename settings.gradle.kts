@@ -19,9 +19,7 @@ pluginManagement {
                 password = nexusPassword
             }
             content {
-                includeGroupByRegex("de\\.abas\\..*")
-                excludeGroup("de.abas.homedir")
-                excludeGroup("de.abas.clientdir")
+                includeGroup("esdk")
             }
         }
         gradlePluginPortal()
