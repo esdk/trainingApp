@@ -189,7 +189,7 @@ esdk.apply {
             "TestDb:TestStructure" to listOf("A")
         )
         advancedScreens = mapOf("75" to listOf("A"))
-        essentialsVersions = listOf("2017r1-2017r4", "2018r1-2018r99", "2019r1-2900r99")
+        essentialsVersions = listOf("2017r1-2017r4", "2018r1-2018r9", "2019r1-2900r9")
         preconditions = listOf("workDirs=ow1")
         languages = "DEA"
         workdirs = listOf("ow1", "owbi")
