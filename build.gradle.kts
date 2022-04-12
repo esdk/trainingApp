@@ -67,6 +67,7 @@ val NEXUS_PORT: String by project
 val NEXUS_NAME: String by project
 val NEXUS_USER_NAME: String by project
 val NEXUS_PASSWORD: String by project
+val NEXUS_VERSION: String by project
 
 val ABAS_HOMEDIR: String by project
 val ABAS_CLIENTDIR: String by project
@@ -209,6 +210,7 @@ esdk.apply {
         nexusRepoName = NEXUS_NAME
         nexusUserName = NEXUS_USER_NAME
         nexusPassword = NEXUS_PASSWORD
+        nexusVersion = NEXUS_VERSION
     }
     ssh.apply {
         host = SSH_HOST
