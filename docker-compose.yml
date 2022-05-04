@@ -10,12 +10,8 @@ services:
       container_name: "erp-train"
 
       volumes:
-        - type: bind
-          source: erpsync/homedir
-          target: /abas/s3/java/esdksync
-        - type: bind
-          source: erpsync/clientdir
-          target: /abas/erp/java/esdksync
+        - ./erpsync/homedir:/abas/s3/java/esdksync
+        - ./erpsync/clientdir:/abas/erp/java/esdksync
 
       ports:
       - "2214:22"
