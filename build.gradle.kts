@@ -122,18 +122,34 @@ task("reportVersionToTeamCity") {
 
 repositories {
     // mavenLocal()
-    maven {
-        @Suppress("HttpUrlsUsage")
-        url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
-        isAllowInsecureProtocol = true
+    // maven {
+    //     @Suppress("HttpUrlsUsage")
+    //     url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
+    //     isAllowInsecureProtocol = true
+    //     content {
+    //         includeGroup("de.abas.homedir")
+    //     }
+    // }
+    // maven {
+    //     @Suppress("HttpUrlsUsage")
+    //     url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
+    //     isAllowInsecureProtocol = true
+    //     content {
+    //         includeGroup("de.abas.clientdir")
+    //     }
+    // }
+    flatDir {
+        // mapped directory containing homedir libs
+        dirs("erpsync/homedir/lib")
+        // restrict this repository to lookup homdir libs only
         content {
             includeGroup("de.abas.homedir")
         }
     }
-    maven {
-        @Suppress("HttpUrlsUsage")
-        url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
-        isAllowInsecureProtocol = true
+    flatDir {
+        // mapped directory containing clientdir libs
+        dirs("erpsync/clientdir/lib")
+        // restrict this repository to lookup clientdir libs only
         content {
             includeGroup("de.abas.clientdir")
         }
@@ -205,11 +221,11 @@ esdk.apply {
         edpPassword = EDP_PASSWORD
     }
     nexus.apply {
-        nexusHost = NEXUS_HOST
-        nexusPort = NEXUS_PORT.toInt()
-        nexusRepoName = NEXUS_NAME
-        nexusUserName = NEXUS_USER_NAME
-        nexusPassword = NEXUS_PASSWORD
+        // nexusHost = NEXUS_HOST
+        // nexusPort = NEXUS_PORT.toInt()
+        // nexusRepoName = NEXUS_NAME
+        // nexusUserName = NEXUS_USER_NAME
+        // nexusPassword = NEXUS_PASSWORD
         nexusVersion = NEXUS_VERSION
     }
     ssh.apply {
