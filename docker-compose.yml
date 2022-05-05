@@ -9,10 +9,6 @@ services:
       init: true
       container_name: "erp-train"
 
-      volumes:
-        - ./erpsync/homedir:/abas/s3/java/esdksync
-        - ./erpsync/clientdir:/abas/erp/java/esdksync
-
       ports:
       - "2214:22"
       - "8010:80"
@@ -29,15 +25,3 @@ services:
       user: s3
       hostname: dockerbau
       command: ["sh", "-c", "cd /abas/erp && eval $$(sh denv.sh) && datmeta -s && echo success && pwd && ${RUNCOMMAND_PATH:-/abas/bin/}starteVersion.sh run"]
-
-#  # The Nexus Container
-#    nexus-train:
-#      image: sonatype/nexus:oss
-#      container_name: "nexus-train"
-#      ports:
-#      - "8090:8081"
-#      healthcheck:
-#        test: [ "CMD", "curl", "--show-error", "http://localhost:8081/" ]
-#        interval: 10s
-#        timeout: 5s
-#        retries: 10

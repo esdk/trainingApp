@@ -141,7 +141,7 @@ repositories {
     flatDir {
         // mapped directory containing homedir libs
         dirs("erpsync/homedir/lib")
-        // restrict this repository to lookup homdir libs only
+        // restrict this repository to lookup homedir libs only
         content {
             includeGroup("de.abas.homedir")
         }
