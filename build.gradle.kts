@@ -10,7 +10,11 @@ buildscript {
     val nexusPassword: String by project
     if (version.endsWith("-SNAPSHOT")) {
         repositories {
-            // mavenLocal()
+            // mavenLocal {
+            //     content {
+            //         includeGroup("de.abas.esdk")
+            //     }
+            // }
             maven {
                 url = uri(esdkSnapshotURL)
                 credentials {
@@ -122,62 +126,47 @@ task("reportVersionToTeamCity") {
 
 repositories {
     // mavenLocal()
-    // maven {
-    //     @Suppress("HttpUrlsUsage")
-    //     url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME")
-    //     isAllowInsecureProtocol = true
-    //     content {
-    //         includeGroup("de.abas.homedir")
-    //     }
-    // }
-    // maven {
-    //     @Suppress("HttpUrlsUsage")
-    //     url = uri("http://$NEXUS_HOST:$NEXUS_PORT/nexus/content/repositories/$NEXUS_NAME-SNAPSHOT")
-    //     isAllowInsecureProtocol = true
-    //     content {
-    //         includeGroup("de.abas.clientdir")
-    //     }
-    // }
-    flatDir {
-        // mapped directory containing homedir libs
-        dirs("erpsync/homedir/lib")
-        // restrict this repository to lookup homedir libs only
-        content {
+    exclusiveContent {
+        forRepository {
+            flatDir {
+                // mapped directory containing homedir libs
+                dirs("erpsync/homedir/lib")
+            }
+        }
+        filter {
+            // restrict this repository to lookup homedir libs only
             includeGroup("de.abas.homedir")
         }
     }
-    flatDir {
-        // mapped directory containing clientdir libs
-        dirs("erpsync/clientdir/lib")
-        // restrict this repository to lookup clientdir libs only
-        content {
+    exclusiveContent {
+        forRepository {
+            flatDir {
+                // mapped directory containing homedir libs
+                dirs("erpsync/clientdir/lib")
+            }
+        }
+        filter {
+            // restrict this repository to lookup clientdir libs only
             includeGroup("de.abas.clientdir")
         }
     }
     maven {
         url = uri(esdkSnapshotURL)
         withCredentials()
-        content {
-            includeGroupByRegex("de\\.abas\\..*")
-            excludeGroup("de.abas.homedir")
-            excludeGroup("de.abas.clientdir")
+        mavenContent {
+            snapshotsOnly()
         }
-    }
-    maven {
-        url = uri(esdkReleaseURL)
-        withCredentials()
         content {
             includeGroupByRegex("de\\.abas\\..*")
-            excludeGroup("de.abas.homedir")
-            excludeGroup("de.abas.clientdir")
         }
     }
     maven {
         url = uri(publicReleaseURL)
+        mavenContent {
+            releasesOnly()
+        }
         content {
             includeGroupByRegex("de\\.abas\\..*")
-            excludeGroup("de.abas.homedir")
-            excludeGroup("de.abas.clientdir")
         }
     }
     // mavenCentral()
