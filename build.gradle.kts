@@ -88,6 +88,8 @@ val SSH_USER: String by project
 val SSH_PASSWORD: String by project
 val SSH_KEY: String by project
 
+val targetErpVersion: de.abas.esdk.versionchecker.AbasVersion by project
+
 var version: String = file("version.txt").readText().trim()
 project.version = version
 
@@ -284,6 +286,8 @@ tasks.withType(Test::class.java) {
     }
 }
 
+val useErp22Libs = targetErpVersion.majorVersion >= 2022
+
 dependencies {
     installer(group = "de.abas.esdk", name = "installer", version = version, classifier = "", ext = "zip") {
         isChanging = true
@@ -291,13 +295,25 @@ dependencies {
 
     provided("de.abas.homedir:log4j:1.0.0")
     provided("de.abas.homedir:jedp:1.0.0")
-    provided("de.abas.homedir:abas-db-base:1.0.0")
-    provided("de.abas.homedir:abas-jfop-runtime-api:1.0.0")
-    provided("de.abas.homedir:abas-erp-common:1.0.0")
 
-    implementation("de.abas.homedir:abas-axi2:1.0.0")
-    implementation("de.abas.homedir:abas-axi:1.0.0")
-    implementation("de.abas.homedir:abas-db-internal:1.0.0")
+    if (useErp22Libs) {
+        provided("de.abas.homedir:abas-ajo-db:1.0.0")
+        provided("de.abas.homedir:abas-jfop-rt-api:1.0.0")
+        provided("de.abas.homedir:abas-ajo-common:1.0.0")
+
+        implementation("de.abas.homedir:abas-ajo-axi2:1.0.0")
+        implementation("de.abas.homedir:abas-ajo-axi:1.0.0")
+        implementation("de.abas.homedir:abas-ajo-db-internal:1.0.0")
+    } else {
+        provided("de.abas.homedir:abas-db-base:1.0.0")
+        provided("de.abas.homedir:abas-jfop-runtime-api:1.0.0")
+        provided("de.abas.homedir:abas-erp-common:1.0.0")
+
+        implementation("de.abas.homedir:abas-axi2:1.0.0")
+        implementation("de.abas.homedir:abas-axi:1.0.0")
+        implementation("de.abas.homedir:abas-db-internal:1.0.0")
+    }
+
     implementation("de.abas.clientdir:abas-db:1.0.0-SNAPSHOT")
     implementation("de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT")
     if (after2018()) {
@@ -325,9 +341,24 @@ dependencies {
 
     testImplementation("org.hamcrest:hamcrest-all:1.3")
 
-    integTestImplementation("de.abas.homedir:abas-db-util:1.0.0")
-    integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
-    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.8")
+    if (useErp22Libs) {
+        integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-standard:1.0.0")
+        integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-base:1.0.0-SNAPSHOT")
+    } else {
+        integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
+    }
+
+    integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.9") {
+        if (useErp22Libs) {
+            capabilities {
+                requireCapability("de.abas.esdk.test.util:esdk-test-utils-v22-support")
+            }
+        } else {
+            capabilities {
+                requireCapability("de.abas.esdk.test.util:esdk-test-utils-pre22-support")
+            }
+        }
+    }
 }
 
 fun MavenArtifactRepository.withCredentials() {
