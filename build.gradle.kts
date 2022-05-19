@@ -333,6 +333,7 @@ dependencies {
 
     implementation("de.abas.homedir:commons-collections:1.0.0")
     runtimeOnly("de.abas.homedir:abas-jfop-base:1.0.0")
+    runtimeOnly("de.abas.homedir:jcl-over-slf4j:1.0.0")
 
     // ----- testing support -----
 
