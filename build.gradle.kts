@@ -96,20 +96,6 @@ val targetErpVersion: de.abas.esdk.versionchecker.AbasVersion by project
 var version: String = file("version.txt").readText().trim()
 project.version = version
 
-fun after2018(): Boolean {
-    val erpVersion = System.getenv("ERP_VERSION")
-    println("ERP_VERSION from environment: $erpVersion")
-    if (erpVersion == null || erpVersion == "" || erpVersion == "latest") {
-        return true
-    }
-    val majorVersion = if (erpVersion.startsWith("v")) {
-        Integer.parseInt(erpVersion.substring(1, 5))
-    } else {
-        Integer.parseInt(erpVersion.substring(0, 4))
-    }
-    return majorVersion >= 2018
-}
-
 tasks.register("alignVersionToEsdk") {
     description = "Sets project version to value of 'esdk/version.txt' if it exists"
     if (file("esdk/version.txt").exists()) {
@@ -325,7 +311,7 @@ dependencies {
 
     implementation("de.abas.clientdir:abas-db:1.0.0-SNAPSHOT")
     implementation("de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT")
-    if (after2018()) {
+    if (targetErpVersion.majorVersion >= 2018) {
         implementation("de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT")
     }
 
