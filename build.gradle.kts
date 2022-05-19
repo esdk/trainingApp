@@ -13,6 +13,9 @@ buildscript {
             // mavenLocal {
             //     content {
             //         includeGroup("de.abas.esdk")
+            //         includeGroup("esdk") // for plugin
+            //         excludeGroup("de.abas.homedir")
+            //         excludeGroup("de.abas.clientdir")
             //     }
             // }
             maven {
@@ -125,7 +128,13 @@ task("reportVersionToTeamCity") {
 }
 
 repositories {
-    // mavenLocal()
+    // mavenLocal {
+    //     content {
+    //         includeGroupByRegex("de\\.abas\\..*")
+    //         excludeGroup("de.abas.homedir")
+    //         excludeGroup("de.abas.clientdir")
+    //     }
+    // }
     exclusiveContent {
         forRepository {
             flatDir {
@@ -304,7 +313,7 @@ dependencies {
         implementation("de.abas.clientdir:abas-db-index:1.0.0-SNAPSHOT")
     }
 
-    implementation("de.abas.esdk:client-api:0.0.11:all")
+    implementation("de.abas.esdk:client-api:1.0.3")
 
     implementation("de.abas.homedir:commons-collections:1.0.0")
     runtimeOnly("de.abas.homedir:abas-jfop-base:1.0.0")
