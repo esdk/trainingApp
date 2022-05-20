@@ -339,7 +339,7 @@ dependencies {
 
     if (useErp22Libs) {
         integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-standard:1.0.0")
-        integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-base:1.0.0-SNAPSHOT")
+        integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-base:1.0.0")
     } else {
         integTestImplementation("de.abas.homedir:abas-enums:1.0.0")
     }
