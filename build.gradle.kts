@@ -281,7 +281,7 @@ tasks.withType(Test::class.java) {
     }
 }
 
-val useErp22Libs = targetErpVersion.majorVersion >= 2022
+val useErp22Libs = targetErpVersion.majorVersion >= 2200
 
 dependencies {
     installer(group = "de.abas.esdk", name = "installer", version = version, classifier = "", ext = "zip") {
