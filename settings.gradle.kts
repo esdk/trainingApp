@@ -8,6 +8,7 @@ pluginManagement {
             url = uri("https://artifactory.abas.sh/artifactory/abas.maven-public/")
             content {
                 includeGroupByRegex("de\\.abas\\..*")
+                includeGroup("org.osgi.service")
                 excludeGroup("de.abas.homedir")
                 excludeGroup("de.abas.clientdir")
             }
