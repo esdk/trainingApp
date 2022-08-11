@@ -69,28 +69,6 @@ val publicReleaseURL: String by project
 val nexusUser: String by project
 val nexusPassword: String by project
 
-val NEXUS_HOST: String by project
-val NEXUS_PORT: String by project
-val NEXUS_NAME: String by project
-val NEXUS_USER_NAME: String by project
-val NEXUS_PASSWORD: String by project
-val NEXUS_VERSION: String by project
-
-val ABAS_HOMEDIR: String by project
-val ABAS_CLIENTDIR: String by project
-val ABAS_CLIENTID: String by project
-
-val EDP_HOST: String by project
-val EDP_PORT: String by project
-val EDP_USER: String by project
-val EDP_PASSWORD: String by project
-
-val SSH_HOST: String by project
-val SSH_PORT: String by project
-val SSH_USER: String by project
-val SSH_PASSWORD: String by project
-val SSH_KEY: String by project
-
 val targetErpVersion: de.abas.esdk.versionchecker.AbasVersion by project
 
 var version: String = file("version.txt").readText().trim()
@@ -167,62 +145,6 @@ repositories {
         }
     }
     // mavenCentral()
-}
-
-val esdk: EsdkConfig = extensions["esdk"] as EsdkConfig
-
-esdk.apply {
-    app.apply {
-        name = "trainingApp"
-        vendorId = "ag"
-        appId = "train"
-        shared = false
-        infosystems = listOf("IS.OW1.TESTINFO")
-        tables = listOf("TestDb", "Teil")
-        data = listOf("data.json")
-        keys = listOf("testkey")
-        enums = listOf("Importfileformat", "Importfileformat2", "Importfileformat3", "ThenSteps")
-        namedTypes = listOf("TestRealNamedType")
-        screens = mapOf(
-            "Customer:Customer" to listOf("A"),
-            "Sales:BlanketOrder" to listOf("A"),
-            "Operation:Operation" to listOf("A"),
-            "77" to listOf("A"),
-            "Pricing:Pricing" to listOf("A"),
-            "TestDb:TestStructure" to listOf("A")
-        )
-        advancedScreens = mapOf("75" to listOf("A"))
-        essentialsVersions = listOf("2017r1-2017r4", "2018r1-2018r9", "2019r1-2900r9")
-        preconditions = listOf("workDirs=ow1")
-        languages = "DEA"
-        workdirs = listOf("ow1", "owbi")
-    }
-    abas.apply {
-        homeDir = ABAS_HOMEDIR
-        clientDir = ABAS_CLIENTDIR
-        clientId = ABAS_CLIENTID
-        edpHost = EDP_HOST
-        edpPort = EDP_PORT.toInt()
-        edpUser = EDP_USER
-        edpPassword = EDP_PASSWORD
-    }
-    nexus.apply {
-        // nexusHost = NEXUS_HOST
-        // nexusPort = NEXUS_PORT.toInt()
-        // nexusRepoName = NEXUS_NAME
-        // nexusUserName = NEXUS_USER_NAME
-        // nexusPassword = NEXUS_PASSWORD
-        nexusVersion = NEXUS_VERSION
-    }
-    ssh.apply {
-        host = SSH_HOST
-        port = SSH_PORT.toInt()
-        user = SSH_USER
-        password = SSH_PASSWORD
-        key = SSH_KEY
-        timeout = 15000
-    }
-    installType = "SSH"
 }
 
 gradle.taskGraph.whenReady {
