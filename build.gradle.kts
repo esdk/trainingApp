@@ -1,7 +1,5 @@
 @file:Suppress("PropertyName")
 
-import de.abas.esdk.gradle.EsdkConfig
-
 buildscript {
     val version = file("version.txt").readText().trim()
     val esdkSnapshotURL: String by project
@@ -203,7 +201,7 @@ tasks.withType(Test::class.java) {
     }
 }
 
-val useErp22Libs = targetErpVersion.majorVersion >= 2200
+val useErp21SPLibs = targetErpVersion.majorVersion >= 2101
 
 dependencies {
     installer(group = "de.abas.esdk", name = "installer", version = version, classifier = "", ext = "zip") {
@@ -213,7 +211,7 @@ dependencies {
     provided("de.abas.homedir:log4j:1.0.0")
     provided("de.abas.homedir:jedp:1.0.0")
 
-    if (useErp22Libs) {
+    if (useErp21SPLibs) {
         provided("de.abas.homedir:abas-ajo-db:1.0.0")
         provided("de.abas.homedir:abas-jfop-rt-api:1.0.0")
         provided("de.abas.homedir:abas-ajo-common:1.0.0")
@@ -259,7 +257,7 @@ dependencies {
 
     testImplementation("org.hamcrest:hamcrest-all:1.3")
 
-    if (useErp22Libs) {
+    if (useErp21SPLibs) {
         integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-standard:1.0.0")
         integTestImplementation("de.abas.homedir:abas-ajo-common-type-enums-base:1.0.0")
     } else {
@@ -267,7 +265,7 @@ dependencies {
     }
 
     integTestImplementation("de.abas.esdk.test.util:esdk-test-utils:0.0.9") {
-        if (useErp22Libs) {
+        if (useErp21SPLibs) {
             capabilities {
                 requireCapability("de.abas.esdk.test.util:esdk-test-utils-v22-support")
             }
