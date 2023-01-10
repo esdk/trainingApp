@@ -5,7 +5,8 @@ services:
     # Accessing the Container: docker exec -u erp -it erp-train bash
     #
     erp-train:
-      image: partner.registry.abas.sh/abas/test:${ERP_VERSION:-v2019r4}
+      image: abasartifactory.jfrog.io/partner/abas/test:${ERP_VERSION:-v2019r4}
+#      image: abasartifactory.jfrog.io/partner/abas/neumand1:${ERP_VERSION:-v2200r8}
       init: true
       container_name: "erp-train"
 

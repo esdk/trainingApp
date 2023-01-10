@@ -11,8 +11,8 @@ systemProp.http.proxyPort=8000
 systemProp.https.proxyHost=webproxy.abas.de
 systemProp.https.proxyPort=8000
 
-esdkSnapshotURL=https://artifactory.abas.sh/artifactory/abas.esdk.snapshots/
-esdkReleaseURL=https://artifactory.abas.sh/artifactory/abas.esdk.releases/
+esdkSnapshotURL=https://abasartifactory.jfrog.io/artifactory/abas.esdk.snapshots/
+esdkReleaseURL=https://abasartifactory.jfrog.io/artifactory/abas.esdk.releases/
 nexusUser=<extranet username>
 nexusPassword=<extranet password>
 ```
@@ -34,7 +34,7 @@ To install the project make sure you are running the docker-compose.yml file or 
 
 To use the project's docker-compose.yml file, in the project's root directory run:
 ```shell
-docker login --username <extranet user> --password <extranet password> intra.registry.abas.sh
+docker login --username <extranet user> --password <extranet password> abasartifactory.jfrog.io
 docker-compose up
 ```
 

@@ -5,7 +5,7 @@ pluginManagement {
 
     repositories {
         maven {
-            url = uri("https://artifactory.abas.sh/artifactory/abas.maven-public/")
+            url = uri("https://abasartifactory.jfrog.io/artifactory/abas.maven-public/")
             content {
                 includeGroupByRegex("de\\.abas\\..*")
                 includeGroup("org.osgi.service")
