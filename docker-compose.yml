@@ -1,4 +1,4 @@
-version: '3.7'
+version: '2.4'
 services:
     # The ERP Container
     # -----------------
@@ -27,10 +27,7 @@ services:
       hostname: dockerbau
       command: /abas/bin/starteVersion.sh run
 
-      deploy:
-        resources:
-          limits:
-            memory: 4g
+      mem_limit: 4g
       healthcheck:
         test: netstat -ltn | grep -c 18056
         interval: 5s
