@@ -62,7 +62,6 @@
                 <Field name="fldkname" abasType="GL20">such</Field>
                 <Field name="fldbezname" abasType="GL20">such</Field>
                 <Field name="fldiname" abasType="GL20">icontxt</Field>
-                <Field name="leerok" abasType="B1">0</Field>
             </Head>
             <Row number="1">
                 <Field name="zid" abasType="IDZ107:1">(264,107,0,1)</Field>
@@ -99,7 +98,6 @@
                 <Field name="fldkname" abasType="GL20">such</Field>
                 <Field name="fldbezname" abasType="GL20">such</Field>
                 <Field name="fldiname" abasType="GL20">icontxt</Field>
-                <Field name="leerok" abasType="B1">0</Field>
             </Head>
             <Row number="1">
                 <Field name="zid" abasType="IDZ107:1">(265,107,0,1)</Field>
@@ -126,7 +124,6 @@
                 <Field name="fldkname" abasType="GL20">such</Field>
                 <Field name="fldbezname" abasType="GL20">such</Field>
                 <Field name="fldiname" abasType="GL20">icontxt</Field>
-                <Field name="leerok" abasType="B1">0</Field>
             </Head>
             <Row number="1">
                 <Field name="zid" abasType="IDZ107:1">(263,107,0,1)</Field>
