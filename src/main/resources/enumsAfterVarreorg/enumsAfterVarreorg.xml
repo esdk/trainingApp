@@ -33,7 +33,6 @@
                 <Field name="fldkname" abasType="GL20">such</Field>
                 <Field name="fldbezname" abasType="GL20">such</Field>
                 <Field name="fldiname" abasType="GL20"></Field>
-                <Field name="leerok" abasType="B1">0</Field>
             </Head>
             <Row number="2">
                 <Field name="zid" abasType="IDZ107:1">(266,107,0,2)</Field>
