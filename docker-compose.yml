@@ -6,7 +6,7 @@ services:
     #
     erp-train:
 #      image: abasartifactory.jfrog.io/partner/abas/test:${ERP_VERSION:-v2019r4}
-      image: abasartifactory.jfrog.io/partner/abas/neumand:${ERP_VERSION:-v2100r8}
+      image: abs-intra.artifactory.cd.eks.forterro.com/partner/abas/neumand:${ERP_VERSION:-v2100r8}
       init: true
       container_name: "erp-train"
 
