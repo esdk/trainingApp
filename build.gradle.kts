@@ -191,7 +191,7 @@ publishing {
 tasks.register<Copy>("downloadInstaller") {
     dependsOn(installer)
     from(installer.singleFile)
-    into(file("${project.buildDir}/installer/"))
+    into(project.layout.buildDirectory.dir("installer").get().asFile)
 }
 
 tasks.withType(Test::class.java) {
@@ -287,8 +287,8 @@ fun MavenArtifactRepository.withCredentials() {
 sourceSets {
     idea {
         module {
-            testSourceDirs = testSourceDirs.plus(file("src/integTest/java"))
-            testResourceDirs = testResourceDirs.plus(file("src/integTest/resources"))
+            testSources.from(testSources.plus(file("src/integTest/java")))
+            testResources.from(testResources.plus(file("src/integTest/resources")))
         }
     }
 }
