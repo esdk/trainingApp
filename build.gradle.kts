@@ -203,6 +203,7 @@ tasks.withType(Test::class.java) {
 
 val useErp21SPLibs = targetErpVersion.majorVersion >= 2101
 val useJava17 = targetErpVersion.majorVersion >= 2200
+val useReload4j = targetErpVersion.majorVersion >= 2600
 
 // Enforce to use API of the given Java version regardless of the JDK version used to compile the code
 // https://docs.gradle.org/current/userguide/building_java_projects.html#sec:compiling_with_release
@@ -218,7 +219,11 @@ dependencies {
         isChanging = true
     }
 
-    provided("de.abas.homedir:log4j:1.0.0")
+    if (useReload4j) {
+        provided("de.abas.homedir:reload4j:1.0.0")
+    } else {
+        provided("de.abas.homedir:log4j:1.0.0")
+    }
     provided("de.abas.homedir:jedp:1.0.0")
 
     if (useErp21SPLibs) {
