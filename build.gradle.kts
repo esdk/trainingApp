@@ -266,6 +266,8 @@ dependencies {
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junitBomVersion") {
         because("allows JUnit 3 and JUnit 4 tests to run")
     }
+    // Required since Gradle 9
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.8.2")
 
     // JUnit Jupiter
     testImplementation("org.junit.jupiter:junit-jupiter:$junitBomVersion")
