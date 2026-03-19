@@ -215,7 +215,7 @@ tasks.compileTestJava {
 }
 
 dependencies {
-    installer(group = "de.abas.esdk", name = "installer", version = version, classifier = "", ext = "zip") {
+    installer("de.abas.esdk:installer:$version@zip") {
         isChanging = true
     }
 
